@@ -37,9 +37,9 @@ dadosUC inserirDadosUC()
     printf("Insira o numero de aulas Teóricas:");
     dadosDaUC.quantidadeTipoAulas.T=lerInteiro(0,999);
     printf("Insira o numero de aulas Teórico-Práticas:");
-    dadosDaUC.quantidadeTipoAulas.PL=lerInteiro(0,999);
-    printf("Insira o numero de aulas Prático-Laboratorial:");
     dadosDaUC.quantidadeTipoAulas.TP=lerInteiro(0,999);
+    printf("Insira o numero de aulas Prático-Laboratorial:");
+    dadosDaUC.quantidadeTipoAulas.PL=lerInteiro(0,999);
 
     //pedir a duracao das aulas em minutos
 
@@ -52,9 +52,10 @@ dadosUC inserirDadosUC()
     printf("Insira a duranção das aulas Prático-Laboratoriais (em minutos):");
     dadosDaUC.duracaoAulas.PL=lerInteiro(1,999);
 
-
-
     return dadosDaUC;
 }
 
+void alterarDadosUC(dadosUC *dadosDaUC)
+{
 
+}

@@ -3,5 +3,6 @@
 
 
 dadosUC inserirDadosUC();
+void alterarDadosUC(dadosUC *dadosDaUC);
 
 #endif // FUNC_DADOSUC_H_INCLUDED
