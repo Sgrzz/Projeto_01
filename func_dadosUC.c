@@ -58,4 +58,6 @@ dadosUC inserirDadosUC()
 void alterarDadosUC(dadosUC *dadosDaUC)
 {
     *dadosDaUC.codigoUC=lerInteiro(1,MAX_UCs);
+
+    printf("super print");
 }
