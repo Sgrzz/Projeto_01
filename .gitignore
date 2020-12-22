@@ -77,3 +77,5 @@ $RECYCLE.BIN/
 *.exe
 *.o
 *.o
+*.exe
+*.o
