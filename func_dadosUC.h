@@ -1,0 +1,7 @@
+#ifndef FUNC_DADOSUC_H_INCLUDED
+#define FUNC_DADOSUC_H_INCLUDED
+
+
+dadosUC inserirDadosUC();
+
+#endif // FUNC_DADOSUC_H_INCLUDED

@@ -1,0 +1,31 @@
+# depslib dependency file v1.0
+1608616935 source:c:\users\alexa\desktop\projectos c\projetos\projeto_01\main.c
+	<stdio.h>
+	<stdlib.h>
+	"estruturas.h"
+	"constantes.h"
+	"func_dadosUC.h"
+
+1608617549 c:\users\alexa\desktop\projectos c\projetos\projeto_01\estruturas.h
+	"constantes.h"
+
+1608608376 c:\users\alexa\desktop\projectos c\projetos\projeto_01\constantes.h
+
+1608608022 source:c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_aux.c
+	<stdio.h>
+	<string.h>
+	"func_aux.h"
+
+1608608147 c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_aux.h
+	"constantes.h"
+	"estruturas.h"
+
+1608617474 source:c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_dadosuc.c
+	<stdio.h>
+	<stdlib.h>
+	"estruturas.h"
+	"constantes.h"
+	"func_aux.h"
+
+1608608981 c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_dadosuc.h
+
