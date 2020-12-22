@@ -7,6 +7,8 @@
 #define MAX_ESTUDANTES 100          //maximo estudantes
 #define MAX_STRING_NOME_AULA 20     // nome UC
 #define MAX_STRING_NOME_DOCENTE 50  //nome do docente
+#define MIN_SEMESTRES 1             //minimo de semestres
+#define MAX_SEMESTRES 6             //maximo de semestres
 
 #define MAX_STRING 50               //maximo da string é sempre o numero maior declarado antes
 

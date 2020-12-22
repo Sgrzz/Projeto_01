@@ -6,6 +6,41 @@
 
 
 
+int lerDadosCodigoUC()
+{
+    //ler condigo da uc de 1 a 40
+    printf("Insira o codigo da Unidade Curricular (de 1 a 40):\n");
+    return lerInteiro(1,MAX_UCs);
+}
+
+void lerDadosNomeUC(char nome[MAX_STRING_NOME_AULA])
+{
+    //ler nome da uc
+    printf("Insira o nome da Unidade Curricular:\n");
+    lerString(nome,MAX_STRING_NOME_AULA);
+}
+
+int lerTipoUC()
+{
+    //ler tipo (obrigatorio ou opcional)
+    printf("Insira o tipo da Unidade Curricular 0-obrigatório ou 1-opcional:");
+    return lerInteiro(0,1);
+}
+
+int lerSemestreUC()
+{
+    printf("Insira o semestre correspondente:");
+    return lerInteiro(MIN_SEMESTRES,MAX_SEMESTRES);
+}
+
+int lerRegimeUC()
+{
+    //regime diurno ou pos laboral
+    printf("Insira o tipo de regime 0-diurno ou 1-pós-laboral:");
+    return lerInteiro(0,1);
+}
+
+
 //pede todos os dados ao utilizador para preencher uma variavel do tipo estrutura dadosUC e devolve a mesma
 //alguns dos campos estao hardcoded fix later
 //corrigir os printfs
@@ -13,25 +48,20 @@ dadosUC inserirDadosUC()
 {
     dadosUC dadosDaUC;
 
-    //ler condigo da uc de 0 a 39
-    printf("Insira o codigo da Unidade Curricular (de 1 a 40):\n");
-    dadosDaUC.codigoUC=lerInteiro(1,MAX_UCs);
+    //ler condigo da uc de 1 a 40
+    dadosDaUC.codigoUC = lerDadosCodigoUC();
 
     //ler nome da uc
-    printf("Insira o nome da Unidade Curricular:\n");
-    lerString(dadosDaUC.nome,MAX_STRING_NOME_AULA);
+    lerDadosNomeUC(dadosDaUC.nome);
 
     //ler tipo (obrigatorio ou opcional)
-    printf("Insira o tipo da Unidade Curricular 0-obrigatório ou 1-opcional:");
-    dadosDaUC.tipoUC=lerInteiro(0,1);
+    dadosDaUC.tipoUC = lerTipoUC();
 
     //semestre de 1 a 6
-    printf("Insira o semestre correspondente:");
-    dadosDaUC.semestre=lerInteiro(1,6);//hardcoded
+    dadosDaUC.semestre = lerSemestreUC();
 
     //regime diurno ou pos laboral
-    printf("Insira o tipo de regime 0-diurno ou 1-pós-laboral:");
-    dadosDaUC.regime=lerInteiro(0,1);
+    dadosDaUC.regime = lerRegimeUC();
 
     //pedir 3 numeros para T TP PL
     printf("Insira o numero de aulas Teóricas:");
@@ -42,7 +72,6 @@ dadosUC inserirDadosUC()
     dadosDaUC.quantidadeTipoAulas.PL=lerInteiro(0,999);
 
     //pedir a duracao das aulas em minutos
-
     printf("Insira a duração das aulas Teóricas (em minutos):");
     dadosDaUC.duracaoAulas.T=lerInteiro(1,999);
 
@@ -55,11 +84,27 @@ dadosUC inserirDadosUC()
     return dadosDaUC;
 }
 
-void alterarDadosUC(dadosUC *dadosDaUC)
+void alterarDadosUC(dadosUC *dadosDaUC,int option)
 {
 
-    printf("Deseja alterar os dados da Unidade curricular? Se sim -1, se não-0");
-    *dadosDaUC.codigoUC=lerInteiro(1,MAX_UCs);
+    //printf("Deseja alterar os dados da Unidade curricular? Se sim -1, se não-0");
+    //*dadosDaUC.codigoUC=lerInteiro(1,MAX_UCs);
 
+    switch (option)
+    {
+        case 1:
+            dadosDaUC->codigoUC = lerDadosCodigoUC();  //option = 1 edita o codigo da uc
+            break;
+        case 2:
+            lerDadosNomeUC(dadosDaUC->nome);
+            break;
+        case 3:
+
+            break;
+        default:
+            printf("the fuck?");
+    }
 
 }
+
+
