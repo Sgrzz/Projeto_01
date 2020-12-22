@@ -42,21 +42,15 @@ dadosUC inserirDadosUC()
     dadosDaUC.quantidadeTipoAulas.TP=lerInteiro(0,999);
 
     //pedir a duracao das aulas em minutos
-    printf("duracao das aulas em minutos");
-    dadosDaUC.duracaoAulas=lerInteiro(1,999);
-
-
-
-    //pedir a duracao das aulas em minutos
 
     printf("Insira a duração das aulas Teóricas (em minutos):");
-
+    dadosDaUC.duracaoAulas.T=lerInteiro(1,999);
 
     printf("Insira a duração das aulas Teórico-Práticas (em minutos):");
-
+    dadosDaUC.duracaoAulas.TP=lerInteiro(1,999);
 
     printf("Insira a duranção das aulas Prático-Laboratoriais (em minutos):");
-
+    dadosDaUC.duracaoAulas.PL=lerInteiro(1,999);
 
 
 

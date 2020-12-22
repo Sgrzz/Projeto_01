@@ -11,6 +11,13 @@ typedef struct
 
 typedef struct
 {
+    int T;
+    int TP;
+    int PL;
+} tipoTempoAulas;
+
+typedef struct
+{
     int dia;
     int mes;
     int ano;
@@ -30,7 +37,7 @@ typedef struct
     int semestre;    //1 - 6
     enum enumRegime regime;    //(D)iurno ou (P)os-laboral
     tipoAulas quantidadeTipoAulas; //quantidade de tipo de aulas
-    int duracaoAulas; //em minutos
+    tipoTempoAulas duracaoAulas; //em minutos
 } dadosUC; //main struct #todo
 
 typedef struct
