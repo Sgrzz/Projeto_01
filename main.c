@@ -6,7 +6,6 @@
 
 
 
-
 int main()
 {
     dadosUC arrayUC[MAX_UCs];

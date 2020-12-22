@@ -45,6 +45,9 @@ dadosUC inserirDadosUC()
     printf("duracao das aulas em minutos");
     dadosDaUC.duracaoAulas=lerInteiro(1,999);
 
+
+    printf("A Leila esteve aqui!");
+
     return dadosDaUC;
 }
 
