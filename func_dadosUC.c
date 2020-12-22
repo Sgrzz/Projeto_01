@@ -14,31 +14,31 @@ dadosUC inserirDadosUC()
     dadosUC dadosDaUC;
 
     //ler condigo da uc de 0 a 39
-    printf("bota o codigo da uc sff (1-40)");
+    printf("Insira o codigo da Unidade Curricular (de 1 a 40):\n");
     dadosDaUC.codigoUC=lerInteiro(1,MAX_UCs);
 
     //ler nome da uc
-    printf("nome da uc");
+    printf("Insira o nome da Unidade Curricular:\n");
     lerString(dadosDaUC.nome,MAX_STRING_NOME_AULA);
 
     //ler tipo (obrigatorio ou opcional)
-    printf("tipo de uc 0-obrigatorio 1-opcional");
+    printf("Insira o tipo da Unidade Curricular 0-obrigatório ou 1-opcional:");
     dadosDaUC.tipoUC=lerInteiro(0,1);
 
     //semestre de 1 a 6
-    printf("semestre");
+    printf("Insira o semestre correspondente:");
     dadosDaUC.semestre=lerInteiro(1,6);//hardcoded
 
     //regime diurno ou pos laboral
-    printf("regime");
+    printf("Insira o tipo de regime 0-diurno ou 1-pós-laboral:");
     dadosDaUC.regime=lerInteiro(0,1);
 
     //pedir 3 numeros para T TP PL
-    printf("num T");
+    printf("Insira o numero de aulas Teóricas:");
     dadosDaUC.quantidadeTipoAulas.T=lerInteiro(0,999);
-    printf("num PL");
+    printf("Insira o numero de aulas Teórico-Práticas:");
     dadosDaUC.quantidadeTipoAulas.PL=lerInteiro(0,999);
-    printf("num TP");
+    printf("Insira o numero de aulas Prático-Laboratorial:");
     dadosDaUC.quantidadeTipoAulas.TP=lerInteiro(0,999);
 
     //pedir a duracao das aulas em minutos
@@ -46,7 +46,19 @@ dadosUC inserirDadosUC()
     dadosDaUC.duracaoAulas=lerInteiro(1,999);
 
 
-    printf("A Leila esteve aqui!");
+
+    //pedir a duracao das aulas em minutos
+
+    printf("Insira a duração das aulas Teóricas (em minutos):");
+
+
+    printf("Insira a duração das aulas Teórico-Práticas (em minutos):");
+
+
+    printf("Insira a duranção das aulas Prático-Laboratoriais (em minutos):");
+
+
+
 
     return dadosDaUC;
 }

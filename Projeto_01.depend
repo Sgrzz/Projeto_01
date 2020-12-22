@@ -52,3 +52,10 @@
 
 1608671833 c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\func_dadosuc.h
 
+1608674131 source:c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\func_dadosuc.c
+	<stdio.h>
+	<stdlib.h>
+	"estruturas.h"
+	"constantes.h"
+	"func_aux.h"
+
