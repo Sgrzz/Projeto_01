@@ -12,6 +12,7 @@ int main()
 
     inserirDadosUC();
 
+    printf("A Leila também esteve aqui!");
     return 0;
 }
 
