@@ -1,7 +1,7 @@
 #ifndef FUNC_MENUPRINCIPAL_H_INCLUDED
 #define FUNC_MENUPRINCIPAL_H_INCLUDED
 
-int funcMenu_Principal();
+int funcMenuPrincipal();
 
 #endif // FUNC_MENUPRINCIPAL_H_INCLUDED
 

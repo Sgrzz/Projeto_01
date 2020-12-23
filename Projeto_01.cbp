@@ -31,6 +31,7 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Func_menuPrincipal.h" />
 		<Unit filename="constantes.h" />
 		<Unit filename="estruturas.h" />
 		<Unit filename="func_aux.c">
@@ -41,10 +42,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="func_dadosUC.h" />
-		<Unit filename="func_menu.c">
+		<Unit filename="func_menuPrincipal.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="func_menu.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
