@@ -1,6 +1,6 @@
 #ifndef FUNC_MENUPRINCIPAL_H_INCLUDED
 #define FUNC_MENUPRINCIPAL_H_INCLUDED
-
+#include "Func_menu.h"
 int funcMenu_Principal();
 int funcMenu_infoUcs();
 int funcMenu_listaUcs();

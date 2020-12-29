@@ -3,6 +3,8 @@
 #include "func_aux.h"
 #include <conio.h>
 #include <stdlib.h>
+#include "Func_menu.h"
+#include "func_dadosUC.h"
 
 int funcMenu_Principal()  //funcao menu principal
 {
@@ -31,23 +33,23 @@ int funcMenu_Principal()  //funcao menu principal
         {
 
         case 1: //Informação das UCs
-
+            funcMenu_infoUcs;
             break;
 
         case 2: //Aulas Online
-
+            funcMenu_aulasOnline;
             break;
 
         case 3: //Informações das aulas
-
+            funcMenu_infoAulas;
             break;
 
-        case 4: //Alterar estado de aula
+        //case 4: //Alterar estado de aula
 
             break;
 
         case 5: //Estatísticas
-
+            funcMenu_estatisticas;
             break;
 
         case 6: //Sair do programa
@@ -93,19 +95,19 @@ int funcMenu_infoUcs()  // funcao menu de informacao das UCs
         {
 
         case 1: //Lista das UCs
-
+            funcMenu_listaUcs;
             break;
 
         case 2: //Inserir UC
-
+            funcMenu_inserirUC;
             break;
 
         case 3: //Modificar UC
-
+            funcMenu_modificarUC;
             break;
 
         case 4: //Voltar
-
+            funcMenu_Principal;
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -144,8 +146,8 @@ int funcMenu_listaUcs()  // funcao menu lista das UCs
 
             break;
 
-        case 2: //Voltar
-
+        case 2: //Voltar para o menu inf das UCs
+            funcMenu_infoUcs;
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -187,8 +189,8 @@ int funcMenu_UCselecionada()  // funcao menu de informação referente a UC seleci
         switch(escolha)
         {
 
-        case 1: //Voltar
-
+        case 1: //Voltar para a lista das UCs
+            funcMenu_listaUcs;
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -224,8 +226,8 @@ int funcMenu_inserirUC()  // funcao menu inserir UC
         switch(escolha)
         {
 
-        case 1: //Voltar
-
+        case 1: //Volta para o menu info das UCs
+            funcMenu_infoUcs;
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -264,15 +266,15 @@ int funcMenu_modificarUC()  // funcao menu modificar UC
         {
 
         case 1: //Alterar UC
-
+            funcMenu_alterarUC;
             break;
 
         case 2: //Eliminar UC
-
+            funcMenu_eliminarUC;
             break;
 
-        case 3: //Voltar
-
+        case 3: //Volta para o menu info das UCs
+            funcMenu_infoUcs;
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -313,16 +315,22 @@ int funcMenu_alterarUC()  // funcao menu alterar UC
         printf("");
         printf("");
 
-        printf("1 - Voltar\n");
+        printf("1 - Selecione UC a alterar\n");
+        printf("2 - Voltar\n");
 
-        escolha = lerInteiro(1,1);
+        escolha = lerInteiro(1,2);
 
         switch(escolha)
         {
 
-        case 1: //Voltar
-
+        case 1: //UC selecionada a alterar
+            //alterarDadosUC(*dadosDaUC);
             break;
+
+        case 2: //Volta para o menu modificar UC
+            funcMenu_modificarUC;
+            break;
+
 
         //default caso o utilizador digite uma opção inválida
         default:
@@ -331,7 +339,7 @@ int funcMenu_alterarUC()  // funcao menu alterar UC
         }//switch
 
     }
-    while(escolha!=1);
+    while(escolha<1 && escolha>2);
 
 
     return 0;
@@ -357,11 +365,11 @@ int funcMenu_alterarUcConfirmada()  // funcao menu alterar UC, perguntar se quer
         {
 
         case 1: //Confirmar
-
+            funcMenu_alterarUcConfirmada;
             break;
 
         case 2: //Cancelar e volta ao menu anterior
-
+            funcMenu_alterarUC;
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -398,11 +406,11 @@ int funcMenu_eliminarUC()  // funcao menu eliminar UC
         {
 
         case 1: //UC selecionada
-
+            funcMenu_eliminarUcConfirmar;
             break;
 
         case 2: //Voltar
-
+            funcMenu_modificarUC;
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -441,8 +449,8 @@ int funcMenu_eliminarUcConfirmar()  // funcao menu eliminar UC, perguntar se que
 
             break;
 
-        case 2: //Voltar
-
+        case 2: //Cancela e volta para a página anterior
+            funcMenu_eliminarUC;
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -482,15 +490,15 @@ int funcMenu_aulasOnline()  // funcao menu aulas online
         {
 
         case 1: //Agendar aulas online
-
+            funcMenu_agendarAula;
             break;
 
         case 2: //Resgistar acesso a aula online
-
+            funcMenu_registarAcessoAula;
             break;
 
         case 3: //Voltar
-
+            funcMenu_Principal;
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -533,7 +541,7 @@ int funcMenu_agendarAula()  // funcao menu agendar aula online
             break;
 
         case 2: //Cancela e volta à página anterior
-
+            funcMenu_aulasOnline;
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -573,11 +581,11 @@ int funcMenu_registarAcessoAula()  // funcao menu registar acesso a aula
         {
 
         case 1: //Confirmar
-
+            funcMenu_aulasOnline;
             break;
 
-        case 2: //Cancelar e vola á página anterior
-
+        case 2: //Cancelar e volta á página anterior
+            funcMenu_aulasOnline;
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -614,15 +622,15 @@ int funcMenu_modificarAula()  // funcao menu modificar aula
         {
 
         case 1: //Alterar aula
-
+            funcMenu_alterarAula;
             break;
 
         case 2: //Eliminar aula
-
+            funcMenu_eliminarAula;
             break;
 
         case 3: //Voltar
-
+            funcMenu_aulasOnline;
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -670,11 +678,11 @@ int funcMenu_alterarAula()  // funcao menu alterar aula
         {
 
         case 1: //Aula selecionada
-
+            funcMenu_alterarAulaConfirmada;
             break;
 
         case 2: //Voltar
-
+            funcMenu_modificarAula;
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -710,11 +718,11 @@ int funcMenu_alterarAulaConfirmada()  // funcao menu alterar aula, perguntar se 
         {
 
         case 1: //
-
+            funcMenu_alterarAula;
             break;
 
         case 2: //Cancela e volta á página anterior
-
+            funcMenu_modificarAula;
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -758,11 +766,11 @@ int funcMenu_eliminarAula()  // funcao menu eliminar Aula
         {
 
         case 1: //Eliminar aula
-
+            funcMenu_eliminarAulaConfirmar;
             break;
 
         case 2: //Voltar
-
+            funcMenu_modificarAula;
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -797,11 +805,11 @@ int funcMenu_eliminarAulaConfirmar()  // funcao menu eliminar Aula, perguntar se
         {
 
         case 1: //Confirmar
-
+            funcMenu_eliminarAula;
             break;
 
         case 2: //Cancela e volta á página anterior
-
+            funcMenu_modificarAula;
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -839,11 +847,11 @@ int funcMenu_infoAulas()  // funcao menu informaçao das aulas
         {
 
         case 1: //Lista das aulas online
-
+            funcMenu_listaAulas;
             break;
 
         case 2: //Voltar
-
+            funcMenu_Principal;
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -881,11 +889,11 @@ int funcMenu_listaAulas()  // funcao menu Lista das Aulas
         {
 
         case 1: //Selecione as aulas pretendidas
-
+            funcMenu_aulaSelecionada;
             break;
 
         case 2: //Voltar
-
+            funcMenu_infoAulas;
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -932,7 +940,7 @@ int funcMenu_aulaSelecionada()  // funcao menu Aula Selecionada
         {
 
         case 1: //Voltar
-
+            funcMenu_listaAulas;
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -973,7 +981,7 @@ int funcMenu_estatisticas()  // funcao menu das estatísticas
         {
 
         case 1: //Voltar
-
+            funcMenu_Principal;
             break;
 
         //default caso o utilizador digite uma opção inválida
