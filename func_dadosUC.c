@@ -58,7 +58,7 @@ dadosUC inserirDadosUC()
 void alterarDadosUC(dadosUC *dadosDaUC)
 {
     printf("Deseja alterar os dados da Unidade curricular? Se sim -1, se não-0");
-    *dadosDaUC.codigoUC=lerInteiro(1,MAX_UCs);
+    //*dadosDaUC.codigoUC=lerInteiro(1,MAX_UCs);
 
 
 }
