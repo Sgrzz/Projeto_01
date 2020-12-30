@@ -6,14 +6,14 @@
 #include "Func_menu.h"
 #include "func_dadosUC.h"
 
-int funcMenu_Principal()  //funcao menu principal
+int funcMenu_principal()  //funcao menu principal
 {
     int escolha;
 
-    system("cls"); // limpa ecrã
-
     do
     {
+        system("cls"); // limpa ecrã
+
         printf("----------------------Menu Principal---------------------\n");
         printf("                        Projeto p1                       \n");
         printf("Quantidade de UCs:");
@@ -33,42 +33,40 @@ int funcMenu_Principal()  //funcao menu principal
         {
 
         case 1: //Informação das UCs
-            funcMenu_infoUcs;
+            funcMenu_infoUcs();
             break;
 
         case 2: //Aulas Online
-            funcMenu_aulasOnline;
+            funcMenu_aulasOnline();
             break;
 
         case 3: //Informações das aulas
-            funcMenu_infoAulas;
+            funcMenu_infoAulas();
             break;
 
-        //case 4: //Alterar estado de aula
+            //case 4: //Alterar estado de aula
 
             break;
-
         case 5: //Estatísticas
-            funcMenu_estatisticas;
+            funcMenu_estatisticas();
             break;
 
         case 6: //Sair do programa
 
             break;
 
-        //default caso o utilizador digite uma opção inválida
+            //default caso o utilizador digite uma opção inválida
         default:
             printf("Opção inválida! Introduza nova opção.");
 
         }//switch
 
+
     }
-    while(escolha<1 && escolha>6);
+    while(escolha!=6);
 
-
-    return escolha;
+    return 0;
 }
-
 
 
 
@@ -77,10 +75,9 @@ int funcMenu_infoUcs()  // funcao menu de informacao das UCs
 {
     int escolha;
 
-    system("cls"); // limpa ecrã
-
     do
     {
+        system("cls"); // limpa ecrã
 
         printf("             Informação das UCs                 ");
         printf("--------------------------------------------------");
@@ -88,36 +85,35 @@ int funcMenu_infoUcs()  // funcao menu de informacao das UCs
         printf("2 - Inserir UC\n");
         printf("3 - Modificar UC\n");
         printf("4 - Voltar\n");
-
         escolha = lerInteiro(1,4);
 
         switch(escolha)
         {
 
-        case 1: //Lista das UCs
-            funcMenu_listaUcs;
+        case 1: // Lista das UCs
+            funcMenu_listaUcs();
             break;
 
         case 2: //Inserir UC
-            funcMenu_inserirUC;
+            funcMenu_inserirUC();
             break;
 
         case 3: //Modificar UC
-            funcMenu_modificarUC;
+            funcMenu_modificarUC();
             break;
 
         case 4: //Voltar
-            funcMenu_Principal;
+            funcMenu_principal();
             break;
 
-        //default caso o utilizador digite uma opção inválida
+            //default caso o utilizador digite uma opção inválida
         default:
             printf("Opção inválida! Introduza nova opção.");
 
         }//switch
 
     }
-    while(escolha<1 && escolha>4);
+    while(escolha!=4);
 
     return 0;
 }
@@ -127,10 +123,10 @@ int funcMenu_listaUcs()  // funcao menu lista das UCs
 {
     int escolha;
 
-    system("cls"); // limpa ecrã
-
     do
     {
+        system("cls"); // limpa ecrã
+
         printf("                  Lista das UCs                   ");
         printf("--------------------------------------------------");
         printf("Para mais informações referentes a uma UC selecione UC pretendida\n");
@@ -147,7 +143,7 @@ int funcMenu_listaUcs()  // funcao menu lista das UCs
             break;
 
         case 2: //Voltar para o menu inf das UCs
-            funcMenu_infoUcs;
+            funcMenu_infoUcs();
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -157,8 +153,7 @@ int funcMenu_listaUcs()  // funcao menu lista das UCs
         }//switch
 
     }
-    while(escolha<1 && escolha>2);
-
+    while(escolha!=2);
 
     return 0;
 }
@@ -168,10 +163,10 @@ int funcMenu_UCselecionada()  // funcao menu de informação referente a UC seleci
 {
     int escolha;
 
-    system("cls"); // limpa ecrã
-
     do
     {
+        system("cls"); // limpa ecrã
+
         printf("             Informação da UC - nome da uc            ");
         printf("------------------------------------------------------");
         printf("Nº de aulas online realizadas:\n");
@@ -190,7 +185,7 @@ int funcMenu_UCselecionada()  // funcao menu de informação referente a UC seleci
         {
 
         case 1: //Voltar para a lista das UCs
-            funcMenu_listaUcs;
+            funcMenu_listaUcs();
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -202,7 +197,6 @@ int funcMenu_UCselecionada()  // funcao menu de informação referente a UC seleci
     }
     while(escolha!=1);
 
-
     return 0;
 }
 
@@ -211,10 +205,10 @@ int funcMenu_inserirUC()  // funcao menu inserir UC
 {
     int escolha;
 
-    system("cls"); // limpa ecrã
-
     do
     {
+        system("cls"); // limpa ecrã
+
         printf("                Inserir UC            ");
         printf("--------------------------------------------");
 
@@ -227,7 +221,7 @@ int funcMenu_inserirUC()  // funcao menu inserir UC
         {
 
         case 1: //Volta para o menu info das UCs
-            funcMenu_infoUcs;
+            funcMenu_infoUcs();
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -239,8 +233,6 @@ int funcMenu_inserirUC()  // funcao menu inserir UC
     }
     while(escolha!=1);
 
-
-
     return 0;
 }
 
@@ -249,10 +241,10 @@ int funcMenu_modificarUC()  // funcao menu modificar UC
 {
     int escolha;
 
-    system("cls"); // limpa ecrã
-
     do
     {
+        system("cls"); // limpa ecrã
+
         printf("                 Modificar UC                ");
         printf("--------------------------------------------");
 
@@ -266,15 +258,15 @@ int funcMenu_modificarUC()  // funcao menu modificar UC
         {
 
         case 1: //Alterar UC
-            funcMenu_alterarUC;
+            funcMenu_alterarUC();
             break;
 
         case 2: //Eliminar UC
-            funcMenu_eliminarUC;
+            funcMenu_eliminarUC();
             break;
 
         case 3: //Volta para o menu info das UCs
-            funcMenu_infoUcs;
+            funcMenu_infoUcs();
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -284,7 +276,7 @@ int funcMenu_modificarUC()  // funcao menu modificar UC
         }//switch
 
     }
-    while(escolha<1 && escolha>3);
+    while(escolha!=3);
 
 
     return 0;
@@ -295,10 +287,10 @@ int funcMenu_alterarUC()  // funcao menu alterar UC
 {
     int escolha;
 
-    system("cls"); // limpa ecrã
-
     do
     {
+        system("cls"); // limpa ecrã
+
         printf("                Alterar UC             ");
         printf("--------------------------------------------");
 
@@ -328,7 +320,7 @@ int funcMenu_alterarUC()  // funcao menu alterar UC
             break;
 
         case 2: //Volta para o menu modificar UC
-            funcMenu_modificarUC;
+            funcMenu_modificarUC();
             break;
 
 
@@ -339,7 +331,7 @@ int funcMenu_alterarUC()  // funcao menu alterar UC
         }//switch
 
     }
-    while(escolha<1 && escolha>2);
+    while(escolha!=2);
 
 
     return 0;
@@ -350,10 +342,10 @@ int funcMenu_alterarUcConfirmada()  // funcao menu alterar UC, perguntar se quer
 {
     int escolha;
 
-    system("cls"); // limpa ecrã
-
     do
     {
+        system("cls"); // limpa ecrã
+
         printf("                Alterar UC             ");
         printf("--------------------------------------------");
         printf("1 - Confirmar");
@@ -365,11 +357,11 @@ int funcMenu_alterarUcConfirmada()  // funcao menu alterar UC, perguntar se quer
         {
 
         case 1: //Confirmar
-            funcMenu_alterarUcConfirmada;
+            funcMenu_alterarUcConfirmada();
             break;
 
         case 2: //Cancelar e volta ao menu anterior
-            funcMenu_alterarUC;
+            funcMenu_alterarUC();
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -379,7 +371,7 @@ int funcMenu_alterarUcConfirmada()  // funcao menu alterar UC, perguntar se quer
         }//switch
 
     }
-    while(escolha<1 && escolha>2);
+    while(escolha!=2);
 
 
     return 0;
@@ -390,10 +382,10 @@ int funcMenu_eliminarUC()  // funcao menu eliminar UC
 {
     int escolha;
 
-    system("cls"); // limpa ecrã
-
     do
     {
+        system("cls"); // limpa ecrã
+
         printf("                 Eliminar UC                ");
         printf("--------------------------------------------");
 
@@ -406,11 +398,11 @@ int funcMenu_eliminarUC()  // funcao menu eliminar UC
         {
 
         case 1: //UC selecionada
-            funcMenu_eliminarUcConfirmar;
+            funcMenu_eliminarUcConfirmar();
             break;
 
         case 2: //Voltar
-            funcMenu_modificarUC;
+            funcMenu_modificarUC();
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -420,7 +412,7 @@ int funcMenu_eliminarUC()  // funcao menu eliminar UC
         }//switch
 
     }
-    while(escolha<1 && escolha>2);
+    while(escolha!=2);
 
 
     return 0;
@@ -431,10 +423,10 @@ int funcMenu_eliminarUcConfirmar()  // funcao menu eliminar UC, perguntar se que
 {
     int escolha;
 
-    system("cls"); // limpa ecrã
-
     do
     {
+        system("cls"); // limpa ecrã
+
         printf("                Eliminar UC             ");
         printf("--------------------------------------------");
         printf("1 - Confirmar");
@@ -450,7 +442,7 @@ int funcMenu_eliminarUcConfirmar()  // funcao menu eliminar UC, perguntar se que
             break;
 
         case 2: //Cancela e volta para a página anterior
-            funcMenu_eliminarUC;
+            funcMenu_eliminarUC();
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -460,7 +452,7 @@ int funcMenu_eliminarUcConfirmar()  // funcao menu eliminar UC, perguntar se que
         }//switch
 
     }
-    while(escolha<1 && escolha>2);
+    while(escolha!=2);
 
 
     return 0;
@@ -474,10 +466,10 @@ int funcMenu_aulasOnline()  // funcao menu aulas online
 {
     int escolha;
 
-    system("cls"); // limpa ecrã
-
     do
     {
+        system("cls"); // limpa ecrã
+
         printf("                       Aulas Online                        ");
         printf("-----------------------------------------------------------");
         printf("1 - Agendar aulas online\n");
@@ -490,15 +482,15 @@ int funcMenu_aulasOnline()  // funcao menu aulas online
         {
 
         case 1: //Agendar aulas online
-            funcMenu_agendarAula;
+            funcMenu_agendarAula();
             break;
 
         case 2: //Resgistar acesso a aula online
-            funcMenu_registarAcessoAula;
+            funcMenu_registarAcessoAula();
             break;
 
         case 3: //Voltar
-            funcMenu_Principal;
+            funcMenu_principal();
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -508,7 +500,7 @@ int funcMenu_aulasOnline()  // funcao menu aulas online
         }//switch
 
     }
-    while(escolha<1 && escolha>3);
+    while(escolha!=3);
 
 
     return 0;
@@ -519,10 +511,10 @@ int funcMenu_agendarAula()  // funcao menu agendar aula online
 {
     int escolha;
 
-    system("cls"); // limpa ecrã
-
     do
     {
+        system("cls"); // limpa ecrã
+
         printf("                    Agendar aula               ");
         printf("-----------------------------------------------");
         printf("Insira o nº de estudante: \n");
@@ -541,7 +533,7 @@ int funcMenu_agendarAula()  // funcao menu agendar aula online
             break;
 
         case 2: //Cancela e volta à página anterior
-            funcMenu_aulasOnline;
+            funcMenu_aulasOnline();
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -551,7 +543,7 @@ int funcMenu_agendarAula()  // funcao menu agendar aula online
         }//switch
 
     }
-    while(escolha<1 && escolha>2);
+    while(escolha!=2);
 
 
     return 0;
@@ -562,10 +554,10 @@ int funcMenu_registarAcessoAula()  // funcao menu registar acesso a aula
 {
     int escolha;
 
-    system("cls"); // limpa ecrã
-
     do
     {
+        system("cls"); // limpa ecrã
+
         printf("           Registar Acesso a Aula Online       ");
         printf("-----------------------------------------------");
         printf("Insira o código da UC: \n");
@@ -581,11 +573,11 @@ int funcMenu_registarAcessoAula()  // funcao menu registar acesso a aula
         {
 
         case 1: //Confirmar
-            funcMenu_aulasOnline;
+            funcMenu_aulasOnline();
             break;
 
         case 2: //Cancelar e volta á página anterior
-            funcMenu_aulasOnline;
+            funcMenu_aulasOnline();
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -595,7 +587,7 @@ int funcMenu_registarAcessoAula()  // funcao menu registar acesso a aula
         }//switch
 
     }
-    while(escolha<1 && escolha>2);
+    while(escolha!=2);
 
 
     return 0;
@@ -605,10 +597,10 @@ int funcMenu_modificarAula()  // funcao menu modificar aula
 {
     int escolha;
 
-    system("cls"); // limpa ecrã
-
     do
     {
+        system("cls"); // limpa ecrã
+
         printf("                 Modificar Aula                ");
         printf("--------------------------------------------");
 
@@ -622,15 +614,15 @@ int funcMenu_modificarAula()  // funcao menu modificar aula
         {
 
         case 1: //Alterar aula
-            funcMenu_alterarAula;
+            funcMenu_alterarAula();
             break;
 
         case 2: //Eliminar aula
-            funcMenu_eliminarAula;
+            funcMenu_eliminarAula();
             break;
 
         case 3: //Voltar
-            funcMenu_aulasOnline;
+            funcMenu_aulasOnline();
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -640,7 +632,7 @@ int funcMenu_modificarAula()  // funcao menu modificar aula
         }//switch
 
     }
-    while(escolha<1 && escolha>3);
+    while(escolha!=3);
 
     return 0;
 }
@@ -649,10 +641,10 @@ int funcMenu_alterarAula()  // funcao menu alterar aula
 {
     int escolha;
 
-    system("cls"); // limpa ecrã
-
     do
     {
+        system("cls"); // limpa ecrã
+
         printf("                Alterar Aula             ");
         printf("--------------------------------------------");
 
@@ -678,11 +670,11 @@ int funcMenu_alterarAula()  // funcao menu alterar aula
         {
 
         case 1: //Aula selecionada
-            funcMenu_alterarAulaConfirmada;
+            funcMenu_alterarAulaConfirmada();
             break;
 
         case 2: //Voltar
-            funcMenu_modificarAula;
+            funcMenu_modificarAula();
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -692,7 +684,7 @@ int funcMenu_alterarAula()  // funcao menu alterar aula
         }//switch
 
     }
-    while(escolha<1 && escolha>2);
+    while(escolha!=2);
 
 
     return 0;
@@ -703,10 +695,10 @@ int funcMenu_alterarAulaConfirmada()  // funcao menu alterar aula, perguntar se 
 {
     int escolha;
 
-    system("cls"); // limpa ecrã
-
     do
     {
+        system("cls"); // limpa ecrã
+
         printf("                Alterar Aula                ");
         printf("--------------------------------------------");
         printf("1 - Confirmar");
@@ -718,11 +710,11 @@ int funcMenu_alterarAulaConfirmada()  // funcao menu alterar aula, perguntar se 
         {
 
         case 1: //
-            funcMenu_alterarAula;
+            funcMenu_alterarAula();
             break;
 
         case 2: //Cancela e volta á página anterior
-            funcMenu_modificarAula;
+            funcMenu_modificarAula();
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -732,7 +724,7 @@ int funcMenu_alterarAulaConfirmada()  // funcao menu alterar aula, perguntar se 
         }//switch
 
     }
-    while(escolha<1 && escolha>2);
+    while(escolha!=2);
 
 
     return 0;
@@ -743,10 +735,10 @@ int funcMenu_eliminarAula()  // funcao menu eliminar Aula
 {
     int escolha;
 
-    system("cls"); // limpa ecrã
-
     do
     {
+        system("cls"); // limpa ecrã
+
         printf("                 Eliminar Aula                ");
         printf("--------------------------------------------");
 
@@ -766,11 +758,11 @@ int funcMenu_eliminarAula()  // funcao menu eliminar Aula
         {
 
         case 1: //Eliminar aula
-            funcMenu_eliminarAulaConfirmar;
+            funcMenu_eliminarAulaConfirmar();
             break;
 
         case 2: //Voltar
-            funcMenu_modificarAula;
+            funcMenu_modificarAula();
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -780,7 +772,7 @@ int funcMenu_eliminarAula()  // funcao menu eliminar Aula
         }//switch
 
     }
-    while(escolha<1 && escolha>2);
+    while(escolha!=2);
 
     return 0;
 }
@@ -790,10 +782,10 @@ int funcMenu_eliminarAulaConfirmar()  // funcao menu eliminar Aula, perguntar se
 {
     int escolha;
 
-    system("cls"); // limpa ecrã
-
     do
     {
+        system("cls"); // limpa ecrã
+
         printf("                Eliminar Aula             ");
         printf("--------------------------------------------");
         printf("1 - Confirmar");
@@ -805,11 +797,11 @@ int funcMenu_eliminarAulaConfirmar()  // funcao menu eliminar Aula, perguntar se
         {
 
         case 1: //Confirmar
-            funcMenu_eliminarAula;
+            funcMenu_eliminarAula();
             break;
 
         case 2: //Cancela e volta á página anterior
-            funcMenu_modificarAula;
+            funcMenu_modificarAula();
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -819,7 +811,7 @@ int funcMenu_eliminarAulaConfirmar()  // funcao menu eliminar Aula, perguntar se
         }//switch
 
     }
-    while(escolha<1 && escolha>2);
+    while(escolha!=2);
 
 
     return 0;
@@ -832,10 +824,10 @@ int funcMenu_infoAulas()  // funcao menu informaçao das aulas
 {
     int escolha;
 
-    system("cls"); // limpa ecrã
-
     do
     {
+        system("cls"); // limpa ecrã
+
         printf("           informação das UCs         \n");
         printf("------------------------------------------");
         printf("1 - Lista das aulas online\n");
@@ -847,11 +839,11 @@ int funcMenu_infoAulas()  // funcao menu informaçao das aulas
         {
 
         case 1: //Lista das aulas online
-            funcMenu_listaAulas;
+            funcMenu_listaAulas();
             break;
 
         case 2: //Voltar
-            funcMenu_Principal;
+            funcMenu_principal();
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -861,7 +853,7 @@ int funcMenu_infoAulas()  // funcao menu informaçao das aulas
         }//switch
 
     }
-    while(escolha<1 && escolha>2);
+    while(escolha!=2);
 
     return 0;
 }
@@ -870,10 +862,10 @@ int funcMenu_listaAulas()  // funcao menu Lista das Aulas
 {
     int escolha;
 
-    system("cls"); // limpa ecrã
-
     do
     {
+        system("cls"); // limpa ecrã
+
         printf("              Lista das Aulas           \n");
         printf("------------------------------------------");
         printf("\n");// apresentar lista das aulas sem as t,tp e pl
@@ -889,11 +881,11 @@ int funcMenu_listaAulas()  // funcao menu Lista das Aulas
         {
 
         case 1: //Selecione as aulas pretendidas
-            funcMenu_aulaSelecionada;
+            funcMenu_aulaSelecionada();
             break;
 
         case 2: //Voltar
-            funcMenu_infoAulas;
+            funcMenu_infoAulas();
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -903,7 +895,7 @@ int funcMenu_listaAulas()  // funcao menu Lista das Aulas
         }//switch
 
     }
-    while(escolha<1 && escolha>2);
+    while(escolha!=2);
 
 
     return 0;
@@ -915,10 +907,10 @@ int funcMenu_aulaSelecionada()  // funcao menu Aula Selecionada
 {
     int escolha;
 
-    system("cls"); // limpa ecrã
-
     do
     {
+        system("cls"); // limpa ecrã
+
         printf("              Aula Selecionada - X           \n");
         printf("------------------------------------------");
         printf("UC pertencente - \n");
@@ -940,7 +932,7 @@ int funcMenu_aulaSelecionada()  // funcao menu Aula Selecionada
         {
 
         case 1: //Voltar
-            funcMenu_listaAulas;
+            funcMenu_listaAulas();
             break;
 
         //default caso o utilizador digite uma opção inválida
@@ -959,10 +951,10 @@ int funcMenu_estatisticas()  // funcao menu das estatísticas
 {
     int escolha;
 
-    system("cls"); // limpa ecrã
-
     do
     {
+        system("cls"); // limpa ecrã
+
         printf("                Estatísticas            \n");
         printf("------------------------------------------");
         printf("Média de presenças por aula:\n");
@@ -981,7 +973,7 @@ int funcMenu_estatisticas()  // funcao menu das estatísticas
         {
 
         case 1: //Voltar
-            funcMenu_Principal;
+            funcMenu_principal();
             break;
 
         //default caso o utilizador digite uma opção inválida
