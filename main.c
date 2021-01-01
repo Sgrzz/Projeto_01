@@ -8,7 +8,8 @@
 
 int main()
 {
-    dadosUC arrayUC[MAX_UCs];
+    dadosUC arrayUC[MAX_UCS];
+    int posArrayUC = 0;
 
     arrayUC[0]=inserirDadosUC();
 
