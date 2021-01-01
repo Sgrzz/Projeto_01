@@ -10,7 +10,7 @@ int main()
 {
     dadosUC arrayUC[MAX_UCs];
 
-    inserirDadosUC();
+    arrayUC[0]=inserirDadosUC();
 
     return 0;
 }
