@@ -178,13 +178,6 @@ void alterarDadosUC(dadosUC arrayDadosDaUC[MAX_UCS],int posArray,int codigoUC, i
 
         arrayDadosDaUC[posArrayDadosUC] = dadosDaUC;
     }
-    else
-    {
-        printf("Codigo invalido!");
-    }
-
-
-
 }
 
 //recebe array tipo dadosUC a pos do array e o codigo para comparar
