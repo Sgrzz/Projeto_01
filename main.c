@@ -11,7 +11,7 @@ int main()
     dadosUC arrayUC[MAX_UCS];
     int posArrayUC = 0;
 
-    arrayUC[0]=inserirDadosUC();
+    inserirDadosUC(arrayUC,&posArrayUC);
 
     return 0;
 }

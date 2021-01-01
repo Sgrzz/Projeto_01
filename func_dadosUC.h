@@ -3,7 +3,7 @@
 
 
 //func ler dados para a struct dadosUC
-int lerDadosCodigoUC();
+int lerDadosCodigoUC(dadosUC dadosDaUC[MAX_UCS], int posArray);
 void lerDadosNomeUC(char nome[MAX_STRING_NOME_AULA]);
 int lerTipoUC();
 int lerSemestreUC();
@@ -15,9 +15,11 @@ int lerDuracaoAulas_T();
 int lerDuracaoAulas_TP();
 int lerDuracaoAulas_PL();
 //func que chama cada uma das func atraz
-dadosUC inserirDadosUC();
+void inserirDadosUC(dadosUC dadosDaUC[MAX_UCS], int *posArray);
 //func que altera o valor dos dados especificado
-void alterarDadosUC(dadosUC *dadosDaUC, int opcao);
+void alterarDadosUC(dadosUC dadosDaUC[MAX_UCS],int posArray,int codigoUC, int opcao);
 
+int procurarDadosUC(dadosUC arrayUC[MAX_UCS], int posArray, int codigoUC);
+void ordenarDadosUC(dadosUC arrayUC[MAX_UCS], int posArray);
 
 #endif // FUNC_DADOSUC_H_INCLUDED
