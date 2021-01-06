@@ -7,7 +7,7 @@
 
 
 //pede e verifica se o codigoUC é unico
-int lerDadosCodigoUC(dadosUC dadosDaUC[MAX_UCS], int posArray)
+int lerDadosCodigoUC(dadosUC dadosDaUC[MAX_UCS], int posIndiceArray)
 {
     int codigoUC,posUC;
     //ler condigo da uc de 1 a 40
@@ -16,7 +16,7 @@ int lerDadosCodigoUC(dadosUC dadosDaUC[MAX_UCS], int posArray)
     do
     {
         codigoUC = lerInteiro(MIN_UCS,MAX_UCS);
-        posUC = procurarDadosUC(dadosDaUC, posArray, codigoUC);
+        posUC = procurarDadosUC(dadosDaUC, posIndiceArray, codigoUC);
         if (posUC != -1)
         {
             printf("Codigo já em uso, insira um codigo valido\n");
@@ -92,101 +92,101 @@ int lerDuracaoAulas_PL()
 
 
 //pede todos os dados ao utilizador para preencher uma variavel do tipo estrutura dadosUC
-//e devolve a mesma por o array uc, requer a posArray para verificar se o codigo é unico e para o incrementar
-void inserirDadosUC(dadosUC dadosDaUC[MAX_UCS], int *posArray)
+//e devolve a mesma por o array uc, requer a posIndiceArray para verificar se o codigo é unico e para o incrementar
+void inserirDadosUC(dadosUC dadosDaUC[MAX_UCS], int *posIndiceArray)
 {
     //ler codigo UC
-    dadosDaUC[*posArray].codigoUC=lerDadosCodigoUC(dadosDaUC,*posArray);
+    dadosDaUC[*posIndiceArray].codigoUC=lerDadosCodigoUC(dadosDaUC,*posIndiceArray);
 
     //ler nome da uc
-    lerDadosNomeUC(dadosDaUC[*posArray].nome);
+    lerDadosNomeUC(dadosDaUC[*posIndiceArray].nome);
 
     //ler tipo (obrigatorio ou opcional)
-    dadosDaUC[*posArray].tipoUC=lerTipoUC();
+    dadosDaUC[*posIndiceArray].tipoUC=lerTipoUC();
 
     //semestre de 1 a 6
-    dadosDaUC[*posArray].semestre=lerSemestreUC();
+    dadosDaUC[*posIndiceArray].semestre=lerSemestreUC();
 
     //regime diurno ou pos laboral
-    dadosDaUC[*posArray].regime=lerRegimeUC();
+    dadosDaUC[*posIndiceArray].regime=lerRegimeUC();
 
     //pedir 3 numeros para T TP PL
-    dadosDaUC[*posArray].quantTipoAulas.T = lerQuantTipoAulas_T();
-    dadosDaUC[*posArray].quantTipoAulas.TP = lerQuantTipoAulas_TP();
-    dadosDaUC[*posArray].quantTipoAulas.PL = lerQuantTipoAulas_PL();
+    dadosDaUC[*posIndiceArray].quantTipoAulas.T = lerQuantTipoAulas_T();
+    dadosDaUC[*posIndiceArray].quantTipoAulas.TP = lerQuantTipoAulas_TP();
+    dadosDaUC[*posIndiceArray].quantTipoAulas.PL = lerQuantTipoAulas_PL();
 
     //pedir a duracao das aulas em minutos
-    dadosDaUC[*posArray].duracaoAulas.T = lerDuracaoAulas_T();
-    dadosDaUC[*posArray].duracaoAulas.TP = lerDuracaoAulas_TP();
-    dadosDaUC[*posArray].duracaoAulas.PL = lerDuracaoAulas_PL();
+    dadosDaUC[*posIndiceArray].duracaoAulas.T = lerDuracaoAulas_T();
+    dadosDaUC[*posIndiceArray].duracaoAulas.TP = lerDuracaoAulas_TP();
+    dadosDaUC[*posIndiceArray].duracaoAulas.PL = lerDuracaoAulas_PL();
 
-    *posArray++;
+    (*posIndiceArray)++;
 }
 
 
 //altera os dados de uma UC, opcao define qual o campo que é modificado, 0 para todos
 //requer o array dos dados, a pos dos elementos, o codigo da uc a ser alterada
-void alterarDadosUC(dadosUC arrayDadosDaUC[MAX_UCS],int posArray,int codigoUC, int opcao)
+void alterarDadosUC(dadosUC arrayDadosDaUC[MAX_UCS],int posIndiceArray,int codigoUC, int opcao)
 {
     dadosUC dadosDaUC;
-    int posArrayDadosUC;
+    int posIndiceArrayDadosUC;
 
     //verifica se a pos existe no array
-    posArrayDadosUC = procurarDadosUC(arrayDadosDaUC,posArray,codigoUC);
+    posIndiceArrayDadosUC = procurarDadosUC(arrayDadosDaUC,posIndiceArray,codigoUC);
 
-    if (posArrayDadosUC != -1)
+    if (posIndiceArrayDadosUC != -1)
     {
-        dadosDaUC = arrayDadosDaUC[posArrayDadosUC];
+        dadosDaUC = arrayDadosDaUC[posIndiceArrayDadosUC];
 
         switch (opcao)
         {
-        case 0:
-        case 1:
-            dadosDaUC.codigoUC=lerDadosCodigoUC(arrayDadosDaUC,posArray);
-            if (opcao != 0) break;
-        case 2:
-            lerDadosNomeUC(dadosDaUC.nome);
-            if (opcao != 0) break;
-        case 3:
-            dadosDaUC.tipoUC=lerTipoUC();
-            if (opcao != 0) break;
-        case 4:
-            dadosDaUC.semestre=lerSemestreUC();
-            if (opcao != 0) break;
-        case 5:
-            dadosDaUC.regime=lerRegimeUC();
-            if (opcao != 0) break;
-        case 6:
-            dadosDaUC.quantTipoAulas.T = lerQuantTipoAulas_T();
-            if (opcao != 0) break;
-        case 7:
-            dadosDaUC.quantTipoAulas.TP = lerQuantTipoAulas_TP();
-            if (opcao != 0) break;
-        case 8:
-            dadosDaUC.quantTipoAulas.PL = lerQuantTipoAulas_PL();
-            if (opcao != 0) break;
-        case 9:
-            dadosDaUC.duracaoAulas.T = lerDuracaoAulas_T();
-            if (opcao != 0) break;
-        case 10:
-            dadosDaUC.duracaoAulas.TP = lerDuracaoAulas_TP();
-            if (opcao != 0) break;
-        case 11:
-            dadosDaUC.duracaoAulas.PL = lerDuracaoAulas_PL();
-            if (opcao != 0) break;
+            case 0:
+            case 1:
+                dadosDaUC.codigoUC=lerDadosCodigoUC(arrayDadosDaUC,posIndiceArray);
+                if (opcao != 0) break;
+            case 2:
+                lerDadosNomeUC(dadosDaUC.nome);
+                if (opcao != 0) break;
+            case 3:
+                dadosDaUC.tipoUC=lerTipoUC();
+                if (opcao != 0) break;
+            case 4:
+                dadosDaUC.semestre=lerSemestreUC();
+                if (opcao != 0) break;
+            case 5:
+                dadosDaUC.regime=lerRegimeUC();
+                if (opcao != 0) break;
+            case 6:
+                dadosDaUC.quantTipoAulas.T = lerQuantTipoAulas_T();
+                if (opcao != 0) break;
+            case 7:
+                dadosDaUC.quantTipoAulas.TP = lerQuantTipoAulas_TP();
+                if (opcao != 0) break;
+            case 8:
+                dadosDaUC.quantTipoAulas.PL = lerQuantTipoAulas_PL();
+                if (opcao != 0) break;
+            case 9:
+                dadosDaUC.duracaoAulas.T = lerDuracaoAulas_T();
+                if (opcao != 0) break;
+            case 10:
+                dadosDaUC.duracaoAulas.TP = lerDuracaoAulas_TP();
+                if (opcao != 0) break;
+            case 11:
+                dadosDaUC.duracaoAulas.PL = lerDuracaoAulas_PL();
+                if (opcao != 0) break;
         }
 
-        arrayDadosDaUC[posArrayDadosUC] = dadosDaUC;
+        arrayDadosDaUC[posIndiceArrayDadosUC] = dadosDaUC;
     }
 }
 
 //recebe array tipo dadosUC a pos do array e o codigo para comparar
 //devolve a pos onde encontrou o codigoUC se n devolve -1
-int procurarDadosUC(dadosUC arrayUC[MAX_UCS], int posArray, int codigoUC)
+int procurarDadosUC(dadosUC arrayUC[MAX_UCS], int posIndiceArray, int codigoUC)
 {
     int i,posDadosUC=-1;
 
-    for (i = 0; i < posArray; ++i)//percorre o array
+    for (i = 0; i < posIndiceArray; ++i)//percorre o array
     {
         if (codigoUC==arrayUC[i].codigoUC) //se o codigo da uc existir devolve a pos do elemento
         {
@@ -200,16 +200,16 @@ int procurarDadosUC(dadosUC arrayUC[MAX_UCS], int posArray, int codigoUC)
 
 //ordena o array do tipo dadosUC pelo codigo da uc
 //requer o array de tipo dadosUC e um int com o numero de pos preenchidas
-void ordenarDadosUC(dadosUC arrayUC[MAX_UCS], int posArray)
+void ordenarDadosUC(dadosUC arrayUC[MAX_UCS], int posIndiceArray)
 {
     dadosUC TempUC;
     int x,y;
 
     //percorre o array inteiro
-    for (x = 0; x < posArray; ++x)
+    for (x = 0; x < posIndiceArray; ++x)
     {
         //percorre o array a começar pela ultima posição
-        for (y = x + 1; y < posArray; ++y)
+        for (y = x + 1; y < posIndiceArray; ++y)
         {
             //se o codigo da uc for infeiror troca a posição
             if (arrayUC[x].codigoUC > arrayUC[y].codigoUC)
@@ -220,5 +220,18 @@ void ordenarDadosUC(dadosUC arrayUC[MAX_UCS], int posArray)
             }
         }
     }
+}
+
+//escreve no ecra todos os dados do array tipo dadosUC por odem do seu indice
+//
+void listarDadosUC(dadosUC arrayUC[MAX_UCS], int posIndiceArray)
+{
+    int i;
+    printf("Codigo\tNome\ttipo\tsemestre\tregime\tquantidade: T\tTP\tPL\tduracao: T\tTP\tPL");
+    for (i=0;i<posIndiceArray;i++)
+    {
+       // printf("");
+    }
+
 }
 

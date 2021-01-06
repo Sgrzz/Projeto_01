@@ -21,5 +21,6 @@ void alterarDadosUC(dadosUC dadosDaUC[MAX_UCS],int posArray,int codigoUC, int op
 
 int procurarDadosUC(dadosUC arrayUC[MAX_UCS], int posArray, int codigoUC);
 void ordenarDadosUC(dadosUC arrayUC[MAX_UCS], int posArray);
+void listarDadosUC(dadosUC arrayUC[MAX_UCS], int posIndiceArray);
 
 #endif // FUNC_DADOSUC_H_INCLUDED

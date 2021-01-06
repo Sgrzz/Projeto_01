@@ -3,15 +3,21 @@
 #include "estruturas.h"
 #include "constantes.h"
 #include "func_dadosUC.h"
-
+#include "func_ficheiros.h"
 
 
 int main()
 {
-    dadosUC arrayUC[MAX_UCS];
-    int posArrayUC = 0;
+    dadosUC arrayDadosUC[MAX_UCS];
+    int posIndiceArrayUC = 0;
 
-    inserirDadosUC(arrayUC,&posArrayUC);
+    lerFicheiroBinario(arrayDadosUC,&posIndiceArrayUC);
+
+    inserirDadosUC(arrayDadosUC,&posIndiceArrayUC);
+    inserirDadosUC(arrayDadosUC,&posIndiceArrayUC);
+    inserirDadosUC(arrayDadosUC,&posIndiceArrayUC);
+
+    gravaFicheiroBinario(arrayDadosUC,posIndiceArrayUC);
 
     return 0;
 }
