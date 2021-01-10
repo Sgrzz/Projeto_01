@@ -3,57 +3,85 @@
 #include "func_aux.h"
 #include <conio.h>
 #include <stdlib.h>
+#include "Func_menu.h"
+#include "func_dadosUC.h"
 
-int funcMenu_Principal()  //funcao menu principal
+int funcMenu_principal()  //funcao menu principal
 {
+    int escolha;
+    void limpaBufferStdin(void);
 
+    printf("\n---------------------Menu Principal--------------------\n");
+    //printf("\n                        Projeto p1                       \n");
+    printf("Quantidade de UCs: \n");
+    printf("Quantidade de aulas agendadas: \n");
+    printf("Quantidade de aulas gravadas: \n");
+    printf("-------------------------------------------------------\n");
+    printf("--> Informação das UCs\n");
+    printf("        1 -> Listas das UCs\n");
+    printf("        2 -> Inserir Uc\n");
+    printf("        3 -> Alterar UC\n");
+    printf("        4 -> Eliminar UC\n\n");
 
-    system("cls"); // limpa ecrã
+    printf("--> Aulas Online\n");
+    printf("        5 -> Agendar aula online\n");
+    printf("        6 -> Registar acesso a aula online\n");
+    printf("        7 -> Eliminar aula online\n");
+    printf("        8 -> Alterar aula Agendada\n");
+    printf("        9 -> Lista das aulas\n\n");
 
-    printf("----------------------Menu Principal---------------------\n");
-    printf("                        Projeto p1                       \n");
-    printf("Quantidade de UCs:");
-    printf("Quantidade de aulas agendadas:");
-    printf("Quantidade de aulas gravadas:");
-    printf("----------------------------------------------------------\n");
-    printf("1 - Informação das UCs\n");
-    printf("2 - Aulas Online\n");
-    printf("3 - Informações das aulas\n");
-    printf("4 - Alterar estado de aula\n ");
-    printf("5 - Estatísticas\n");
-    printf("6 - Voltar\n");
-
-    escolha = lerInteiro(1,6);
+    printf("10 -> Estatisticas\n");
+    printf("11 -> Sair do programa\n");
+    printf("-------------------------------------------------------\n");
+    printf("Selecione a opção desejada.\n");
+    escolha = lerInteiro(1,11);
 
     return escolha;
 }
 
-int funcMenu_infoUcs()  // funcao menu de informacao das UCs
+
+
+//Informação das UCs
+int funcMenu_listaUcs()  // funcao menu lista das UCs
 {
     int escolha;
+    void limpaBufferStdin(void);
 
-    system("cls"); // limpa ecrã
+    printf("                  Lista das UCs                   \n");
+    printf("-------------------------------------------------------\n");
 
-    printf("             Informação das UCs                 ");
-    printf("--------------------------------------------------");
-    printf("1 - Inserir UC\n");
-    printf("2 - Alterar UC\n");
-    printf("3 - Eliminar aul\n");
+    printf("-------------------------------------------------------\n");
+    printf("1 -> Voltar\n");
 
-    printf("4 - Lista das UCs\n");
-    printf("5 - Voltar\n");
-
-    return 0;
+    escolha = lerInteiro(1,1);
+    return escolha;
 }
+
+
+int funcMenu_inserirUC()  // funcao menu inserir UC
+{
+    int escolha;
+    void limpaBufferStdin(void);
+
+    printf("                Inserir UC            \n");
+    printf("-------------------------------------------------------\n");
+
+    // dadosUC inserirDadosUC()
+    printf("1 -> Voltar\n");
+
+    escolha = lerInteiro(1,1);
+
+    return escolha;
+}
+
 
 int funcMenu_alterarUC()  // funcao menu alterar UC
 {
     int escolha;
+    void limpaBufferStdin(void);
 
-    system("cls"); // limpa ecrã
-
-    printf("                Alterar aula             ");
-    printf("--------------------------------------------");
+    printf("                Alterar UC             \n");
+    printf("-------------------------------------------------------\n");
 
 
     printf("");
@@ -67,131 +95,156 @@ int funcMenu_alterarUC()  // funcao menu alterar UC
     printf("");
     printf("");
     printf("");
+    printf("-------------------------------------------------------\n");
+    printf("1 -> Selecione UC a alterar\n");
+    printf("2 -> Voltar\n");
 
-    printf("3 - Voltar\n");
+    escolha = lerInteiro(1,2);
 
-    return 0;
+    return escolha;
 }
 
 
-int funcMenu_alterarUcConfirmada()  // funcao menu alterar UC, perguntar se quer confirmar ou cancelar
+int funcMenu_eliminarUC()  // funcao menu eliminar UC
 {
     int escolha;
+    void limpaBufferStdin(void);
 
-    system("cls"); // limpa ecrã
+    printf("                 Eliminar UC                \n");
+    printf("-------------------------------------------------------\n");
 
-    printf("                Alterar aula             ");
-    printf("--------------------------------------------");
-    printf("1 - Confirmar");
-    printf("2 - Cancelar");
+    printf("-------------------------------------------------------\n");
+    printf("-> Selecione o código da UC a eliminar\n");
+    printf("-1 -> Selecione -1 para voltar\n");
 
-    return 0;
+    escolha = lerInteiro(-1,40);
+
+    return escolha;
 }
 
 
-int funcMenu_listaUCs()  // funcao menu da lista das UCs
+
+// Aula Online
+
+int funcMenu_agendarAula()  // funcao menu agendar aula online
 {
     int escolha;
+    void limpaBufferStdin(void);
 
-    system("cls"); // limpa ecrã
+    printf("                    Agendar aula               \n");
+    printf("-------------------------------------------------------\n");
+    printf("Insira o nº de estudante: \n");
+    printf("Selecione a aula que pretende se registar:\n");
+    printf("Selecione o tipo de aula: \n"); // T, TP, PL
+    printf("-------------------------------------------------------\n");
+    printf("1 - Confirmar\n");
+    printf("2 - Cancelar\n");
 
-    printf("                   Informação das UCs                 ");
-    printf("------------------------------------------------------");
-    printf("Nº de aulas Teóricas: %d\n");
-    printf("Nº de aulas Teórico-Práticas: %d\n");
-    printf("Nº de aulas Prático.Laboratoriais: %d\n");
-    printf("Tipo de aula:\n");
-    printf("Hora de início da aula: \n");
-    printf("------------------------------------------------------");
-    printf("1 - Voltar");
+    escolha = lerInteiro(1,2);
 
-    return 0;
+    return escolha;
 }
-
-
-int funcMenu_aulasOnline()  // funcao menu aulas online
-{
-    int escolha;
-
-    system("cls"); // limpa ecrã
-
-    printf("                Informação das Aulas Online                ");
-    printf("-----------------------------------------------------------");
-    printf("Nª de estudantes: %d\n");
-    printf("Quantidade de acesso às gravações: %d\n");
-    printf("----------------------------------------------");
-    printf("1 - Registar aulas online\n");
-    printf("2 - Resgistar o acesso às aulas\n");
-    printf("3 - Voltar");
-
-    return 0;
-}
-
-
-int funcMenu_registarAula()  // funcao menu registar aulas online
-{
-    int escolha;
-
-    system("cls"); // limpa ecrã
-
-    printf("                    Registar aula              ");
-    printf("-----------------------------------------------");
-    printf("Insira o nº de estudante ");
-    printf("Selecione a aula que pretende se registar");
-    printf("Selecione o tipo de aula "); // T, TP, PL
-    printf("1 - Confirmar");
-    printf("2 - Cancelar");
-
-    return 0;
-}
-
 
 int funcMenu_registarAcessoAula()  // funcao menu registar acesso a aula
 {
-
     int escolha;
+    void limpaBufferStdin(void);
 
-    system("cls"); // limpa ecrã
+    printf("           Registar Acesso a Aula Online       \n");
+    printf("-------------------------------------------------------\n");
+    printf("Insira o código da UC: \n");
+    printf("Indique a aula que pretende se registar:\n");
+    printf("Selecione o tipo de aula: \n");
+    printf("Insira o nº de estudante: \n");
+    printf("-------------------------------------------------------\n");
+    printf("1 - Confirmar\n");
+    printf("2 - Cancelar\n");
 
-    return 0;
+    escolha = lerInteiro(1,2);
+    return escolha;
 }
 
-
-int funcMenu_infoAulas()  // funcao menu informaçao das aulas
+int funcMenu_eliminarAula()  // funcao menu eliminar Aula
 {
     int escolha;
+    void limpaBufferStdin(void);
 
-    system("cls"); // limpa ecrã
+    printf("                 Eliminar Aula                \n");
+    printf("-------------------------------------------------------\n");
 
-    printf("           informação das UCs         \n");
-    printf("------------------------------------------");
-    printf("1 - Inserir UC\n");
-    printf("2 - Alterar UC\n");
-    printf("3 - Lista das UCs");
-    printf("4 - Voltar\n");
+    printf("-------------------------------------------------------\n");
+    printf("Selecione a aula que pretende eliminar:\n");
+    printf("1 - Eliminar aula\n");
+    printf("2 - Voltar\n");
 
-    return 0;
+    escolha = lerInteiro(1,2);
+
+    return escolha;
 }
 
-
-int funcMenu_alterarEstadoAula()  // funcao menu alterar estado da aula
+int funcMenu_alterarAula()  // funcao menu alterar aula
 {
     int escolha;
+    void limpaBufferStdin(void);
 
-    system("cls"); // limpa ecrã
+    printf("                Alterar Aula             \n");
+    printf("-------------------------------------------------------\n");
 
-    return 0;
+    printf("-------------------------------------------------------\n");
+    printf("1 - Aula selecionada\n");
+    printf("2 - Voltar\n");
+
+    escolha = lerInteiro(1,2);
+
+    return escolha;
 }
 
-int funcMenu_estatísticas()  // funcao menu das estatísticas
+int funcMenu_listaAulas()  // funcao menu Lista das Aulas
 {
     int escolha;
+    void limpaBufferStdin(void);
 
-    system("cls"); // limpa ecrã
+    printf("              Lista das Aulas           \n");
+    printf("-------------------------------------------------------\n");
 
-    return 0;
+    printf("-------------------------------------------------------\n");
+    printf("1 - Selecione as aulas pretendidas\n");
+    printf("2 - Voltar\n");
+
+    escolha = lerInteiro(1,2);
+
+    return escolha;
 }
 
+// Estatísticas
+int funcMenu_estatisticas()  // funcao menu das estatísticas
+{
+    int escolha;
+    void limpaBufferStdin(void);
 
+    printf("                Estatísticas            \n");
+    printf("-------------------------------------------------------\n");
+    printf("-->Média de presenças por aula:\n");
 
+    printf("-------------------------------------------------------\n");
+    printf("-->Percentagem de UCs com aulas gravadas:\n");
 
+    printf("-------------------------------------------------------\n");
+    printf("-->UCs com menor nº de aulas realizadas:\n");
+
+    printf("-------------------------------------------------------\n");
+    printf("-->Tipo de aula com maior nº de acesso às gravações\n");
+
+    printf("-------------------------------------------------------\n");
+    printf("-->Aulas realizadas há mais tempo:\n");
+
+    printf("-------------------------------------------------------\n");
+    printf("-->Ranking:\n");
+
+    printf("-------------------------------------------------------\n");
+    printf("1 -> Voltar\n");
+
+    escolha = lerInteiro(1,1);
+
+    return escolha;
+}
