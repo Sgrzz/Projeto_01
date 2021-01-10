@@ -236,3 +236,18 @@ void listarDadosUC(dadosUC arrayUC[MAX_UCS], int posIndiceArray)
 
 }
 
+
+void removerDadosUC(dadosUC arrayUC[MAX_UCS], int *posIndiceArray, int codigoUC)
+{
+    int indiceDadosUC;
+    dadosUC tempUC;
+    indiceDadosUC = procurarDadosUC(arrayUC,*posIndiceArray,codigoUC);
+
+    if (indiceDadosUC != -1)
+    {
+        arrayUC[indiceDadosUC] = arrayUC[*posIndiceArray];
+        (*posIndiceArray)--;
+        ordenarDadosUC(arrayUC,*posIndiceArray);
+    }
+}
+
