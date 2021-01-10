@@ -21,18 +21,20 @@ int funcMenu_principal()  //funcao menu principal
     printf("        1 -> Listas das UCs\n");
     printf("        2 -> Inserir Uc\n");
     printf("        3 -> Alterar UC\n");
-    printf("        4 -> Eliminar UC\n");
+    printf("        4 -> Eliminar UC\n\n");
+
     printf("--> Aulas Online\n");
     printf("        5 -> Agendar aula online\n");
     printf("        6 -> Registar acesso a aula online\n");
     printf("        7 -> Eliminar aula online\n");
     printf("        8 -> Alterar aula Agendada\n");
-    printf("        9 -> Lista das aulas\n");
+    printf("        9 -> Lista das aulas\n\n");
+
     printf("10 -> Estatisticas\n");
-    printf("1 -> Sair do programa\n");
+    printf("11 -> Sair do programa\n");
     printf("-------------------------------------------------------\n");
     printf("Selecione a opção desejada.\n");
-    escolha = lerInteiro(1,6);
+    escolha = lerInteiro(1,11);
 
     return escolha;
 }
@@ -40,10 +42,10 @@ int funcMenu_principal()  //funcao menu principal
 
 
 //Informação das UCs
-int  funcMenu_listaUcs()  // funcao menu lista das UCs
+int funcMenu_listaUcs()  // funcao menu lista das UCs
 {
     int escolha;
-    void limpaBufferStdin(void)
+    void limpaBufferStdin(void);
 
     printf("                  Lista das UCs                   \n");
     printf("-------------------------------------------------------\n");
@@ -59,7 +61,7 @@ int  funcMenu_listaUcs()  // funcao menu lista das UCs
 int funcMenu_inserirUC()  // funcao menu inserir UC
 {
     int escolha;
-    void limpaBufferStdin(void)
+    void limpaBufferStdin(void);
 
     printf("                Inserir UC            \n");
     printf("-------------------------------------------------------\n");
@@ -76,7 +78,7 @@ int funcMenu_inserirUC()  // funcao menu inserir UC
 int funcMenu_alterarUC()  // funcao menu alterar UC
 {
     int escolha;
-    void limpaBufferStdin(void)
+    void limpaBufferStdin(void);
 
     printf("                Alterar UC             \n");
     printf("-------------------------------------------------------\n");
@@ -106,7 +108,7 @@ int funcMenu_alterarUC()  // funcao menu alterar UC
 int funcMenu_eliminarUC()  // funcao menu eliminar UC
 {
     int escolha;
-    void limpaBufferStdin(void)
+    void limpaBufferStdin(void);
 
     printf("                 Eliminar UC                \n");
     printf("-------------------------------------------------------\n");
@@ -124,10 +126,10 @@ int funcMenu_eliminarUC()  // funcao menu eliminar UC
 
 // Aula Online
 
-int  funcMenu_agendarAula()  // funcao menu agendar aula online
+int funcMenu_agendarAula()  // funcao menu agendar aula online
 {
     int escolha;
-    void limpaBufferStdin(void)
+    void limpaBufferStdin(void);
 
     printf("                    Agendar aula               \n");
     printf("-------------------------------------------------------\n");
@@ -146,7 +148,7 @@ int  funcMenu_agendarAula()  // funcao menu agendar aula online
 int funcMenu_registarAcessoAula()  // funcao menu registar acesso a aula
 {
     int escolha;
-    void limpaBufferStdin(void)
+    void limpaBufferStdin(void);
 
     printf("           Registar Acesso a Aula Online       \n");
     printf("-------------------------------------------------------\n");
@@ -165,7 +167,7 @@ int funcMenu_registarAcessoAula()  // funcao menu registar acesso a aula
 int funcMenu_eliminarAula()  // funcao menu eliminar Aula
 {
     int escolha;
-    void limpaBufferStdin(void)
+    void limpaBufferStdin(void);
 
     printf("                 Eliminar Aula                \n");
     printf("-------------------------------------------------------\n");
@@ -183,7 +185,7 @@ int funcMenu_eliminarAula()  // funcao menu eliminar Aula
 int funcMenu_alterarAula()  // funcao menu alterar aula
 {
     int escolha;
-    void limpaBufferStdin(void)
+    void limpaBufferStdin(void);
 
     printf("                Alterar Aula             \n");
     printf("-------------------------------------------------------\n");
@@ -200,7 +202,7 @@ int funcMenu_alterarAula()  // funcao menu alterar aula
 int funcMenu_listaAulas()  // funcao menu Lista das Aulas
 {
     int escolha;
-    void limpaBufferStdin(void)
+    void limpaBufferStdin(void);
 
     printf("              Lista das Aulas           \n");
     printf("-------------------------------------------------------\n");
@@ -218,7 +220,7 @@ int funcMenu_listaAulas()  // funcao menu Lista das Aulas
 int funcMenu_estatisticas()  // funcao menu das estatísticas
 {
     int escolha;
-    void limpaBufferStdin(void)
+    void limpaBufferStdin(void);
 
     printf("                Estatísticas            \n");
     printf("-------------------------------------------------------\n");
