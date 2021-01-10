@@ -1,24 +1,23 @@
 #include <stdio.h>
 #include "estruturas.h"
 
-void gravaFicheiroBinario(dadosUC arrayUC[MAX_UCS], int posIndiceArray)
+int gravaFicheiroBinario(dadosUC arrayUC[MAX_UCS], int posIndiceArray)
 {
 
     FILE *ficheiro;
-    int quantEscrito;
+    int quantEscrito = -1;
+
 
     ficheiro = fopen("dados.dat", "wb");
 
-    if (ficheiro == NULL)
-    {
-        printf("Erro ao abrir o ficheiro\n");
-    }
-    else{//conseguiu abrir o ficheiro
+
+    if (ficheiro != NULL)
+    {//conseguiu abrir o ficheiro
 
         quantEscrito = fwrite(&posIndiceArray, sizeof(int), 1, ficheiro);
         if (quantEscrito != 1)
         {
-            printf("Erro ao escrever a quantidade de estudantes no ficheiro\n");
+            printf("Erro ao escrever a quantidade de uc's no ficheiro\n");
         }
         else
         {
@@ -32,28 +31,27 @@ void gravaFicheiroBinario(dadosUC arrayUC[MAX_UCS], int posIndiceArray)
         fclose(ficheiro);
         printf("Gravado com sucesso no ficheiro binario\n");
     }
+
+    return quantEscrito;
 }
 
 
-void lerFicheiroBinario(dadosUC arrayUC[MAX_UCS], int *posIndiceArray)
+int lerFicheiroBinario(dadosUC arrayUC[MAX_UCS], int *posIndiceArray)
 {
     FILE *ficheiro;
-    int quantLido;
+    int quantLido = -1;
 
     ficheiro = fopen("dados.dat", "rb");
 
-    if (ficheiro == NULL)
-    {
-        printf("Erro ao abrir o ficheiro");
-    }
-    else
+
+    if (ficheiro != NULL)
     {//conseguiu abrir o ficheiro
 
         quantLido = fread(posIndiceArray, sizeof(int), 1, ficheiro);
         // ou quantLido = fread(&*quantEstudantes, sizeof(int), 1, ficheiro);
         if (quantLido != 1)
         {
-            printf("Erro ao ler a quantidade de estudantes a partir do ficheiro");
+            printf("Erro ao ler a quantidade de UCs a partir do ficheiro");
         }
         else
         {

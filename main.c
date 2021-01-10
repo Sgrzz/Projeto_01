@@ -11,11 +11,13 @@ int main()
     dadosUC arrayDadosUC[MAX_UCS];
     int posIndiceArrayUC = 0;
 
-    lerFicheiroBinario(arrayDadosUC,&posIndiceArrayUC);
+    if (lerFicheiroBinario(arrayDadosUC,&posIndiceArrayUC) == -1)
+    {
+        gravaFicheiroBinario(arrayDadosUC,posIndiceArrayUC);
+    }
 
-    inserirDadosUC(arrayDadosUC,&posIndiceArrayUC);
-    inserirDadosUC(arrayDadosUC,&posIndiceArrayUC);
-    inserirDadosUC(arrayDadosUC,&posIndiceArrayUC);
+    listarDadosUC(arrayDadosUC,posIndiceArrayUC);
+
 
     gravaFicheiroBinario(arrayDadosUC,posIndiceArrayUC);
 

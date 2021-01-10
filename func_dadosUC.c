@@ -11,7 +11,7 @@ int lerDadosCodigoUC(dadosUC dadosDaUC[MAX_UCS], int posIndiceArray)
 {
     int codigoUC,posUC;
     //ler condigo da uc de 1 a 40
-    printf("Insira o codigo da Unidade Curricular (de 1 a 40):\n");
+    printf("\nInsira o codigo da Unidade Curricular (de 1 a 40):");
 
     do
     {
@@ -19,73 +19,74 @@ int lerDadosCodigoUC(dadosUC dadosDaUC[MAX_UCS], int posIndiceArray)
         posUC = procurarDadosUC(dadosDaUC, posIndiceArray, codigoUC);
         if (posUC != -1)
         {
-            printf("Codigo já em uso, insira um codigo valido\n");
+            printf("\nCodigo já em uso, insira um codigo valido:");
         }
     }
     while (posUC != -1);
 
+    return codigoUC;
 }
 
 void lerDadosNomeUC(char nome[MAX_STRING_NOME_AULA])
 {
     //ler nome da uc
-    printf("Insira o nome da Unidade Curricular:\n");
+    printf("Insira o nome da Unidade Curricular: ");
     lerString(nome,MAX_STRING_NOME_AULA);
 }
 
 int lerTipoUC()
 {
     //ler tipo (obrigatorio ou opcional)
-    printf("Insira o tipo da Unidade Curricular 0-obrigat�rio ou 1-opcional:");
+    printf("\nInsira o tipo da Unidade Curricular 0-obrigat�rio ou 1-opcional:");
     return lerInteiro(MIN_TIPO_UCS,MAX_TIPO_UCS);
 }
 
 int lerSemestreUC()
 {
-    printf("Insira o semestre correspondente:");
+    printf("\nInsira o semestre correspondente:");
     return lerInteiro(MIN_SEMESTRES,MAX_SEMESTRES);
 }
 
 int lerRegimeUC()
 {
     //regime diurno ou pos laboral
-    printf("Insira o tipo de regime 0-diurno ou 1-p�s-laboral:");
+    printf("\nInsira o tipo de regime 0-diurno ou 1-p�s-laboral:");
     return lerInteiro(MIN_REGIME_UCS,MAX_REGIME_UCS);
 }
 
 int lerQuantTipoAulas_T()
 {
-    printf("Insira o numero de aulas Teóricas:");
+    printf("\nInsira o numero de aulas Teóricas:");
     return lerInteiro(MIN_QUANT_TIPO_AULAS_T,MAX_QUANT_TIPO_AULAS_T);
 }
 
 int lerQuantTipoAulas_TP()
 {
-    printf("Insira o numero de aulas Teórico-Práticas:");
+    printf("\nInsira o numero de aulas Teórico-Práticas:");
     return lerInteiro(MIN_QUANT_TIPO_AULAS_TP,MAX_QUANT_TIPO_AULAS_TP);
 }
 
 int lerQuantTipoAulas_PL()
 {
-    printf("Insira o numero de aulas Prático-Laboratorial:");
+    printf("\nInsira o numero de aulas Prático-Laboratorial:");
     return lerInteiro(MIN_QUANT_TIPO_AULAS_PL,MAX_QUANT_TIPO_AULAS_PL);
 }
 
 int lerDuracaoAulas_T()
 {
-    printf("Insira a duração das aulas Teóricas (em minutos):");
+    printf("\nInsira a duração das aulas Teóricas (em minutos):");
     return lerInteiro(MIN_DURAC_TIPO_AULAS_T,MAX_DURAC_TIPO_AULAS_T);
 }
 
 int lerDuracaoAulas_TP()
 {
-    printf("Insira a duração das aulas Teórico-Práticas (em minutos):");
+    printf("\nInsira a duração das aulas Teórico-Práticas (em minutos):");
     return lerInteiro(MIN_DURAC_TIPO_AULAS_TP,MAX_DURAC_TIPO_AULAS_TP);
 }
 
 int lerDuracaoAulas_PL()
 {
-    printf("Insira a duranção das aulas Prático-Laboratoriais (em minutos):");
+    printf("\nInsira a duranção das aulas Prático-Laboratoriais (em minutos):");
     return lerInteiro(MIN_DURAC_TIPO_AULAS_PL,MAX_DURAC_TIPO_AULAS_PL);
 }
 
@@ -227,10 +228,10 @@ void ordenarDadosUC(dadosUC arrayUC[MAX_UCS], int posIndiceArray)
 void listarDadosUC(dadosUC arrayUC[MAX_UCS], int posIndiceArray)
 {
     int i;
-    printf("Codigo\tNome\ttipo\tsemestre\tregime\tquantidade: T\tTP\tPL\tduracao: T\tTP\tPL");
+    printf("Codigo\tNome\t\ttipo\tsemestre\tregime\tquantidade: T\tTP\tPL\tduracao: T\tTP\tPL\n");
     for (i=0;i<posIndiceArray;i++)
     {
-       // printf("");
+       printf("%6d\t%8s\t%d\t\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\n",arrayUC[i].codigoUC,arrayUC[i].nome,arrayUC[i].tipoUC,arrayUC[i].semestre,arrayUC[i].regime,arrayUC[i].quantTipoAulas.T,arrayUC[i].quantTipoAulas.TP,arrayUC[i].quantTipoAulas.PL,arrayUC[i].duracaoAulas.T,arrayUC[i].duracaoAulas.TP,arrayUC[i].duracaoAulas.PL);
     }
 
 }
