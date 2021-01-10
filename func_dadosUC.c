@@ -231,7 +231,9 @@ void listarDadosUC(dadosUC arrayUC[MAX_UCS], int posIndiceArray)
     printf("Codigo\tNome\t\ttipo\tsemestre\tregime\tquantidade: T\tTP\tPL\tduracao: T\tTP\tPL\n");
     for (i=0;i<posIndiceArray;i++)
     {
-       printf("%6d\t%8s\t%d\t\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\n",arrayUC[i].codigoUC,arrayUC[i].nome,arrayUC[i].tipoUC,arrayUC[i].semestre,arrayUC[i].regime,arrayUC[i].quantTipoAulas.T,arrayUC[i].quantTipoAulas.TP,arrayUC[i].quantTipoAulas.PL,arrayUC[i].duracaoAulas.T,arrayUC[i].duracaoAulas.TP,arrayUC[i].duracaoAulas.PL);
+       printf("%6d\t%8s\t%d\t\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\n",
+              arrayUC[i].codigoUC, arrayUC[i].nome, arrayUC[i].tipoUC, arrayUC[i].semestre, arrayUC[i].regime, arrayUC[i].quantTipoAulas.T,
+              arrayUC[i].quantTipoAulas.TP, arrayUC[i].quantTipoAulas.PL, arrayUC[i].duracaoAulas.T ,arrayUC[i].duracaoAulas.TP ,arrayUC[i].duracaoAulas.PL);
     }
 
 }
