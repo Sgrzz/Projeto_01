@@ -1,9 +1,30 @@
 #ifndef CONSTANTES_H_INCLUDED
 #define CONSTANTES_H_INCLUDED
 
-//Constantes declaradas para maximos
 
-#define MAX_UCs 40                  //maximo de ucs
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////constantes UCs/////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#define MAX_UCS 40                  //maximo de ucs
+#define MIN_UCS 1                   //minimo de ucs
+#define MAX_TIPO_UCS 1              //maximo de tipos de ucs
+#define MIN_TIPO_UCS 0              //minimo de tipos de ucs
+#define MAX_REGIME_UCS 1            //maximo de regimes ucs
+#define MIN_REGIME_UCS 0            //minimo de regimes ucs
+#define MAX_QUANT_TIPO_AULAS_T 999  //maximo de quantidade de tipos de aulas teoricas
+#define MIN_QUANT_TIPO_AULAS_T 0    //minimo de quantidade de tipos de aulas teoricas
+#define MAX_QUANT_TIPO_AULAS_TP 999 //maximo de quantidade de tipos de aulas Teórico-Práticas
+#define MIN_QUANT_TIPO_AULAS_TP 0   //minimo de quantidade de tipos de aulas Teórico-Práticas
+#define MAX_QUANT_TIPO_AULAS_PL 999 //maximo de quantidade de tipos de aulas Prático-Laboratorial
+#define MIN_QUANT_TIPO_AULAS_PL 0   //minimo de quantidade de tipos de aulas Prático-Laboratorial
+#define MAX_DURAC_TIPO_AULAS_T 999  //maximo da duração de tipos de aulas teoricas
+#define MIN_DURAC_TIPO_AULAS_T 0    //minimo da duração de tipos de aulas teoricas
+#define MAX_DURAC_TIPO_AULAS_TP 999 //maximo da duração de tipos de aulas Teórico-Práticas
+#define MIN_DURAC_TIPO_AULAS_TP 0   //minimo da duração de tipos de aulas Teórico-Práticas
+#define MAX_DURAC_TIPO_AULAS_PL 999 //maximo da duração de tipos de aulas Prático-Laboratorial
+#define MIN_DURAC_TIPO_AULAS_PL 0   //minimo da duração de tipos de aulas Prático-Laboratorial
+
 #define MAX_ESTUDANTES 100          //maximo estudantes
 #define MAX_STRING_NOME_AULA 20     // nome UC
 #define MAX_STRING_NOME_DOCENTE 50  //nome do docente

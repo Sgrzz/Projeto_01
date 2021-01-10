@@ -36,7 +36,7 @@ typedef struct
     enum enumTipoUC tipoUC; //obrigatoria ou opcional
     int semestre;    //1 - 6
     enum enumRegime regime;    //(D)iurno ou (P)os-laboral
-    tipoAulas quantidadeTipoAulas; //quantidade de tipo de aulas
+    tipoAulas quantTipoAulas; //quantidade de tipo de aulas
     tipoTempoAulas duracaoAulas; //em minutos
 } dadosUC; //main struct #todo
 
