@@ -3,49 +3,65 @@
 #include "estruturas.h"
 #include "constantes.h"
 #include "func_dadosUC.h"
-#include"Func_menu.h"
-
+#include "func_menu.h"
+#include "estruturas.h"
+#include "func_dadosAulas.h"
 
 
 int main()
 {
-    int escolha;
+
+    dadosUC vDadosUC[MAX_UCS];
+
+    int escolha, indiceVetUC=0, escolhaSubMenu;
 
     do
     {
-        escolha = funcMenu_principal();
+        escolha = menu_principal();
 
         switch (escolha)
         {
         case 1://Lista das Ucs
-            funcMenu_listaUcs();
+            escolhaSubMenu = menu_listaUcs(vDadosUC, indiceVetUC);
+            if(escolhaSubMenu!=0)
+            {
+
+            }
             break;
+
         case 2://Inserir UC
-            funcMenu_inserirUC();
+            inserirDadosUC(vDadosUC, &indiceVetUC);
             break;
+
         case 3://Alterar UC
-            funcMenu_alterarUC();
+            escolhaSubMenu = menu_alterarUC(vDadosUC, indiceVetUC);
+            if(escolhaSubMenu!=0)
+            {
+                alterarDadosUC(vDadosUC, indiceVetUC, escolhaSubMenu,0);
+            }
+            //alterarDadosUC();
             break;
+
         case 4://Eliminar UC
-            funcMenu_eliminarUC();
+            menu_eliminarUC();
             break;
         case 5://Agedar aula online
-            funcMenu_agendarAula();
+            menu_agendarAula();
             break;
         case 6://Registar acesso a aula online
-            funcMenu_registarAcessoAula();
+            menu_registarAcessoAula();
             break;
         case 7://Eliminar aula online
-            funcMenu_eliminarAula();
+            menu_eliminarAula();
             break;
         case 8://Alterar aula Agendada
-            funcMenu_alterarAula();
+            menu_alterarAula();
             break;
         case 9://Lista das aulas online
-            funcMenu_listaAulas();
+            menu_listaAulas();
             break;
         case 10://Estatisticas
-            funcMenu_estatisticas();
+            menu_estatisticas();
             break;
         case 11://Sair do programa
             printf("Fim do programa\n");

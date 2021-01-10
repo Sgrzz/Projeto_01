@@ -27,11 +27,11 @@ int lerDadosCodigoUC(dadosUC dadosDaUC[MAX_UCS], int posIndiceArray)
     return codigoUC;
 }
 
-void lerDadosNomeUC(char nome[MAX_STRING_NOME_AULA])
+void lerDadosNomeUC(char nome[MAX_STRING_NOME_UC])
 {
     //ler nome da uc
-    printf("Insira o nome da Unidade Curricular: ");
-    lerString(nome,MAX_STRING_NOME_AULA);
+    printf("\nInsira o nome da Unidade Curricular: ");
+    lerString(nome,MAX_STRING_NOME_UC);
 }
 
 int lerTipoUC()
@@ -229,9 +229,9 @@ void listarDadosUC(dadosUC arrayUC[MAX_UCS], int posIndiceArray)
 {
     int i;
     printf("Codigo\tNome\t\ttipo\tsemestre\tregime\tquantidade: T\tTP\tPL\tduracao: T\tTP\tPL\n");
-    for (i=0;i<posIndiceArray;i++)
+    for (i=0; i<posIndiceArray; i++)
     {
-       printf("%6d\t%8s\t%d\t\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\n",arrayUC[i].codigoUC,arrayUC[i].nome,arrayUC[i].tipoUC,arrayUC[i].semestre,arrayUC[i].regime,arrayUC[i].quantTipoAulas.T,arrayUC[i].quantTipoAulas.TP,arrayUC[i].quantTipoAulas.PL,arrayUC[i].duracaoAulas.T,arrayUC[i].duracaoAulas.TP,arrayUC[i].duracaoAulas.PL);
+        printf("%6d\t%8s\t%d\t\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\n",arrayUC[i].codigoUC,arrayUC[i].nome,arrayUC[i].tipoUC,arrayUC[i].semestre,arrayUC[i].regime,arrayUC[i].quantTipoAulas.T,arrayUC[i].quantTipoAulas.TP,arrayUC[i].quantTipoAulas.PL,arrayUC[i].duracaoAulas.T,arrayUC[i].duracaoAulas.TP,arrayUC[i].duracaoAulas.PL);
     }
 
 }

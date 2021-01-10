@@ -1,0 +1,7 @@
+#ifndef FUNC_DADOSAULAS_H_INCLUDED
+#define FUNC_DADOSAULAS_H_INCLUDED
+
+void inserirDadosAula();
+
+
+#endif // FUNC_DADOSAULAS_H_INCLUDED

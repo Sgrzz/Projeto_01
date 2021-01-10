@@ -43,6 +43,7 @@ typedef struct
 typedef struct
 {
     char nome[MAX_STRING_NOME_AULA]; //nome da aula
+    int codigoUC;//codigo da UC associada a aula
     enum enumTipoAula tipoAula;  //tipo aula enum (T  TP PL)
     char nomeDocente[MAX_STRING_NOME_DOCENTE]; //nome do docente
     tipoData data;  //data da aula lecionada online

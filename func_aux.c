@@ -2,6 +2,8 @@
 #include <string.h>
 
 #include "func_aux.h"
+#include "constantes.h"
+#include "estruturas.h"
 
 //tipoData lerData(){
 //    tipodata data;
@@ -16,9 +18,9 @@ void lerData(tipoData *data){
     int maxDias;
 
     printf("Ano: ");
-    data->ano = lerInteiro(2020,2021);//estes valores devem ser definidos como constantes
+    data->ano = lerInteiro(MIN_ANO,MAX_ANO);//estes valores devem ser definidos como constantes
     printf("Mes: ");
-    data->mes = lerInteiro(1,12);//estes valores devem ser definidos como constantes
+    data->mes = lerInteiro(MIN_MES,MAX_MES);//estes valores devem ser definidos como constantes
 
     switch(data->mes){
     case 2:
@@ -44,9 +46,8 @@ void lerData(tipoData *data){
     }
 
     printf("Dia: ");
-    data->dia = lerInteiro(1,maxDias);//estes valores devem ser definidos como constantes
+    data->dia = lerInteiro(MIN_DIA,maxDias);
 }
-
 
 
 // Acrescentada variável de controlo ao scanf
