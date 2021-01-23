@@ -5,6 +5,46 @@
 #include "constantes.h"
 #include "estruturas.h"
 
+
+
+
+//funcao que compara duas horas e verifica que n se sobrepoem, devolve 0 para falso 1 para verdade
+tipoHora compararHoras(tipoHora horaInicio, tipoHora horaInicio2, tipoHora duracao)
+{
+    horaInicio +
+
+    return 0;
+}
+
+//funcao para somar 2 horas devolta o somatorio
+tipoHora somarHora(tipoHora hora1, tipoHora hora2)
+{
+    tipoHora horaAux;
+    horaAux.hora = 0;
+    horaAux.minuto = 0;
+
+    horaAux.minuto = hora1.minuto + hora2.minuto;
+
+    if (horaAux.minuto>=60)
+    {
+        do
+        {
+            if (horaAux.minuto-60>=60)
+            {
+                horaAux.minuto-=60;
+            }
+
+        }while(horaAux.minuto>60);
+    }
+
+}
+
+//funcao para subtrair horas devolve o resultado
+tipoHora subtrairHora(tipoHora hora1, tipoHora hora2)
+{
+
+}
+
 //tipoData lerData(){
 //    tipodata data;
 //

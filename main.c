@@ -42,7 +42,6 @@ int main()
             {
                 alterarDadosUC(vDadosUC, indiceVetUC, escolhaSubMenu,0);
             }
-            //alterarDadosUC();
             break;
 
         case 4://Eliminar UC

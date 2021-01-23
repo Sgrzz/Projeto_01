@@ -55,15 +55,10 @@
 #define MAX_STRING_NOME_AULA 20     //maximo do nome da aula
 #define MIN_STRING_NOME_AULA 0      //minimo do nome da aula
 
-#define MAX_HORA_INICIO_AULA 24     //maximo da hora do inicio da aula
-#define MIN_HORA_INICIO_AULA 0      //minimo da hora do inicio da aula
-#define MAX_MINUTOS_INICIO_AULA 59  //maximo de minutos de inicio da aula
-#define MIN_MINUTOS_INICIO_AULA 0   //minimo de minutos de inicio da aula
-
-#define MAX_HORA_FIM_AULA 24        //maximo de horas do fim da aula
-#define MIN_HORA_FIM_AULA 0         //minimo de horas do fim da aula
-#define MAX_MINUTOS_FIM_AULA 59     //maximo de minutos do fim da aula
-#define MIN_MINUTOS_FIM_AULA 0      //minimo de minutos do fim da aula
+#define MAX_HORA 23     //maximo da hora
+#define MIN_HORA 0      //minimo da hora
+#define MAX_MINUTOS 59  //maximo de minutos
+#define MIN_MINUTOS 0   //minimo de minutos
 
 #define MAX_ESTADO_AULA 2           //maximo de estado da aula
 #define MIN_ESTADO_AULA 0           //minimo de estado da aula

@@ -1,33 +1,40 @@
 # depslib dependency file v1.0
-1608616935 source:c:\users\alexa\desktop\projectos c\projetos\projeto_01\main.c
+1611436481 source:c:\users\alexa\desktop\projectos c\projetos\projeto_01\main.c
 	<stdio.h>
 	<stdlib.h>
 	"estruturas.h"
 	"constantes.h"
 	"func_dadosUC.h"
+	"func_menu.h"
+	"estruturas.h"
+	"func_dadosAulas.h"
+	"func_ficheiros.h"
 
-1608617549 c:\users\alexa\desktop\projectos c\projetos\projeto_01\estruturas.h
+1611420476 c:\users\alexa\desktop\projectos c\projetos\projeto_01\estruturas.h
 	"constantes.h"
 
-1608608376 c:\users\alexa\desktop\projectos c\projetos\projeto_01\constantes.h
+1611435807 c:\users\alexa\desktop\projectos c\projetos\projeto_01\constantes.h
 
-1608608022 source:c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_aux.c
+1611435807 source:c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_aux.c
 	<stdio.h>
 	<string.h>
 	"func_aux.h"
-
-1608608147 c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_aux.h
 	"constantes.h"
 	"estruturas.h"
 
-1608617474 source:c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_dadosuc.c
+1611435807 c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_aux.h
+	"constantes.h"
+	"estruturas.h"
+
+1611435807 source:c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_dadosuc.c
 	<stdio.h>
 	<stdlib.h>
 	"estruturas.h"
 	"constantes.h"
 	"func_aux.h"
+	"func_dadosUC.h"
 
-1608608981 c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_dadosuc.h
+1611435807 c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_dadosuc.h
 
 1611423199 source:c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\func_aux.c
 	<stdio.h>
@@ -98,4 +105,27 @@
 	"func_aux.h"
 
 1611416220 c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\func_ficheiros.h
+
+1611420417 source:c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_ficheiros.c
+	<stdio.h>
+	"estruturas.h"
+
+1611435807 source:c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_menu.c
+	<stdio.h>
+	<string.h>
+	"func_aux.h"
+	<conio.h>
+	<stdlib.h>
+	"func_menu.h"
+	"func_dadosUC.h"
+	"estruturas.h"
+
+1611435807 c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_menu.h
+
+1611437645 c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_dadosaulas.h
+	"constantes.h"
+	"func_dadosAulas.h"
+	"func_aux.h"
+
+1611416011 c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_ficheiros.h
 
