@@ -10,8 +10,14 @@
 int lerDadosCodigoUC(dadosUC dadosDaUC[MAX_UCS], int posIndiceArray)
 {
     int codigoUC;
-
-    codigoUC = dadosDaUC[posIndiceArray].codigoUC + 1;
+    if(posIndiceArray == 0)
+    {
+        codigoUC = 1;
+    }
+    else
+    {
+        codigoUC = dadosDaUC[posIndiceArray].codigoUC + 1;
+    }
 
     return codigoUC;
 }
@@ -179,7 +185,7 @@ void alterarDadosUC(dadosUC arrayDadosDaUC[MAX_UCS],int posIndiceArray,int codig
 }
 
 //recebe array tipo dadosUC a pos do array e o codigo para comparar
-//devolve a pos onde encontrou o codigoUC se n devolve -1
+//devolve a pos onde encontrou o codigoUC, se n devolve -1
 int procurarDadosUC(dadosUC arrayUC[MAX_UCS], int posIndiceArray, int codigoUC)
 {
     int i,posDadosUC=-1;

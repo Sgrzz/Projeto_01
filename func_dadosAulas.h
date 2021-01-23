@@ -22,7 +22,8 @@ int opGravacao();
 //inserirDadosAula
 dadosAula *agendarAula(dadosAula *vAulasOnline, int *posIndiceArrayAulas, dadosUC vDadosUC[], int posIndiceArrayUC);
 
-
+dadosAula *eliminarAula (dadosAula *vAulasOnline, int *quantAulas);
+void listarDadosAula(dadosAula *vAulasOnline, int posIndiceArray);
 
 
 

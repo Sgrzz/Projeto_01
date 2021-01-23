@@ -6,7 +6,7 @@
 #include "func_menu.h"
 #include "estruturas.h"
 #include "func_dadosAulas.h"
-
+#include "func_ficheiros.h"
 
 int main()
 {
@@ -15,12 +15,11 @@ int main()
 
     int escolha, indiceVetUC = 0, escolhaSubMenu, indiceVetAulas = 0;
     dadosAula *vAulasOnline = NULL;
+
+    carregarDadosFicheiroBinario(vDadosUC,&indiceVetUC);
     do
     {
-
-
-    carregarDadosFicheiroBinario(arrayDadosUC,&posIndiceArrayUC);
-
+        escolha = menu_principal();
         switch (escolha)
         {
         case 1://Lista das Ucs
@@ -54,13 +53,13 @@ int main()
 
             break;
         case 7://Eliminar aula online
-
+            vAulasOnline = eliminarAula(vAulasOnline, &indiceVetAulas);
             break;
         case 8://Alterar aula Agendada
 
             break;
         case 9://Lista das aulas online
-
+            listarDadosAula(vAulasOnline, indiceVetAulas);
             break;
         case 10://Estatisticas
 

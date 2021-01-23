@@ -41,7 +41,7 @@ void lerNomeAula(char nome[MAX_STRING_NOME_AULA], dadosAula *vAulasOnline, int p
         posNome = procurarNomeAula(vAulasOnline, posIndiceArray, nomeAula);//chama a funcao procurarNomeAula e vê que nome está la e passa o para posNome
         if(posNome != -1)
         {
-            printf("Nome já em uso, insira um nome valido: \n");
+            printf("Nome ja em uso, insira um nome valido: \n");
         }
     }
     while (posNome != -1);
@@ -59,12 +59,13 @@ int lerCodigoDaUC(dadosUC arrayUC[MAX_UCS], int posIndiceArrayUC)
     {
         codigoDaUC = lerInteiro(MIN_UCS, MAX_UCS); //maximo de ler inteiro é o ultimo codigo do arrayUC
         posCodigo = procurarDadosUC(arrayUC, posIndiceArrayUC, codigoDaUC);
-        if(posCodigo != -1)
+        printf("%d", posCodigo);
+        if(posCodigo == -1)
         {
             printf("Nao existe nenhuma UC com esse codigo, insira um codigo valido:");
         }
     }
-    while(posCodigo != -1);
+    while(posCodigo == -1);
     return codigoDaUC;
 }
 
@@ -198,7 +199,7 @@ dadosAula *eliminarAula (dadosAula *vAulasOnline, int *quantAulas)
 
     if(*quantAulas == 0)
     {
-        printf("Ainda não existem aulas registadas\n");
+        printf("Ainda nao existem aulas registadas\n");
     }
     else
     {
@@ -226,8 +227,42 @@ dadosAula *eliminarAula (dadosAula *vAulasOnline, int *quantAulas)
                 vAulasOnline = vBackup;
             }
             (*quantAulas)--;
-            //ficheiroLogs(vAulasOnline[posNome],"Reserva eliminada");
+            //ficheiroLogs(vAulasOnline[posNome],"Aula eliminada");
         }
     }
     return vAulasOnline;
+}
+
+
+void alterarAula(dadosAula *vAulasOnline, int quantAulas, char nomeAula[MAX_STRING_NOME_AULA], int opcao)
+{
+    int posNome;
+
+    //verifica se a pos existe no vetor
+    posNome = procurarNomeAula(vAulasOnline, quantAulas, nomeAula); //devolve a posiçao do nome
+
+    if(posNome == -1)
+    {
+        printf("Ainda nao existem aulas registadas\n");
+    }
+    else
+    {
+        switch(opcao)
+        {
+            case 0: //altera tudo
+            lerNomeAula(vAulasOnline[posNome].nome, vAulasOnline, quantAulas);
+            vAulasOnline[posNome].codigoUC = lerCodigoDaUC(vAulasOnline, quantAulas);
+            vAulasOnline[posNome].tipo = lerTipoAula();
+            lerNomeDocente(vAulasOnline[posNome].nomeDocente);
+            lerDataAula(&vAulasOnline[posNome].data);
+            lerHoraInicioAula(&vAulasOnline[posNome].horaInicio);
+            lerHoraFimAula(&vAulasOnline[posNome].horaFim);
+            vAulasOnline[posNome].estado = estadoAula();
+        }
+
+
+
+
+
+    }
 }
