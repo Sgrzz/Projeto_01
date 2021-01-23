@@ -17,7 +17,9 @@ int main()
 
     do
     {
-        escolha = menu_principal();
+
+
+    carregarDadosFicheiroBinario(arrayDadosUC,&posIndiceArrayUC);
 
         switch (escolha)
         {
@@ -64,6 +66,7 @@ int main()
             menu_estatisticas();
             break;
         case 11://Sair do programa
+            gravaFicheiroBinario(vDadosUC, indiceVetUC);
             printf("Fim do programa\n");
         }
     }

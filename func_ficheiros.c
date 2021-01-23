@@ -7,9 +7,7 @@ int gravaFicheiroBinario(dadosUC arrayUC[MAX_UCS], int posIndiceArray)
     FILE *ficheiro;
     int quantEscrito = -1;
 
-
     ficheiro = fopen("dados.dat", "wb");
-
 
     if (ficheiro != NULL)
     {//conseguiu abrir o ficheiro
@@ -35,34 +33,34 @@ int gravaFicheiroBinario(dadosUC arrayUC[MAX_UCS], int posIndiceArray)
     return quantEscrito;
 }
 
-
-int lerFicheiroBinario(dadosUC arrayUC[MAX_UCS], int *posIndiceArray)
+void carregarDadosFicheiroBinario(dadosUC arrayUC[MAX_UCS], int *posIndiceArray) //nao esquecer de fazer tambem para o array dinamico das aulas
 {
     FILE *ficheiro;
     int quantLido = -1;
 
+    //procurar o ficheiro primeiro, se n o encontrar cria e avisa
     ficheiro = fopen("dados.dat", "rb");
-
-
     if (ficheiro != NULL)
-    {//conseguiu abrir o ficheiro
-
+    {
         quantLido = fread(posIndiceArray, sizeof(int), 1, ficheiro);
-        // ou quantLido = fread(&*quantEstudantes, sizeof(int), 1, ficheiro);
         if (quantLido != 1)
         {
-            printf("Erro ao ler a quantidade de UCs a partir do ficheiro");
+            printf("Erro ao ler a quantidade de UCs a partir do ficheiro\n");
         }
         else
         {
             quantLido = fread(arrayUC, sizeof(dadosUC), *posIndiceArray, ficheiro);
             if (quantLido != *posIndiceArray)
             {
-                printf("Erro ao ler a informacao do vetor");
+                printf("Erro ao ler a informacao do vetor\n");
             }
         }
         fclose(ficheiro);
-        printf("Leitura de ficheiro com sucesso \n");
-        printf("Dados de estudantes importados \n");
+    }
+    else
+    {
+        printf("Novo ficheiro\n");
+        ficheiro = fopen("dados.dat", "wb");
+        fclose(ficheiro);
     }
 }

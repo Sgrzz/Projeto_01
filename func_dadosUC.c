@@ -9,20 +9,9 @@
 //pede e verifica se o codigoUC é unico
 int lerDadosCodigoUC(dadosUC dadosDaUC[MAX_UCS], int posIndiceArray)
 {
-    int codigoUC,posUC;
-    //ler condigo da uc de 1 a 40
-    printf("\nInsira o codigo da Unidade Curricular (de 1 a 40):");
+    int codigoUC;
 
-    do
-    {
-        codigoUC = lerInteiro(MIN_UCS,MAX_UCS);
-        posUC = procurarDadosUC(dadosDaUC, posIndiceArray, codigoUC);
-        if (posUC != -1)
-        {
-            printf("\nCodigo já em uso, insira um codigo valido:");
-        }
-    }
-    while (posUC != -1);
+    codigoUC = dadosDaUC[posIndiceArray].codigoUC + 1;
 
     return codigoUC;
 }
@@ -142,39 +131,47 @@ void alterarDadosUC(dadosUC arrayDadosDaUC[MAX_UCS],int posIndiceArray,int codig
         switch (opcao)
         {
             case 0:
-            case 1:
-                dadosDaUC.codigoUC=lerDadosCodigoUC(arrayDadosDaUC,posIndiceArray);
-                if (opcao != 0) break;
-            case 2:
                 lerDadosNomeUC(dadosDaUC.nome);
-                if (opcao != 0) break;
-            case 3:
                 dadosDaUC.tipoUC=lerTipoUC();
-                if (opcao != 0) break;
-            case 4:
                 dadosDaUC.semestre=lerSemestreUC();
-                if (opcao != 0) break;
-            case 5:
                 dadosDaUC.regime=lerRegimeUC();
-                if (opcao != 0) break;
-            case 6:
                 dadosDaUC.quantTipoAulas.T = lerQuantTipoAulas_T();
-                if (opcao != 0) break;
-            case 7:
                 dadosDaUC.quantTipoAulas.TP = lerQuantTipoAulas_TP();
-                if (opcao != 0) break;
-            case 8:
                 dadosDaUC.quantTipoAulas.PL = lerQuantTipoAulas_PL();
-                if (opcao != 0) break;
-            case 9:
                 dadosDaUC.duracaoAulas.T = lerDuracaoAulas_T();
-                if (opcao != 0) break;
-            case 10:
                 dadosDaUC.duracaoAulas.TP = lerDuracaoAulas_TP();
-                if (opcao != 0) break;
-            case 11:
                 dadosDaUC.duracaoAulas.PL = lerDuracaoAulas_PL();
-                if (opcao != 0) break;
+                break;
+            case 1:
+                lerDadosNomeUC(dadosDaUC.nome);
+                break;
+            case 2:
+                dadosDaUC.tipoUC=lerTipoUC();
+                break;
+            case 3:
+                dadosDaUC.semestre=lerSemestreUC();
+                break;
+            case 4:
+                dadosDaUC.regime=lerRegimeUC();
+                break;
+            case 5:
+                dadosDaUC.quantTipoAulas.T = lerQuantTipoAulas_T();
+                break;
+            case 6:
+                dadosDaUC.quantTipoAulas.TP = lerQuantTipoAulas_TP();
+                break;
+            case 7:
+                dadosDaUC.quantTipoAulas.PL = lerQuantTipoAulas_PL();
+                break;
+            case 8:
+                dadosDaUC.duracaoAulas.T = lerDuracaoAulas_T();
+                break;
+            case 9:
+                dadosDaUC.duracaoAulas.TP = lerDuracaoAulas_TP();
+                break;
+            case 10:
+                dadosDaUC.duracaoAulas.PL = lerDuracaoAulas_PL();
+                break;
         }
 
         arrayDadosDaUC[posIndiceArrayDadosUC] = dadosDaUC;
@@ -231,8 +228,26 @@ void listarDadosUC(dadosUC arrayUC[MAX_UCS], int posIndiceArray)
     printf("Codigo\tNome\t\ttipo\tsemestre\tregime\tquantidade: T\tTP\tPL\tduracao: T\tTP\tPL\n");
     for (i=0; i<posIndiceArray; i++)
     {
-        printf("%6d\t%8s\t%d\t\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\n",arrayUC[i].codigoUC,arrayUC[i].nome,arrayUC[i].tipoUC,arrayUC[i].semestre,arrayUC[i].regime,arrayUC[i].quantTipoAulas.T,arrayUC[i].quantTipoAulas.TP,arrayUC[i].quantTipoAulas.PL,arrayUC[i].duracaoAulas.T,arrayUC[i].duracaoAulas.TP,arrayUC[i].duracaoAulas.PL);
+
+       printf("%6d\t%8s\t%d\t\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\n",
+              arrayUC[i].codigoUC, arrayUC[i].nome, arrayUC[i].tipoUC, arrayUC[i].semestre, arrayUC[i].regime, arrayUC[i].quantTipoAulas.T,
+              arrayUC[i].quantTipoAulas.TP, arrayUC[i].quantTipoAulas.PL, arrayUC[i].duracaoAulas.T ,arrayUC[i].duracaoAulas.TP ,arrayUC[i].duracaoAulas.PL);
     }
 
+}
+
+
+void removerDadosUC(dadosUC arrayUC[MAX_UCS], int *posIndiceArray, int codigoUC)
+{
+    int indiceDadosUC;
+    dadosUC tempUC;
+    indiceDadosUC = procurarDadosUC(arrayUC,*posIndiceArray,codigoUC);
+
+    if (indiceDadosUC != -1)
+    {
+        arrayUC[indiceDadosUC] = arrayUC[*posIndiceArray];
+        (*posIndiceArray)--;
+        ordenarDadosUC(arrayUC,*posIndiceArray);
+    }
 }
 
