@@ -12,7 +12,7 @@ int menu_eliminarAula();
 int menu_alterarAula();
 int menu_listaAulas();
 int menu_estatisticas();
-
+void limpaEcra();
 #endif // FUNC_MENUPRINCIPAL_H_INCLUDED
 
 

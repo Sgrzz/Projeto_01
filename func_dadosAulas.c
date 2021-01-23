@@ -145,7 +145,6 @@ dadosAula *agendarAula(dadosAula *vAulasOnline, int *posIndiceArrayAulas, dadosU
         //ler nome da aula
         lerNomeAula(vAulasOnline[*posIndiceArrayAulas].nome,vAulasOnline,*posIndiceArrayAulas);
 
-
         //ler codigo da UC
         vAulasOnline[*posIndiceArrayAulas].codigoUC = lerCodigoDaUC(vDadosUC, posIndiceArrayAulasUC);
 
@@ -165,10 +164,10 @@ dadosAula *agendarAula(dadosAula *vAulasOnline, int *posIndiceArrayAulas, dadosU
         lerHoraFimAula(&(vAulasOnline[*posIndiceArrayAulas].horaFim));
 
         //ler o estado da aula (agendada, a decorrer ou realizada)
-        vAulasOnline[*posIndiceArrayAulas].estado=estadoAula();
+        vAulasOnline[*posIndiceArrayAulas].estado = enumEstadoAula.agendada;
 
         //ler opcao de gravacao da aula: 0-nao , 1-sim
-        vAulasOnline[*posIndiceArrayAulas].gravacao=opGravacao();
+        vAulasOnline[*posIndiceArrayAulas].gravacao = opGravacao();
 
         (*posIndiceArrayAulas)++;//adiciona nova informacao ao array
     }
@@ -234,7 +233,7 @@ dadosAula *eliminarAula (dadosAula *vAulasOnline, int *quantAulas)
 }
 
 
-void alterarAula(dadosAula *vAulasOnline, int quantAulas, char nomeAula[MAX_STRING_NOME_AULA], int opcao)
+void alterarAula(dadosAula *vAulasOnline, int quantAulas,dadosUC dadosDaUC[MAX_UCS], int indiceArrayUC, char nomeAula[MAX_STRING_NOME_AULA], int opcao)
 {
     int posNome;
 
@@ -249,20 +248,77 @@ void alterarAula(dadosAula *vAulasOnline, int quantAulas, char nomeAula[MAX_STRI
     {
         switch(opcao)
         {
-            case 0: //altera tudo
+        case 0: //altera tudo
             lerNomeAula(vAulasOnline[posNome].nome, vAulasOnline, quantAulas);
-            vAulasOnline[posNome].codigoUC = lerCodigoDaUC(vAulasOnline, quantAulas);
-            vAulasOnline[posNome].tipo = lerTipoAula();
+            vAulasOnline[posNome].codigoUC = lerCodigoDaUC(dadosDaUC, indiceArrayUC);
+            vAulasOnline[posNome].tipoAula = lerTipoAula();
             lerNomeDocente(vAulasOnline[posNome].nomeDocente);
             lerDataAula(&vAulasOnline[posNome].data);
             lerHoraInicioAula(&vAulasOnline[posNome].horaInicio);
             lerHoraFimAula(&vAulasOnline[posNome].horaFim);
             vAulasOnline[posNome].estado = estadoAula();
+            vAulasOnline[posNome].gravacao = opGravacao();
+            break;
+
+        //altera campo a campo
+        case 1:
+            lerNomeAula(vAulasOnline[posNome].nome, vAulasOnline, quantAulas);
+            break;
+        case 2:
+            vAulasOnline[posNome].codigoUC = lerCodigoDaUC(dadosDaUC, indiceArrayUC);
+            break;
+        case 3:
+            vAulasOnline[posNome].tipoAula = lerTipoAula();
+            break;
+        case 4:
+            lerNomeDocente(vAulasOnline[posNome].nomeDocente);
+            break;
+        case 5:
+            lerDataAula(&vAulasOnline[posNome].data);
+            break;
+        case 6:
+            lerHoraInicioAula(&vAulasOnline[posNome].horaInicio);
+            break;
+        case 7:
+            lerHoraFimAula(&vAulasOnline[posNome].horaFim);
+            break;
+        case 8:
+            vAulasOnline[posNome].estado = estadoAula();
+            break;
+        case 9:
+            vAulasOnline[posNome].gravacao = opGravacao();
+            break;
         }
-
-
-
-
-
     }
+}
+
+void registarIncioAula(dadosAula *vAulasOnline, int quantAulas, char nomeAula[MAX_STRING_NOME_AULA])
+{
+    int posNome;
+
+    posNome = procurarNomeAula(vAulasOnline, quantAulas, nomeAula);
+
+    if(posNome != -1)
+    {
+        if(vAulasOnline[posNome].estadoAula == enumEstadoAula.agendada)
+        {
+            vAulasOnline[posNome].estadoAula = enumEstadoAula.decorrer;
+        }
+    }
+}
+
+void registarFimAula(dadosAula *vAulasOnline, int quantAulas, char nomeAula[MAX_STRING_NOME_AULA])
+{
+    int posNome;
+
+    posNome = procurarNomeAula(vAulasOnline, quantAulas, nomeAula);
+
+    if(posNome != -1)
+    {
+        if(vAulasOnline[posNome].estadoAula == enumEstadoAula.decorrer)
+        {
+            vAulasOnline[posNome].estadoAula = enumEstadoAula.realizada;
+        }
+    }
+
 }

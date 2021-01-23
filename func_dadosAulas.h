@@ -24,7 +24,7 @@ dadosAula *agendarAula(dadosAula *vAulasOnline, int *posIndiceArrayAulas, dadosU
 
 dadosAula *eliminarAula (dadosAula *vAulasOnline, int *quantAulas);
 void listarDadosAula(dadosAula *vAulasOnline, int posIndiceArray);
-
+void alterarAula(dadosAula *vAulasOnline, int quantAulas,dadosUC dadosDaUC[MAX_UCS], int indiceArrayUC, char nomeAula[MAX_STRING_NOME_AULA], int opcao);
 
 
 #endif // FUNC_DADOSAULAS_H_INCLUDED

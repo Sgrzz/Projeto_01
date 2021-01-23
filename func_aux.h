@@ -8,6 +8,6 @@ void lerData(tipoData *data);
 int lerInteiro(int minimo, int maximo);
 float lerFloat(float minimo, float maximo);
 void lerString(char vetorCaracteres[MAX_STRING], int maximoCaracteres);
-void limpaBufferStdin(void);
+void limpaBufferStdin();
 
 #endif // FUNCOES_AUXILIARES_H_INCLUDED

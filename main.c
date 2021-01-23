@@ -16,10 +16,12 @@ int main()
     int escolha, indiceVetUC = 0, escolhaSubMenu, indiceVetAulas = 0;
     dadosAula *vAulasOnline = NULL;
 
-    carregarDadosFicheiroBinario(vDadosUC,&indiceVetUC);
+    //carregarDadosFicheiroBinario(vDadosUC,&indiceVetUC);
     do
     {
+
         escolha = menu_principal();
+
         switch (escolha)
         {
         case 1://Lista das Ucs
@@ -44,9 +46,14 @@ int main()
             break;
 
         case 4://Eliminar UC
-
+            escolhaSubMenu = menu_eliminarUC(vDadosUC, indiceVetUC);
+            if(escolhaSubMenu != 0)
+            {
+                removerDadosUC(vDadosUC, &indiceVetUC, escolhaSubMenu);
+            }
             break;
         case 5://Agedar aula online
+
             vAulasOnline = agendarAula(vAulasOnline, &indiceVetAulas, vDadosUC, indiceVetUC);
             break;
         case 6://Registar acesso a aula online
@@ -56,7 +63,7 @@ int main()
             vAulasOnline = eliminarAula(vAulasOnline, &indiceVetAulas);
             break;
         case 8://Alterar aula Agendada
-
+            //alterarAula(vAulasOnline, indiceVetAulas,  ,opcao);
             break;
         case 9://Lista das aulas online
             listarDadosAula(vAulasOnline, indiceVetAulas);

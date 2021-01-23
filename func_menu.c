@@ -10,7 +10,8 @@
 int menu_principal()  //funcao menu principal
 {
     int escolha;
-    void limpaBufferStdin(void);
+
+    limpaEcra();
 
     printf("\n---------------------Menu Principal--------------------\n");
     //printf("\n                        Projeto p1                       \n");
@@ -35,7 +36,7 @@ int menu_principal()  //funcao menu principal
     printf("11 -> Sair do programa\n");
     printf("-------------------------------------------------------\n");
     printf("Selecione a opção desejada.\n");
-    escolha = lerInteiro(1,11);
+    escolha = lerInteiro(MIN_MENU_PRINCIPAL,MAX_MENU_PRINCIPAL);
 
     return escolha;
 }
@@ -46,16 +47,18 @@ int menu_principal()  //funcao menu principal
 int menu_listaUcs(dadosUC vDadosUC[MAX_UCS], int indiceVetUC)  // funcao menu lista das UCs
 {
     int escolha;
-    void limpaBufferStdin(void);
+
+    limpaEcra();
 
     printf("                  Lista das UCs                   \n");
     printf("-------------------------------------------------------\n");
-    listarDadosUC(vDadosUC , indiceVetUC);
+    listarDadosUC(vDadosUC, indiceVetUC);
     printf("-------------------------------------------------------\n");
 
     printf("Selecione o codigo da UC para mais informacoes ou 0 para voltar\n");
 
-    escolha = lerInteiro(0,40);
+    escolha = lerInteiro(MIN_OPCAO_MENU_VOLTAR,indiceVetUC);
+
     return escolha;
 }
 
@@ -63,33 +66,34 @@ int menu_listaUcs(dadosUC vDadosUC[MAX_UCS], int indiceVetUC)  // funcao menu li
 int menu_alterarUC(dadosUC vDadosUC[MAX_UCS], int indiceVetUC)  // funcao menu alterar UC
 {
     int escolha;
-    limpaBufferStdin();
+
+    limpaEcra();
 
     printf("                Alterar UC             \n");
     printf("-------------------------------------------------------\n");
-    listarDadosUC(vDadosUC , indiceVetUC);
+    listarDadosUC(vDadosUC, indiceVetUC);
     printf("-------------------------------------------------------\n");
     printf("Selecione o codigo da UC a alterar ou 0 para voltar\n");
 
-    escolha = lerInteiro(0,40);
+    escolha = lerInteiro(MIN_OPCAO_MENU_VOLTAR,indiceVetUC);
 
     return escolha;
 }
 
 
-int menu_eliminarUC()  // funcao menu eliminar UC
+int menu_eliminarUC(dadosUC vDadosUC[MAX_UCS], int indiceVetUC)  // funcao menu eliminar UC
 {
     int escolha;
-    void limpaBufferStdin(void);
+
 
     printf("                 Eliminar UC                \n");
     printf("-------------------------------------------------------\n");
-
+    listarDadosUC(vDadosUC, indiceVetUC);
     printf("-------------------------------------------------------\n");
     printf("-> Selecione o código da UC a eliminar\n");
     printf("-1 -> Selecione 0 para voltar\n");
 
-    escolha = lerInteiro(0,40);
+    escolha = lerInteiro(MIN_OPCAO_MENU_VOLTAR,indiceVetUC);
 
     return escolha;
 }
@@ -100,7 +104,6 @@ int menu_eliminarUC()  // funcao menu eliminar UC
 int menu_agendarAula()  // funcao menu agendar aula online
 {
     int escolha;
-    void limpaBufferStdin(void);
 
     printf("                    Agendar aula               \n");
     printf("-------------------------------------------------------\n");
@@ -119,7 +122,6 @@ int menu_agendarAula()  // funcao menu agendar aula online
 int menu_registarAcessoAula()  // funcao menu registar acesso a aula
 {
     int escolha;
-    void limpaBufferStdin(void);
 
     printf("           Registar Acesso a Aula Online       \n");
     printf("-------------------------------------------------------\n");
@@ -132,13 +134,13 @@ int menu_registarAcessoAula()  // funcao menu registar acesso a aula
     printf("2 - Cancelar\n");
 
     escolha = lerInteiro(1,2);
+
     return escolha;
 }
 
 int menu_eliminarAula()  // funcao menu eliminar Aula
 {
     int escolha;
-    void limpaBufferStdin(void);
 
     printf("                 Eliminar Aula                \n");
     printf("-------------------------------------------------------\n");
@@ -156,7 +158,6 @@ int menu_eliminarAula()  // funcao menu eliminar Aula
 int menu_alterarAula()  // funcao menu alterar aula
 {
     int escolha;
-    void limpaBufferStdin(void);
 
     printf("                Alterar Aula             \n");
     printf("-------------------------------------------------------\n");
@@ -173,16 +174,14 @@ int menu_alterarAula()  // funcao menu alterar aula
 int menu_listaAulas()  // funcao menu Lista das Aulas
 {
     int escolha;
-    void limpaBufferStdin(void);
 
     printf("              Lista das Aulas           \n");
     printf("-------------------------------------------------------\n");
 
     printf("-------------------------------------------------------\n");
-    printf("1 - Selecione as aulas pretendidas\n");
-    printf("2 - Voltar\n");
+    printf("Selecione o codigo da aula ou 0 para voltar\n");
 
-    escolha = lerInteiro(1,2);
+    escolha = lerInteiro(0,1);
 
     return escolha;
 }
@@ -191,7 +190,6 @@ int menu_listaAulas()  // funcao menu Lista das Aulas
 int menu_estatisticas()  // funcao menu das estatísticas
 {
     int escolha;
-    void limpaBufferStdin(void);
 
     printf("                Estatísticas            \n");
     printf("-------------------------------------------------------\n");
@@ -213,9 +211,19 @@ int menu_estatisticas()  // funcao menu das estatísticas
     printf("-->Ranking:\n");
 
     printf("-------------------------------------------------------\n");
-    printf("1 -> Voltar\n");
+    printf("0 -> Voltar\n");
 
-    escolha = lerInteiro(1,1);
+    escolha = lerInteiro(0,0);
 
     return escolha;
+}
+
+
+void limpaEcra()
+{
+    int i;
+    for(i=0; i<100; i++)
+    {
+        printf(" \n");
+    }
 }

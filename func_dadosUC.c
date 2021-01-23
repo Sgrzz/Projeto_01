@@ -136,48 +136,48 @@ void alterarDadosUC(dadosUC arrayDadosDaUC[MAX_UCS],int posIndiceArray,int codig
 
         switch (opcao)
         {
-            case 0:
-                lerDadosNomeUC(dadosDaUC.nome);
-                dadosDaUC.tipoUC=lerTipoUC();
-                dadosDaUC.semestre=lerSemestreUC();
-                dadosDaUC.regime=lerRegimeUC();
-                dadosDaUC.quantTipoAulas.T = lerQuantTipoAulas_T();
-                dadosDaUC.quantTipoAulas.TP = lerQuantTipoAulas_TP();
-                dadosDaUC.quantTipoAulas.PL = lerQuantTipoAulas_PL();
-                dadosDaUC.duracaoAulas.T = lerDuracaoAulas_T();
-                dadosDaUC.duracaoAulas.TP = lerDuracaoAulas_TP();
-                dadosDaUC.duracaoAulas.PL = lerDuracaoAulas_PL();
-                break;
-            case 1:
-                lerDadosNomeUC(dadosDaUC.nome);
-                break;
-            case 2:
-                dadosDaUC.tipoUC=lerTipoUC();
-                break;
-            case 3:
-                dadosDaUC.semestre=lerSemestreUC();
-                break;
-            case 4:
-                dadosDaUC.regime=lerRegimeUC();
-                break;
-            case 5:
-                dadosDaUC.quantTipoAulas.T = lerQuantTipoAulas_T();
-                break;
-            case 6:
-                dadosDaUC.quantTipoAulas.TP = lerQuantTipoAulas_TP();
-                break;
-            case 7:
-                dadosDaUC.quantTipoAulas.PL = lerQuantTipoAulas_PL();
-                break;
-            case 8:
-                dadosDaUC.duracaoAulas.T = lerDuracaoAulas_T();
-                break;
-            case 9:
-                dadosDaUC.duracaoAulas.TP = lerDuracaoAulas_TP();
-                break;
-            case 10:
-                dadosDaUC.duracaoAulas.PL = lerDuracaoAulas_PL();
-                break;
+        case 0:
+            lerDadosNomeUC(dadosDaUC.nome);
+            dadosDaUC.tipoUC=lerTipoUC();
+            dadosDaUC.semestre=lerSemestreUC();
+            dadosDaUC.regime=lerRegimeUC();
+            dadosDaUC.quantTipoAulas.T = lerQuantTipoAulas_T();
+            dadosDaUC.quantTipoAulas.TP = lerQuantTipoAulas_TP();
+            dadosDaUC.quantTipoAulas.PL = lerQuantTipoAulas_PL();
+            dadosDaUC.duracaoAulas.T = lerDuracaoAulas_T();
+            dadosDaUC.duracaoAulas.TP = lerDuracaoAulas_TP();
+            dadosDaUC.duracaoAulas.PL = lerDuracaoAulas_PL();
+            break;
+        case 1:
+            lerDadosNomeUC(dadosDaUC.nome);
+            break;
+        case 2:
+            dadosDaUC.tipoUC=lerTipoUC();
+            break;
+        case 3:
+            dadosDaUC.semestre=lerSemestreUC();
+            break;
+        case 4:
+            dadosDaUC.regime=lerRegimeUC();
+            break;
+        case 5:
+            dadosDaUC.quantTipoAulas.T = lerQuantTipoAulas_T();
+            break;
+        case 6:
+            dadosDaUC.quantTipoAulas.TP = lerQuantTipoAulas_TP();
+            break;
+        case 7:
+            dadosDaUC.quantTipoAulas.PL = lerQuantTipoAulas_PL();
+            break;
+        case 8:
+            dadosDaUC.duracaoAulas.T = lerDuracaoAulas_T();
+            break;
+        case 9:
+            dadosDaUC.duracaoAulas.TP = lerDuracaoAulas_TP();
+            break;
+        case 10:
+            dadosDaUC.duracaoAulas.PL = lerDuracaoAulas_PL();
+            break;
         }
 
         arrayDadosDaUC[posIndiceArrayDadosUC] = dadosDaUC;
@@ -235,9 +235,9 @@ void listarDadosUC(dadosUC arrayUC[MAX_UCS], int posIndiceArray)
     for (i=0; i<posIndiceArray; i++)
     {
 
-       printf("%6d\t%8s\t%d\t\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\n",
-              arrayUC[i].codigoUC, arrayUC[i].nome, arrayUC[i].tipoUC, arrayUC[i].semestre, arrayUC[i].regime, arrayUC[i].quantTipoAulas.T,
-              arrayUC[i].quantTipoAulas.TP, arrayUC[i].quantTipoAulas.PL, arrayUC[i].duracaoAulas.T ,arrayUC[i].duracaoAulas.TP ,arrayUC[i].duracaoAulas.PL);
+        printf("%6d\t%8s\t%d\t\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\n",
+               arrayUC[i].codigoUC, arrayUC[i].nome, arrayUC[i].tipoUC, arrayUC[i].semestre, arrayUC[i].regime, arrayUC[i].quantTipoAulas.T,
+               arrayUC[i].quantTipoAulas.TP, arrayUC[i].quantTipoAulas.PL, arrayUC[i].duracaoAulas.T,arrayUC[i].duracaoAulas.TP,arrayUC[i].duracaoAulas.PL);
     }
 
 }

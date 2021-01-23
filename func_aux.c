@@ -69,7 +69,6 @@ int lerInteiro(int minimo, int maximo)
             {
                 printf("Numero invalido. Insira novamente:\n");
             }
-
         }
     }
     while(numero<minimo || numero>maximo || controlo ==0);
@@ -130,7 +129,7 @@ void lerString(char vetorCaracteres[MAX_STRING], int maximoCaracteres)
 
 }
 
-void limpaBufferStdin(void)
+void limpaBufferStdin()
 {
     char chr;
     do
@@ -138,4 +137,5 @@ void limpaBufferStdin(void)
         chr = getchar();
     }
     while (chr != '\n' && chr != EOF);
+
 }
