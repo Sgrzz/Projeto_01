@@ -44,6 +44,27 @@
 #define MIN_TIPO_AULA 0             //minimo tipo de aula
 #define MAX_TIPO_AULA 2             //maximo tipo de aula
 #define MAX_STRING_NOME_AULA 20     //maximo do nome da aula
+#define MIN_STRING_NOME_AULA 0      //minimo do nome da aula
+
+#define MAX_HORA_INICIO_AULA 24     //maximo da hora do inicio da aula
+#define MIN_HORA_INICIO_AULA 0      //minimo da hora do inicio da aula
+#define MAX_MINUTOS_INICIO_AULA 59  //maximo de minutos de inicio da aula
+#define MIN_MINUTOS_INICIO_AULA 0   //minimo de minutos de inicio da aula
+
+#define MAX_HORA_FIM_AULA 24        //maximo de horas do fim da aula
+#define MIN_HORA_FIM_AULA 0         //minimo de horas do fim da aula
+#define MAX_MINUTOS_FIM_AULA 59     //maximo de minutos do fim da aula
+#define MIN_MINUTOS_FIM_AULA 0      //minimo de minutos do fim da aula
+
+#define MAX_ESTADO_AULA 2           //maximo de estado da aula
+#define MIN_ESTADO_AULA 0           //minimo de estado da aula
+#define MAX_OP_GRAVACAO 1           //maximo de opcoes de gravacao
+#define MIN_OP_GRAVACAO 0           //minimo de opcoes de gravcao
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////Estudantes///////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+#define MAX_ESTUDANTES 100          //maximo de estudantes
 
 
 
@@ -53,6 +74,6 @@ enum enumTipoUC {obrigatoria,opcional};
 enum enumRegime {diurno,poslaboral};
 enum enumTipoAula {T,TP,PL};
 enum enumEstadoAula {agendada,decorrer,realizada};
-enum bool {false,true};
+enum enumGravacao {nao,sim};
 
 #endif // CONSTANTES_H_INCLUDED

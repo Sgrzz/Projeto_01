@@ -13,8 +13,8 @@ int main()
 
     dadosUC vDadosUC[MAX_UCS];
 
-    int escolha, indiceVetUC=0, escolhaSubMenu;
-
+    int escolha, indiceVetUC = 0, escolhaSubMenu, indiceVetAulas = 0;
+    dadosAula *vAulasOnline = NULL;
     do
     {
         escolha = menu_principal();
@@ -43,25 +43,25 @@ int main()
             break;
 
         case 4://Eliminar UC
-            menu_eliminarUC();
+
             break;
         case 5://Agedar aula online
-            menu_agendarAula();
+            vAulasOnline = agendarAula(vAulasOnline, &indiceVetAulas, vDadosUC, indiceVetUC);
             break;
         case 6://Registar acesso a aula online
-            menu_registarAcessoAula();
+
             break;
         case 7://Eliminar aula online
-            menu_eliminarAula();
+
             break;
         case 8://Alterar aula Agendada
-            menu_alterarAula();
+
             break;
         case 9://Lista das aulas online
-            menu_listaAulas();
+
             break;
         case 10://Estatisticas
-            menu_estatisticas();
+
             break;
         case 11://Sair do programa
             printf("Fim do programa\n");

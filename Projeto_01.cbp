@@ -31,20 +31,28 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="Func_menu.h" />
 		<Unit filename="constantes.h" />
 		<Unit filename="estruturas.h" />
 		<Unit filename="func_aux.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="func_aux.h" />
+		<Unit filename="func_dadosAulas.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="func_dadosAulas.h" />
 		<Unit filename="func_dadosUC.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="func_dadosUC.h" />
+		<Unit filename="func_ficheiros.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="func_ficheiros.h" />
 		<Unit filename="func_menu.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="func_menu.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

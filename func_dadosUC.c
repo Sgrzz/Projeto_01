@@ -111,7 +111,7 @@ void inserirDadosUC(dadosUC dadosDaUC[MAX_UCS], int *posIndiceArray)
     //regime diurno ou pos laboral
     dadosDaUC[*posIndiceArray].regime=lerRegimeUC();
 
-    //pedir 3 numeros para T TP PL
+    //pedir quantidade de aulas para cada tipo T TP PL
     dadosDaUC[*posIndiceArray].quantTipoAulas.T = lerQuantTipoAulas_T();
     dadosDaUC[*posIndiceArray].quantTipoAulas.TP = lerQuantTipoAulas_TP();
     dadosDaUC[*posIndiceArray].quantTipoAulas.PL = lerQuantTipoAulas_PL();
@@ -192,7 +192,7 @@ int procurarDadosUC(dadosUC arrayUC[MAX_UCS], int posIndiceArray, int codigoUC)
         if (codigoUC==arrayUC[i].codigoUC) //se o codigo da uc existir devolve a pos do elemento
         {
             posDadosUC = i;
-            break;
+            i=posIndiceArray;
         }
     }
 
