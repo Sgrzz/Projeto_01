@@ -8,42 +8,70 @@
 
 
 
-//funcao que compara duas horas e verifica que n se sobrepoem, devolve 0 para falso 1 para verdade
-tipoHora compararHoras(tipoHora horaInicio, tipoHora horaInicio2, tipoHora duracao)
-{
-    horaInicio +
 
-    return 0;
+//funcao que compara duas horas e verifica que n se sobrepoem, devolve 0 para falso 1 para verdade
+int compararHoras(tipoHora horaInicio, tipoHora horaInicio2, tipoHora duracao)
+{
+
+    int condicaoDeReturn = 0, horaInicioEmMinutos = 0, horaInicio2EmMinutos = 0, duracaoEmMinutos = 0;
+
+    horaInicioEmMinutos = horaInicio.hora*60 + horaInicio.minuto;
+    horaInicio2EmMinutos = horaInicio2.hora*60 + horaInicio2.minuto;
+    duracaoEmMinutos = duracao.hora*60 + duracao.minuto;
+
+    if (!(horaInicioEmMinutos+duracaoEmMinutos<=horaInicio2EmMinutos && horaInicio2EmMinutos + duracaoEmMinutos <= horaInicioEmMinutos)) //se a hora do inicio em minutos + a duracao em minutos for menor ou igual n se sobrepoem
+    {
+        condicaoDeReturn = 1;
+    }
+
+    return condicaoDeReturn;
 }
 
 //funcao para somar 2 horas devolta o somatorio
 tipoHora somarHora(tipoHora hora1, tipoHora hora2)
 {
     tipoHora horaAux;
+    int soma = 0;
+
     horaAux.hora = 0;
     horaAux.minuto = 0;
 
-    horaAux.minuto = hora1.minuto + hora2.minuto;
+    soma = hora1.hora*60 + hora2.hora*60 + hora1.minuto + hora2.minuto;
 
-    if (horaAux.minuto>=60)
+    horaAux.hora = soma/60;
+    horaAux.minuto = (soma%60)*60;
+
+    if (horaAux.hora>=24)
     {
-        do
-        {
-            if (horaAux.minuto-60>=60)
-            {
-                horaAux.minuto-=60;
-            }
-
-        }while(horaAux.minuto>60);
+        horaAux.hora -= 24;
     }
+
+    return horaAux;
 
 }
 
 //funcao para subtrair horas devolve o resultado
+/*
 tipoHora subtrairHora(tipoHora hora1, tipoHora hora2)
 {
+    tipoHora horaAux;
+    int soma = 0;
 
-}
+    horaAux.hora = 0;
+    horaAux.minuto = 0;
+
+    soma = hora1.hora*60 - hora2.hora*60 - hora1.minuto - hora2.minuto;
+
+    horaAux.hora = soma/60;
+    horaAux.minuto = (soma%60)*60;
+
+    if (horaAux.hora<0)
+    {
+        horaAux.hora -= 24;
+    }
+
+    return horaAux;
+}*/
 
 //tipoData lerData(){
 //    tipodata data;

@@ -4,6 +4,8 @@
 #include "constantes.h"
 #include "estruturas.h"
 
+int compararHoras(tipoHora horaInicio, tipoHora horaInicio2, tipoHora duracao);
+tipoHora somarHora(tipoHora hora1, tipoHora hora2);
 void lerData(tipoData *data);
 int lerInteiro(int minimo, int maximo);
 float lerFloat(float minimo, float maximo);

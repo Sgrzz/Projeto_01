@@ -11,10 +11,9 @@ int menu_principal()  //funcao menu principal
 {
     int escolha;
 
-    limpaEcra();
-
-    printf("\n---------------------Menu Principal--------------------\n");
-    //printf("\n                        Projeto p1                       \n");
+    printf("\n-------------------------------------------------------\n");
+    printf("---------------------Menu Principal--------------------\n");
+    printf("-------------------------------------------------------\n");
     printf("Quantidade de UCs: \n");
     printf("Quantidade de aulas agendadas: \n");
     printf("Quantidade de aulas gravadas: \n");
@@ -35,7 +34,8 @@ int menu_principal()  //funcao menu principal
     printf("10 -> Estatisticas\n");
     printf("11 -> Sair do programa\n");
     printf("-------------------------------------------------------\n");
-    printf("Selecione a opção desejada.\n");
+    printf("-------------------------------------------------------\n");
+    printf("Selecione a opção desejada ->");
     escolha = lerInteiro(MIN_MENU_PRINCIPAL,MAX_MENU_PRINCIPAL);
 
     return escolha;
@@ -48,14 +48,12 @@ int menu_listaUcs(dadosUC vDadosUC[MAX_UCS], int indiceVetUC)  // funcao menu li
 {
     int escolha;
 
-    limpaEcra();
-
+    printf("-------------------------------------------------------\n");
     printf("                  Lista das UCs                   \n");
     printf("-------------------------------------------------------\n");
     listarDadosUC(vDadosUC, indiceVetUC);
     printf("-------------------------------------------------------\n");
-
-    printf("Selecione o codigo da UC para mais informacoes ou 0 para voltar\n");
+    printf("Selecione o codigo da UC para mais informacoes ou 0 para voltar->");
 
     escolha = lerInteiro(MIN_OPCAO_MENU_VOLTAR,indiceVetUC);
 
@@ -67,13 +65,12 @@ int menu_alterarUC(dadosUC vDadosUC[MAX_UCS], int indiceVetUC)  // funcao menu a
 {
     int escolha;
 
-    limpaEcra();
-
+    printf("-------------------------------------------------------\n");
     printf("                Alterar UC             \n");
     printf("-------------------------------------------------------\n");
     listarDadosUC(vDadosUC, indiceVetUC);
     printf("-------------------------------------------------------\n");
-    printf("Selecione o codigo da UC a alterar ou 0 para voltar\n");
+    printf("Selecione o codigo da UC a alterar ou 0 para voltar->");
 
     escolha = lerInteiro(MIN_OPCAO_MENU_VOLTAR,indiceVetUC);
 
@@ -85,13 +82,12 @@ int menu_eliminarUC(dadosUC vDadosUC[MAX_UCS], int indiceVetUC)  // funcao menu 
 {
     int escolha;
 
-
+    printf("-------------------------------------------------------\n");
     printf("                 Eliminar UC                \n");
     printf("-------------------------------------------------------\n");
     listarDadosUC(vDadosUC, indiceVetUC);
     printf("-------------------------------------------------------\n");
-    printf("-> Selecione o código da UC a eliminar\n");
-    printf("-1 -> Selecione 0 para voltar\n");
+    printf("Selecione o código da UC a eliminar ou 0 para voltar ->");
 
     escolha = lerInteiro(MIN_OPCAO_MENU_VOLTAR,indiceVetUC);
 

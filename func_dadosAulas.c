@@ -101,13 +101,13 @@ void lerDataAula(tipoData *data)
 //horaFim
 void lerHoraAula(tipoHora *horaInicio, tipoHora *horaFim,dadosAula *vDadosAula, int indiceDadosAula, enum enumRegime regime, enum enumTipoAula tipoAula,tipoTempoAulas tempoAulas, int codigoUC)
 {
-    int horaCompInicio = 0, horaCompFim = 0, i, duracao;
+    int horaCompInicio = 0, horaCompFim = 0, i, duracao, condicaoSobrepoem = 0, podeSairWhile = 1;
     tipoHora tempo, horaDuracao;
 
     horaDuracao.hora = 0;
     horaDuracao.minuto = 0;
 
-    switch (tipoUC)
+    switch (regime)
     {
         case 0:
             horaCompInicio = 8;
@@ -140,33 +140,38 @@ void lerHoraAula(tipoHora *horaInicio, tipoHora *horaFim,dadosAula *vDadosAula, 
     do{
 
         printf("Insira a hora de inciio da aula:\n");
-        tempo.hora = lerInteiro(MIN_HORA_INICIO_AULA, MAX_HORA_INICIO_AULA);
+        tempo.hora = lerInteiro(MIN_HORA, MAX_HORA);
 
         printf("Insira os minutos do inicio da aula:");
-        tempo.minuto = lerInteiro(MIN_MINUTOS_INICIO_AULA, MAX_MINUTOS_INICIO_AULA);
+        tempo.minuto = lerInteiro(MIN_MINUTOS, MAX_MINUTOS);
 
-
+        podeSairWhile = 1;
 
         for(i = 0; i<indiceDadosAula;i++)
         {
-            if (vDadosAula[i].codigoUC = codigoUC)
+            if (vDadosAula[i].codigoUC == codigoUC)
             {
-                if ()
+                condicaoSobrepoem = compararHoras(tempo,vDadosAula[i].horaInicio,horaDuracao);
+                if (condicaoSobrepoem)
                 {
-
+                    printf("Já existe uma aula agendada para esta hora.");
+                    podeSairWhile = 0;
+                    i = indiceDadosAula;
                 }
             }
 
         }
 
-
         if (!(tempo.hora>=horaCompInicio && tempo.hora<=horaCompFim))
         {
             printf("hora invalida para o regime especificado na UC");
+            podeSairWhile = 0;
         }
 
-    }while((tempo.hora<horaCompInicio || tempo.hora>horaCompFim));
+    }while(!podeSairWhile);
 
+    *horaInicio = tempo;
+    *horaFim = somarHora(*horaInicio,horaDuracao);
 
 }
 
@@ -191,12 +196,15 @@ dadosAula *agendarAula(dadosAula *vAulasOnline, int *posIndiceArrayAulas, dadosU
     vBackup = vAulasOnline;
     int codigoUC, indiceUC;
 
-
     vAulasOnline=realloc(vAulasOnline, *posIndiceArrayAulas+1*sizeof(dadosAula));
     if (vAulasOnline == NULL)//se for == NULL nao aloca na memoria e faz backup da info
     {
         printf("Erro ao alocar memoria\n");
         vAulasOnline = vBackup;
+    }
+    else if (!posIndiceArrayAulasUC)
+    {
+        printf("Nao existem UC's para agendar aulas.\n");
     }
     else  //vamos fazer a reserva
     {
@@ -220,11 +228,8 @@ dadosAula *agendarAula(dadosAula *vAulasOnline, int *posIndiceArrayAulas, dadosU
         lerDataAula(&(vAulasOnline[*posIndiceArrayAulas].data));
 
         //ler hora de inicio da aula
-        lerHoraInicioAula(&(vAulasOnline[*posIndiceArrayAulas].horaInicio),vDadosUC[indiceUC].tipoUC);
-
-        //ler hora do fim da aula
-        //lerHoraFimAula(&(vAulasOnline[*posIndiceArrayAulas].horaFim));
-
+        lerHoraAula(&vAulasOnline[*posIndiceArrayAulas].horaInicio,&vAulasOnline[*posIndiceArrayAulas].horaFim,vAulasOnline,
+                    *posIndiceArrayAulas,vDadosUC[indiceUC].regime,vAulasOnline[*posIndiceArrayAulas].tipoAula,vDadosUC[indiceUC].duracaoAulas,codigoUC);
 
         //ler o estado da aula (agendada, a decorrer ou realizada)
         vAulasOnline[*posIndiceArrayAulas].estado = agendada;
@@ -236,7 +241,6 @@ dadosAula *agendarAula(dadosAula *vAulasOnline, int *posIndiceArrayAulas, dadosU
     }
     return vAulasOnline;
 }//FIM inserirDadosAula
-
 
 
 void listarDadosAula(dadosAula *vAulasOnline, int posIndiceArray)
@@ -313,12 +317,16 @@ void alterarAula(dadosAula *vAulasOnline, int quantAulas,dadosUC dadosDaUC[MAX_U
         {
         case 0: //altera tudo
             lerNomeAula(vAulasOnline[posNome].nome, vAulasOnline, quantAulas);
-            vAulasOnline[posNome].codigoUC = lerCodigoDaUC(dadosDaUC, indiceArrayUC);
+            codigoUC = lerCodigoDaUC(dadosDaUC, indiceArrayUC);
+            vAulasOnline[posNome].codigoUC = codigoUC;
+            indiceUC = procurarDadosUC(dadosDaUC,indiceArrayUC,codigoUC);
             vAulasOnline[posNome].tipoAula = lerTipoAula();
             lerNomeDocente(vAulasOnline[posNome].nomeDocente);
             lerDataAula(&vAulasOnline[posNome].data);
-            lerHoraInicioAula(&vAulasOnline[posNome].horaInicio);
-            //fim de aula n esquecer
+
+            lerHoraAula(&vAulasOnline[posNome].horaInicio,&vAulasOnline[posNome].horaFim,vAulasOnline,
+                        quantAulas,dadosDaUC[indiceUC].regime,vAulasOnline[posNome].tipoAula,dadosDaUC[indiceUC].duracaoAulas,codigoUC);
+
             vAulasOnline[posNome].estado = estadoAula();
             vAulasOnline[posNome].gravacao = opGravacao();
             break;
@@ -340,15 +348,15 @@ void alterarAula(dadosAula *vAulasOnline, int quantAulas,dadosUC dadosDaUC[MAX_U
             lerDataAula(&vAulasOnline[posNome].data);
             break;
         case 6:
-            lerHoraInicioAula(&vAulasOnline[posNome].horaInicio);
+            codigoUC = vAulasOnline[posNome].codigoUC;
+            indiceUC = procurarDadosUC(dadosDaUC,indiceArrayUC,codigoUC);
+            lerHoraAula(&vAulasOnline[posNome].horaInicio,&vAulasOnline[posNome].horaFim,vAulasOnline,
+                    quantAulas,dadosDaUC[indiceUC].regime,vAulasOnline[posNome].tipoAula,dadosDaUC[indiceUC].duracaoAulas,codigoUC);
             break;
         case 7:
-            lerHoraFimAula(&vAulasOnline[posNome].horaFim);
-            break;
-        case 8:
             vAulasOnline[posNome].estado = estadoAula();
             break;
-        case 9:
+        case 8:
             vAulasOnline[posNome].gravacao = opGravacao();
             break;
         }
@@ -363,7 +371,7 @@ void registarIncioAula(dadosAula *vAulasOnline, int quantAulas, char nomeAula[MA
 
     if(posNome != -1)
     {
-        if(vAulasOnline[posNome].estado == T)
+        if(vAulasOnline[posNome].estado == agendada)
         {
             vAulasOnline[posNome].estado = decorrer;
         }
@@ -384,4 +392,54 @@ void registarFimAula(dadosAula *vAulasOnline, int quantAulas, char nomeAula[MAX_
         }
     }
 
+}
+
+void infoAulasOnline(dadosAula *vAulasOnline, int indiceAulasOnline,int condigoUC)
+{
+    int i;
+    char tipo[MAX_STRING];
+    tipoAulas quantAulas;
+    quantAulas.T = 0;
+    quantAulas.TP = 0;
+    quantAulas.PL = 0;
+    for (i=0;i<indiceAulasOnline;i++)
+    {
+        if ((vAulasOnline[i].codigoUC == condigoUC) && (vAulasOnline[i].estado == realizada))
+        {
+            switch(vAulasOnline[i].tipoAula)
+            {
+                case 0:
+                    quantAulas.T++;
+                    break;
+                case 1:
+                    quantAulas.TP++;
+                    break;
+                case 2:
+                    quantAulas.PL++;
+                    break;
+            }
+        }
+    }
+
+    printf("Aulas realizadas teoricas:%d | teorico praticas:%d | pratico laboratoriais:%d\n",quantAulas.T,quantAulas.TP,quantAulas.PL);
+    printf("Aulas agendadas:\n");
+    for (i=0;i<indiceAulasOnline;i++)
+    {
+        if ((vAulasOnline[i].codigoUC == condigoUC) && (vAulasOnline[i].estado == agendada))
+        {
+            switch(vAulasOnline[i].tipoAula)
+            {
+                case 0:
+                    strcpy(tipo,"teorica");
+                    break;
+                case 1:
+                    strcpy(tipo,"teorico pratica");
+                    break;
+                case 2:
+                    strcpy(tipo,"pratico laboratorial");
+                    break;
+            }
+            printf("Tipo: %s",tipo);
+        }
+    }
 }

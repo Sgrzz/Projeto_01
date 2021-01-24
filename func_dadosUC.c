@@ -231,22 +231,30 @@ void ordenarDadosUC(dadosUC arrayUC[MAX_UCS], int posIndiceArray)
 void listarDadosUC(dadosUC arrayUC[MAX_UCS], int posIndiceArray)
 {
     int i;
-    printf("Codigo\tNome\t\ttipo\tsemestre\tregime\tquantidade: T\tTP\tPL\tduracao: T\tTP\tPL\n");
-    for (i=0; i<posIndiceArray; i++)
+
+    if (posIndiceArray)
     {
 
-        printf("%6d\t%8s\t%d\t\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\n",
-               arrayUC[i].codigoUC, arrayUC[i].nome, arrayUC[i].tipoUC, arrayUC[i].semestre, arrayUC[i].regime, arrayUC[i].quantTipoAulas.T,
-               arrayUC[i].quantTipoAulas.TP, arrayUC[i].quantTipoAulas.PL, arrayUC[i].duracaoAulas.T,arrayUC[i].duracaoAulas.TP,arrayUC[i].duracaoAulas.PL);
-    }
 
+        printf("Codigo\tNome\t\ttipo\tsemestre\tregime\tquantidade: T\tTP\tPL\tduracao: T\tTP\tPL\n");
+        for (i=0; i<posIndiceArray; i++)
+        {
+
+            printf("%6d\t%8s\t%d\t\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\n",
+                   arrayUC[i].codigoUC, arrayUC[i].nome, arrayUC[i].tipoUC, arrayUC[i].semestre, arrayUC[i].regime, arrayUC[i].quantTipoAulas.T,
+                   arrayUC[i].quantTipoAulas.TP, arrayUC[i].quantTipoAulas.PL, arrayUC[i].duracaoAulas.T,arrayUC[i].duracaoAulas.TP,arrayUC[i].duracaoAulas.PL);
+        }
+    }
+    else
+    {
+        printf("Ainda nao existem UC's\n");
+    }
 }
 
 
 void removerDadosUC(dadosUC arrayUC[MAX_UCS], int *posIndiceArray, int codigoUC)
 {
     int indiceDadosUC;
-    dadosUC tempUC;
     indiceDadosUC = procurarDadosUC(arrayUC,*posIndiceArray,codigoUC);
 
     if (indiceDadosUC != -1)
