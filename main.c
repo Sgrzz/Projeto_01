@@ -18,7 +18,6 @@ int main()
 
 
 
-
     vAulasOnline = carregarDadosFicheiroBinario(vDadosUC,&indiceVetUC,vAulasOnline,&indiceVetAulas);
 
     do
@@ -67,9 +66,11 @@ int main()
 
             break;
         case 7://Eliminar aula online
+            listarDadosAula(vAulasOnline, indiceVetAulas);
             vAulasOnline = eliminarAula(vAulasOnline, &indiceVetAulas);
             break;
         case 8://Alterar aula Agendada
+            listarDadosAula(vAulasOnline, indiceVetAulas);
             //alterarAula(vAulasOnline, indiceVetAulas,  ,opcao);
             break;
         case 9://Lista das aulas online
@@ -85,6 +86,8 @@ int main()
         }
     }
     while (escolha!=11);
+
+    free(vAulasOnline);
 
     return 0;
 }

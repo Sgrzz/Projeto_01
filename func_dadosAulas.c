@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <math.h>
 
 #include "func_dadosAulas.h"
 #include "estruturas.h"
@@ -103,6 +104,7 @@ void lerHoraAula(tipoHora *horaInicio, tipoHora *horaFim,dadosAula *vDadosAula, 
 {
     int horaCompInicio = 0, horaCompFim = 0, i, duracao, condicaoSobrepoem = 0, podeSairWhile = 1;
     tipoHora tempo, horaDuracao;
+    double temp;
 
     horaDuracao.hora = 0;
     horaDuracao.minuto = 0;
@@ -134,8 +136,9 @@ void lerHoraAula(tipoHora *horaInicio, tipoHora *horaFim,dadosAula *vDadosAula, 
 
     //1- dividir os minutos por 60
     //2- a parte inteira sao as horas, a parte dos minutos é o resto a multiplicar por 60
-    horaDuracao.hora = duracao/60;
-    horaDuracao.minuto = (duracao%60)*60;
+
+     horaDuracao.hora = duracao/60;
+     horaDuracao.minuto = (((duracao/60.0)-horaDuracao.hora)*60);
 
     do{
 
@@ -196,7 +199,7 @@ dadosAula *agendarAula(dadosAula *vAulasOnline, int *posIndiceArrayAulas, dadosU
     vBackup = vAulasOnline;
     int codigoUC, indiceUC;
 
-    vAulasOnline=realloc(vAulasOnline, *posIndiceArrayAulas+1*sizeof(dadosAula));
+    vAulasOnline=realloc(vAulasOnline, (*posIndiceArrayAulas+1)*sizeof(dadosAula));
     if (vAulasOnline == NULL)//se for == NULL nao aloca na memoria e faz backup da info
     {
         printf("Erro ao alocar memoria\n");
@@ -286,7 +289,7 @@ dadosAula *eliminarAula (dadosAula *vAulasOnline, int *quantAulas)
                 // Copia todas as aulas uma posição para trás - i+1 porque acrescenta logo na iteraçao
                 vAulasOnline[i] = vAulasOnline[i+1];
             }
-            vAulasOnline=realloc(vAulasOnline, *quantAulas-1*sizeof(dadosAula));
+            vAulasOnline=realloc(vAulasOnline, (*quantAulas-1)*sizeof(dadosAula));
             if (vAulasOnline == NULL)//se for == NULL nao aloca na memoria e faz backup da info
             {
                 printf("Erro ao alocar memoria\n");

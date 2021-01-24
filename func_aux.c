@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
 
 #include "func_aux.h"
 #include "constantes.h"
 #include "estruturas.h"
+
 
 
 //funcao que compara duas horas e verifica que n se sobrepoem, devolve 0 para falso 1 para verdade
@@ -29,6 +31,7 @@ tipoHora somarHora(tipoHora hora1, tipoHora hora2)
 {
     tipoHora horaAux;
     int soma = 0;
+    double temp = 0.0;
 
     horaAux.hora = 0;
     horaAux.minuto = 0;
@@ -36,14 +39,12 @@ tipoHora somarHora(tipoHora hora1, tipoHora hora2)
     soma = hora1.hora*60 + hora2.hora*60 + hora1.minuto + hora2.minuto;
 
     horaAux.hora = soma/60;
-    horaAux.minuto = (soma%60)*60;
+    horaAux.minuto = ((soma/60.0)-horaAux.hora)*60;
 
     while(horaAux.hora>=24)
     {
         horaAux.hora -= 24;
     }
-
-    printf("%d",horaAux.minuto);
 
     return horaAux;
 

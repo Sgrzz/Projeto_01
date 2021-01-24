@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "estruturas.h"
 
-int gravaFicheiroBinario(dadosUC arrayUC[MAX_UCS], int indiceArrayUC, dadosAula *vAulasOnline,int indiceAulaOnline)
+void gravaFicheiroBinario(dadosUC arrayUC[MAX_UCS], int indiceArrayUC, dadosAula *vAulasOnline,int indiceAulaOnline)
 {
 
     FILE *ficheiro;
@@ -36,6 +36,7 @@ int gravaFicheiroBinario(dadosUC arrayUC[MAX_UCS], int indiceArrayUC, dadosAula 
         }
         else
         {
+
             quantEscrito = fwrite(vAulasOnline, sizeof(dadosAula), indiceAulaOnline, ficheiro);
             if (quantEscrito != indiceAulaOnline)
             {
@@ -47,7 +48,6 @@ int gravaFicheiroBinario(dadosUC arrayUC[MAX_UCS], int indiceArrayUC, dadosAula 
         printf("Gravado com sucesso no ficheiro binario\n");
     }
 
-    return quantEscrito;
 }
 
 dadosAula *carregarDadosFicheiroBinario(dadosUC arrayUC[MAX_UCS], int *indiceDadosUC, dadosAula *vAulasOnline,int *indiceAulaOnline) //nao esquecer de fazer tambem para o array dinamico das aulas
@@ -78,7 +78,7 @@ dadosAula *carregarDadosFicheiroBinario(dadosUC arrayUC[MAX_UCS], int *indiceDad
         quantLido = -1;
 
         quantLido = fread(indiceAulaOnline, sizeof(int), 1, ficheiro);
-        vAulasOnline=realloc(vAulasOnline, *indiceAulaOnline+1*sizeof(dadosAula));
+        vAulasOnline=realloc(vAulasOnline, (*indiceAulaOnline+1)*sizeof(dadosAula));
 
         if (vAulasOnline==NULL)
         {
