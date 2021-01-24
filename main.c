@@ -16,7 +16,7 @@ int main()
     int escolha, indiceVetUC = 0, escolhaSubMenu, indiceVetAulas = 0;
     dadosAula *vAulasOnline = NULL;
 
-    carregarDadosFicheiroBinario(vDadosUC,&indiceVetUC);
+    carregarDadosFicheiroBinario(vDadosUC, &indiceVetUC);
     do
     {
 
@@ -72,7 +72,7 @@ int main()
             listarDadosAula(vAulasOnline, indiceVetAulas);
             break;
         case 10://Estatisticas
-
+            escolhaSubMenu = menu_estatisticas(vAulasOnline, indiceVetAulas, vDadosUC, indiceVetUC);
             break;
         case 11://Sair do programa
             gravaFicheiroBinario(vDadosUC, indiceVetUC);

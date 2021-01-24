@@ -139,7 +139,7 @@ void lerHoraAula(tipoHora *horaInicio, tipoHora *horaFim,dadosAula *vDadosAula, 
 
     do{
 
-        printf("Insira a hora de inciio da aula:\n");
+        printf("Insira a hora de inicio da aula:\n");
         tempo.hora = lerInteiro(MIN_HORA, MAX_HORA);
 
         printf("Insira os minutos do inicio da aula:");
@@ -154,7 +154,7 @@ void lerHoraAula(tipoHora *horaInicio, tipoHora *horaFim,dadosAula *vDadosAula, 
                 condicaoSobrepoem = compararHoras(tempo,vDadosAula[i].horaInicio,horaDuracao);
                 if (condicaoSobrepoem)
                 {
-                    printf("Já existe uma aula agendada para esta hora.");
+                    printf("Ja existe uma aula agendada para esta hora.");
                     podeSairWhile = 0;
                     i = indiceDadosAula;
                 }
@@ -394,7 +394,7 @@ void registarFimAula(dadosAula *vAulasOnline, int quantAulas, char nomeAula[MAX_
 
 }
 
-void infoAulasOnline(dadosAula *vAulasOnline, int indiceAulasOnline,int condigoUC)
+void infoAulasOnline(dadosAula *vAulasOnline, int indiceAulasOnline,int codigoUC)
 {
     int i;
     char tipo[MAX_STRING];
@@ -404,7 +404,7 @@ void infoAulasOnline(dadosAula *vAulasOnline, int indiceAulasOnline,int condigoU
     quantAulas.PL = 0;
     for (i=0;i<indiceAulasOnline;i++)
     {
-        if ((vAulasOnline[i].codigoUC == condigoUC) && (vAulasOnline[i].estado == realizada))
+        if ((vAulasOnline[i].codigoUC == codigoUC) && (vAulasOnline[i].estado == realizada))
         {
             switch(vAulasOnline[i].tipoAula)
             {
@@ -421,11 +421,11 @@ void infoAulasOnline(dadosAula *vAulasOnline, int indiceAulasOnline,int condigoU
         }
     }
 
-    printf("Aulas realizadas teoricas:%d | teorico praticas:%d | pratico laboratoriais:%d\n",quantAulas.T,quantAulas.TP,quantAulas.PL);
-    printf("Aulas agendadas:\n");
+    printf("Aulas realizadas teoricas: %d | teorico praticas: %d | pratico laboratoriais: %d\n",quantAulas.T,quantAulas.TP,quantAulas.PL);
+    printf("Aulas agendadas: \n");
     for (i=0;i<indiceAulasOnline;i++)
     {
-        if ((vAulasOnline[i].codigoUC == condigoUC) && (vAulasOnline[i].estado == agendada))
+        if ((vAulasOnline[i].codigoUC == codigoUC) && (vAulasOnline[i].estado == agendada))
         {
             switch(vAulasOnline[i].tipoAula)
             {

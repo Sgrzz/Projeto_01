@@ -33,56 +33,56 @@ void lerDadosNomeUC(char nome[MAX_STRING_NOME_UC])
 int lerTipoUC()
 {
     //ler tipo (obrigatorio ou opcional)
-    printf("\nInsira o tipo da Unidade Curricular 0-obrigat�rio ou 1-opcional:");
+    printf("\nInsira o tipo da Unidade Curricular 0-obrigatorio ou 1-opcional: ");
     return lerInteiro(MIN_TIPO_UCS,MAX_TIPO_UCS);
 }
 
 int lerSemestreUC()
 {
-    printf("\nInsira o semestre correspondente:");
+    printf("\nInsira o semestre correspondente: ");
     return lerInteiro(MIN_SEMESTRES,MAX_SEMESTRES);
 }
 
 int lerRegimeUC()
 {
     //regime diurno ou pos laboral
-    printf("\nInsira o tipo de regime 0-diurno ou 1-p�s-laboral:");
+    printf("\nInsira o tipo de regime 0-diurno ou 1-p�s-laboral: ");
     return lerInteiro(MIN_REGIME_UCS,MAX_REGIME_UCS);
 }
 
 int lerQuantTipoAulas_T()
 {
-    printf("\nInsira o numero de aulas Teóricas:");
+    printf("\nInsira o numero de aulas Teoricas: ");
     return lerInteiro(MIN_QUANT_TIPO_AULAS_T,MAX_QUANT_TIPO_AULAS_T);
 }
 
 int lerQuantTipoAulas_TP()
 {
-    printf("\nInsira o numero de aulas Teórico-Práticas:");
+    printf("\nInsira o numero de aulas Teorico-Praticas:");
     return lerInteiro(MIN_QUANT_TIPO_AULAS_TP,MAX_QUANT_TIPO_AULAS_TP);
 }
 
 int lerQuantTipoAulas_PL()
 {
-    printf("\nInsira o numero de aulas Prático-Laboratorial:");
+    printf("\nInsira o numero de aulas Pratico-Laboratorial: ");
     return lerInteiro(MIN_QUANT_TIPO_AULAS_PL,MAX_QUANT_TIPO_AULAS_PL);
 }
 
 int lerDuracaoAulas_T()
 {
-    printf("\nInsira a duração das aulas Teóricas (em minutos):");
+    printf("\nInsira a duracao das aulas Teoricas (em minutos): ");
     return lerInteiro(MIN_DURAC_TIPO_AULAS_T,MAX_DURAC_TIPO_AULAS_T);
 }
 
 int lerDuracaoAulas_TP()
 {
-    printf("\nInsira a duração das aulas Teórico-Práticas (em minutos):");
+    printf("\nInsira a duracao das aulas Teorico-Praticas (em minutos):");
     return lerInteiro(MIN_DURAC_TIPO_AULAS_TP,MAX_DURAC_TIPO_AULAS_TP);
 }
 
 int lerDuracaoAulas_PL()
 {
-    printf("\nInsira a duranção das aulas Prático-Laboratoriais (em minutos):");
+    printf("\nInsira a durancao das aulas Pratico-Laboratoriais (em minutos):");
     return lerInteiro(MIN_DURAC_TIPO_AULAS_PL,MAX_DURAC_TIPO_AULAS_PL);
 }
 
