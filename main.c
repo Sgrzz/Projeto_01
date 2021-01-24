@@ -16,7 +16,7 @@ int main()
     int escolha, indiceVetUC = 0, escolhaSubMenu, indiceVetAulas = 0;
     dadosAula *vAulasOnline = NULL;
 
-    carregarDadosFicheiroBinario(vDadosUC,&indiceVetUC);
+    vAulasOnline = carregarDadosFicheiroBinario(vDadosUC,&indiceVetUC,vAulasOnline,&indiceVetAulas);
     do
     {
 
@@ -70,12 +70,13 @@ int main()
             break;
         case 9://Lista das aulas online
             listarDadosAula(vAulasOnline, indiceVetAulas);
+            menu_confirmar();
             break;
         case 10://Estatisticas
 
             break;
         case 11://Sair do programa
-            gravaFicheiroBinario(vDadosUC, indiceVetUC);
+            gravaFicheiroBinario(vDadosUC, indiceVetUC,vAulasOnline,indiceVetAulas);
             printf("Fim do programa\n");
         }
     }
