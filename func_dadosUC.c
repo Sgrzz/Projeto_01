@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "estruturas.h"
 #include "constantes.h"
 #include "func_aux.h"
@@ -16,9 +17,9 @@ int lerDadosCodigoUC(dadosUC dadosDaUC[MAX_UCS], int posIndiceArray)
     }
     else
     {
-        codigoUC = dadosDaUC[posIndiceArray].codigoUC + 1;
+        codigoUC = dadosDaUC[posIndiceArray-1].codigoUC + 1;
     }
-
+        printf("%d",posIndiceArray);
     return codigoUC;
 }
 
@@ -91,32 +92,40 @@ int lerDuracaoAulas_PL()
 //e devolve a mesma por o array uc, requer a posIndiceArray para verificar se o codigo é unico e para o incrementar
 void inserirDadosUC(dadosUC dadosDaUC[MAX_UCS], int *posIndiceArray)
 {
-    //ler codigo UC
-    dadosDaUC[*posIndiceArray].codigoUC=lerDadosCodigoUC(dadosDaUC,*posIndiceArray);
+    if (*posIndiceArray==40)
+    {
+        printf("Maximo de uc's alcancado");
+    }
+    else
+    {
 
-    //ler nome da uc
-    lerDadosNomeUC(dadosDaUC[*posIndiceArray].nome);
+        //ler codigo UC
+        dadosDaUC[*posIndiceArray].codigoUC=lerDadosCodigoUC(dadosDaUC,*posIndiceArray);
 
-    //ler tipo (obrigatorio ou opcional)
-    dadosDaUC[*posIndiceArray].tipoUC=lerTipoUC();
+        //ler nome da uc
+        lerDadosNomeUC(dadosDaUC[*posIndiceArray].nome);
 
-    //semestre de 1 a 6
-    dadosDaUC[*posIndiceArray].semestre=lerSemestreUC();
+        //ler tipo (obrigatorio ou opcional)
+        dadosDaUC[*posIndiceArray].tipoUC=lerTipoUC();
 
-    //regime diurno ou pos laboral
-    dadosDaUC[*posIndiceArray].regime=lerRegimeUC();
+        //semestre de 1 a 6
+        dadosDaUC[*posIndiceArray].semestre=lerSemestreUC();
 
-    //pedir quantidade de aulas para cada tipo T TP PL
-    dadosDaUC[*posIndiceArray].quantTipoAulas.T = lerQuantTipoAulas_T();
-    dadosDaUC[*posIndiceArray].quantTipoAulas.TP = lerQuantTipoAulas_TP();
-    dadosDaUC[*posIndiceArray].quantTipoAulas.PL = lerQuantTipoAulas_PL();
+        //regime diurno ou pos laboral
+        dadosDaUC[*posIndiceArray].regime=lerRegimeUC();
 
-    //pedir a duracao das aulas em minutos
-    dadosDaUC[*posIndiceArray].duracaoAulas.T = lerDuracaoAulas_T();
-    dadosDaUC[*posIndiceArray].duracaoAulas.TP = lerDuracaoAulas_TP();
-    dadosDaUC[*posIndiceArray].duracaoAulas.PL = lerDuracaoAulas_PL();
+        //pedir quantidade de aulas para cada tipo T TP PL
+        dadosDaUC[*posIndiceArray].quantTipoAulas.T = lerQuantTipoAulas_T();
+        dadosDaUC[*posIndiceArray].quantTipoAulas.TP = lerQuantTipoAulas_TP();
+        dadosDaUC[*posIndiceArray].quantTipoAulas.PL = lerQuantTipoAulas_PL();
 
-    (*posIndiceArray)++;
+        //pedir a duracao das aulas em minutos
+        dadosDaUC[*posIndiceArray].duracaoAulas.T = lerDuracaoAulas_T();
+        dadosDaUC[*posIndiceArray].duracaoAulas.TP = lerDuracaoAulas_TP();
+        dadosDaUC[*posIndiceArray].duracaoAulas.PL = lerDuracaoAulas_PL();
+
+        (*posIndiceArray)++;
+    }
 }
 
 
@@ -232,6 +241,8 @@ void listarDadosUC(dadosUC arrayUC[MAX_UCS], int posIndiceArray)
 {
     int i;
 
+    char stringTipo[MAX_STRING],stringRegime[MAX_STRING];
+
     if (posIndiceArray)
     {
 
@@ -240,8 +251,29 @@ void listarDadosUC(dadosUC arrayUC[MAX_UCS], int posIndiceArray)
         for (i=0; i<posIndiceArray; i++)
         {
 
-            printf("%6d\t%8s\t%d\t\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\n",
-                   arrayUC[i].codigoUC, arrayUC[i].nome, arrayUC[i].tipoUC, arrayUC[i].semestre, arrayUC[i].regime, arrayUC[i].quantTipoAulas.T,
+            switch(arrayUC[i].tipoUC)
+            {
+                case 0:
+                    strcpy(stringTipo,"obrigatorio");
+                    break;
+                case 1:
+                    strcpy(stringTipo,"opcional");
+                    break;
+            }
+
+            switch(arrayUC[i].regime)
+            {
+                case 0:
+                    strcpy(stringRegime,"diurno");
+                    break;
+                case 1:
+                    strcpy(stringRegime,"pos laboral");
+                    break;
+            }
+
+
+            printf("%6d \t %8s \t %s \t \t %d \t %s \t %d \t %d \t %d \t %d \t %d \t %d \n",
+                   arrayUC[i].codigoUC, arrayUC[i].nome, stringTipo, arrayUC[i].semestre, stringRegime, arrayUC[i].quantTipoAulas.T,
                    arrayUC[i].quantTipoAulas.TP, arrayUC[i].quantTipoAulas.PL, arrayUC[i].duracaoAulas.T,arrayUC[i].duracaoAulas.TP,arrayUC[i].duracaoAulas.PL);
         }
     }
@@ -259,7 +291,7 @@ void removerDadosUC(dadosUC arrayUC[MAX_UCS], int *posIndiceArray, int codigoUC)
 
     if (indiceDadosUC != -1)
     {
-        arrayUC[indiceDadosUC] = arrayUC[*posIndiceArray];
+        arrayUC[indiceDadosUC] = arrayUC[*posIndiceArray-1];
         (*posIndiceArray)--;
         ordenarDadosUC(arrayUC,*posIndiceArray);
     }

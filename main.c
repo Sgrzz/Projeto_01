@@ -28,12 +28,14 @@ int main()
             escolhaSubMenu = menu_listaUcs(vDadosUC, indiceVetUC);
             if(escolhaSubMenu!=0)
             {
-
+                infoAulasOnline(vAulasOnline,indiceVetAulas,escolhaSubMenu);
+                menu_confirmar();
             }
             break;
 
         case 2://Inserir UC
             inserirDadosUC(vDadosUC, &indiceVetUC);
+            menu_confirmar();
             break;
 
         case 3://Alterar UC
@@ -41,6 +43,7 @@ int main()
             if(escolhaSubMenu!=0)
             {
                 alterarDadosUC(vDadosUC, indiceVetUC, escolhaSubMenu,0);
+                menu_confirmar();
             }
             break;
 
@@ -49,6 +52,7 @@ int main()
             if(escolhaSubMenu != 0)
             {
                 removerDadosUC(vDadosUC, &indiceVetUC, escolhaSubMenu);
+                menu_confirmar();
             }
             break;
         case 5://Agedar aula online

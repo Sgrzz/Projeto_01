@@ -214,6 +214,12 @@ int menu_estatisticas()  // funcao menu das estatísticas
     return escolha;
 }
 
+int menu_confirmar()
+{
+    printf("\n0 para voltar ao menu principal ->");
+    return lerInteiro(0,0);
+}
+
 
 void limpaEcra()
 {
