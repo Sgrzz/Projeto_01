@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 #include "func_aux.h"
-#include <conio.h> /// tirar isto? era os system
 #include <stdlib.h>
 #include "func_menu.h"
 #include "func_dadosUC.h"
