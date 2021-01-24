@@ -111,27 +111,27 @@ void lerHoraAula(tipoHora *horaInicio, tipoHora *horaFim,dadosAula *vDadosAula, 
 
     switch (regime)
     {
-        case 0:
-            horaCompInicio = 8;
-            horaCompFim = 18;
-            break;
-        case 1:
-            horaCompInicio = 18;
-            horaCompFim = 24;
-            break;
+    case 0:
+        horaCompInicio = 8;
+        horaCompFim = 18;
+        break;
+    case 1:
+        horaCompInicio = 18;
+        horaCompFim = 24;
+        break;
     }
 
     switch(tipoAula)
     {
-        case 0:
-            duracao = tempoAulas.T;
-            break;
-        case 1:
-            duracao = tempoAulas.TP;
-            break;
-        case 2:
-            duracao = tempoAulas.PL;
-            break;
+    case 0:
+        duracao = tempoAulas.T;
+        break;
+    case 1:
+        duracao = tempoAulas.TP;
+        break;
+    case 2:
+        duracao = tempoAulas.PL;
+        break;
     }
 
     //1- dividir os minutos por 60
@@ -140,7 +140,8 @@ void lerHoraAula(tipoHora *horaInicio, tipoHora *horaFim,dadosAula *vDadosAula, 
      horaDuracao.hora = duracao/60;
      horaDuracao.minuto = (((duracao/60.0)-horaDuracao.hora)*60);
 
-    do{
+    do
+    {
 
         printf("Insira a hora de inicio da aula:\n");
         tempo.hora = lerInteiro(MIN_HORA, MAX_HORA);
@@ -150,7 +151,7 @@ void lerHoraAula(tipoHora *horaInicio, tipoHora *horaFim,dadosAula *vDadosAula, 
 
         podeSairWhile = 1;
 
-        for(i = 0; i<indiceDadosAula;i++)
+        for(i = 0; i<indiceDadosAula; i++)
         {
             if (vDadosAula[i].codigoUC == codigoUC)
             {
@@ -171,7 +172,8 @@ void lerHoraAula(tipoHora *horaInicio, tipoHora *horaFim,dadosAula *vDadosAula, 
             podeSairWhile = 0;
         }
 
-    }while(!podeSairWhile);
+    }
+    while(!podeSairWhile);
 
     *horaInicio = tempo;
     *horaFim = somarHora(*horaInicio,horaDuracao);
@@ -190,6 +192,13 @@ int opGravacao()
     //ler opcao de gravacao da aula: 0-nao , 1-sim
     printf("Deseja gravar a aula? Se nao -> 0, se sim -> 1\n");
     return lerInteiro(MIN_OP_GRAVACAO, MAX_OP_GRAVACAO);
+}
+
+int lerAcessoAula()
+{
+    //ler o acesso a aula: 0-online, 1-offline/gravada
+    printf("Qual o acesso que pretende fazer? Online ->0, Offline -> 1");
+    return lerInteiro(MIN_ACESSO_AULA, MAX_ACESSO_AULA);
 }
 
 //pede todos os dados ao utilizador para preencher uma variavel do tipo estrutura dadosAula // inserir /agendar
@@ -354,7 +363,7 @@ void alterarAula(dadosAula *vAulasOnline, int quantAulas,dadosUC dadosDaUC[MAX_U
             codigoUC = vAulasOnline[posNome].codigoUC;
             indiceUC = procurarDadosUC(dadosDaUC,indiceArrayUC,codigoUC);
             lerHoraAula(&vAulasOnline[posNome].horaInicio,&vAulasOnline[posNome].horaFim,vAulasOnline,
-                    quantAulas,dadosDaUC[indiceUC].regime,vAulasOnline[posNome].tipoAula,dadosDaUC[indiceUC].duracaoAulas,codigoUC);
+                        quantAulas,dadosDaUC[indiceUC].regime,vAulasOnline[posNome].tipoAula,dadosDaUC[indiceUC].duracaoAulas,codigoUC);
             break;
         case 7:
             vAulasOnline[posNome].estado = estadoAula();
@@ -405,44 +414,85 @@ void infoAulasOnline(dadosAula *vAulasOnline, int indiceAulasOnline,int codigoUC
     quantAulas.T = 0;
     quantAulas.TP = 0;
     quantAulas.PL = 0;
-    for (i=0;i<indiceAulasOnline;i++)
+    for (i=0; i<indiceAulasOnline; i++)
     {
         if ((vAulasOnline[i].codigoUC == codigoUC) && (vAulasOnline[i].estado == realizada))
         {
             switch(vAulasOnline[i].tipoAula)
             {
-                case 0:
-                    quantAulas.T++;
-                    break;
-                case 1:
-                    quantAulas.TP++;
-                    break;
-                case 2:
-                    quantAulas.PL++;
-                    break;
+            case 0:
+                quantAulas.T++;
+                break;
+            case 1:
+                quantAulas.TP++;
+                break;
+            case 2:
+                quantAulas.PL++;
+                break;
             }
         }
     }
 
     printf("Aulas realizadas teoricas: %d | teorico praticas: %d | pratico laboratoriais: %d\n",quantAulas.T,quantAulas.TP,quantAulas.PL);
     printf("Aulas agendadas: \n");
-    for (i=0;i<indiceAulasOnline;i++)
+    for (i=0; i<indiceAulasOnline; i++)
     {
         if ((vAulasOnline[i].codigoUC == codigoUC) && (vAulasOnline[i].estado == agendada))
         {
             switch(vAulasOnline[i].tipoAula)
             {
-                case 0:
-                    strcpy(tipo,"teorica");
-                    break;
-                case 1:
-                    strcpy(tipo,"teorico pratica");
-                    break;
-                case 2:
-                    strcpy(tipo,"pratico laboratorial");
-                    break;
+            case 0:
+                strcpy(tipo,"teorica");
+                break;
+            case 1:
+                strcpy(tipo,"teorico pratica");
+                break;
+            case 2:
+                strcpy(tipo,"pratico laboratorial");
+                break;
             }
             printf("Tipo: %s",tipo);
         }
     }
 }
+
+
+/**< // Registar o acesso (online ou offline) de um estudante a uma aula (online ou gravada).
+ A informação do acesso (número do estudante, identificação da aula e tipo de acesso)
+ deverá ser acrescentado num log, em ficheiro de texto e em ficheiro binário. */
+
+void RegistarAcessoAula(dadosAula *vAulasOnline, int indiceAulas, int acessoAula, dadosUC dadosDaUC[MAX_UCS], int indiceArrayUC)
+{
+    int codigo, numEstudante, tipoAula, acessoAulas;
+
+    printf("");
+
+    if(indiceAulas =0) //ve se pode registar a aula
+    {
+        printf("Ainda nao existem aulas para aceder\n");
+    }
+    else // existem aulas logo vai pedir o codigo
+    {
+        codigo = lerCodigoDaUC(dadosDaUC, indiceArrayUC);
+    }
+    if(codigo = -1) //verifica se o codigo é valido
+    {
+        printf("Codigo invalido. Insira codigo da UC valido\n");
+    }
+    else //codigo é valido logo vai pedir as infos
+    {
+        printf("Insira o numero de estudante\n");
+        numEstudante = lerInteiro(MIN_ESTUDANTES, MAX_ESTUDANTES);
+        printf("Insira o tipo da aula\n");
+        tipoAula = lerTipoAula(MIN_TIPO_AULA, MAX_TIPO_AULA);
+        printf("Insira o tipo de acesso que deseja fazer\n");
+        acessoAulas = lerAcessoAula(MIN_ACESSO_AULA,MAX_ACESSO_AULA);
+    }
+
+    //gravar o n de acessos
+    //gravar no log o n do aluno, o codigo e o tipo de acessoAula
+
+
+
+    }
+

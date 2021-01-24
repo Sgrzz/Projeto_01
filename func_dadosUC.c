@@ -46,7 +46,7 @@ int lerSemestreUC()
 int lerRegimeUC()
 {
     //regime diurno ou pos laboral
-    printf("\nInsira o tipo de regime 0-diurno ou 1-p�s-laboral: ");
+    printf("\nInsira o tipo de regime 0-diurno ou 1-pos-laboral: ");
     return lerInteiro(MIN_REGIME_UCS,MAX_REGIME_UCS);
 }
 

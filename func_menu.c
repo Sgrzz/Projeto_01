@@ -8,18 +8,16 @@
 #include "estruturas.h"
 #include "estatisticas.h"
 
-int menu_principal()  //funcao menu principal
+int menu_principal(dadosAula *vAulasOnline, int indiceAulasOnline, dadosUC vetUC[MAX_UCS], int indiceUC)  //funcao menu principal
 {
     int escolha;
 
     printf("\n-------------------------------------------------------\n");
     printf("---------------------Menu Principal--------------------\n");
     printf("-------------------------------------------------------\n");
-    printf("Quantidade de UCs: \n");
-    printf("Quantidade de aulas agendadas: \n");
-    printf("Quantidade de aulas gravadas: \n");
+    estatisticasMenuPrincipal(vAulasOnline, indiceAulasOnline, indiceUC);
     printf("-------------------------------------------------------\n");
-    printf("--> Informação das UCs\n");
+    printf("--> Informacao das UCs\n");
     printf("        1 -> Listas das UCs\n");
     printf("        2 -> Inserir Uc\n");
     printf("        3 -> Alterar UC\n");
