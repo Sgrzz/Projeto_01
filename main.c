@@ -16,13 +16,10 @@ int main()
     int escolha, indiceVetUC = 0, escolhaSubMenu, indiceVetAulas = 0;
     dadosAula *vAulasOnline = NULL;
 
-
-
     vAulasOnline = carregarDadosFicheiroBinario(vDadosUC,&indiceVetUC,vAulasOnline,&indiceVetAulas);
 
     do
     {
-
         escolha = menu_principal(vAulasOnline, indiceVetAulas, vDadosUC, indiceVetUC);
 
         switch (escolha)

@@ -18,7 +18,7 @@ int compararHoras(tipoHora horaInicio, tipoHora horaInicio2, tipoHora duracao)
     horaInicio2EmMinutos = horaInicio2.hora*60 + horaInicio2.minuto;
     duracaoEmMinutos = duracao.hora*60 + duracao.minuto;
 
-    if (!(horaInicioEmMinutos+duracaoEmMinutos<=horaInicio2EmMinutos && horaInicio2EmMinutos + duracaoEmMinutos <= horaInicioEmMinutos)) //se a hora do inicio em minutos + a duracao em minutos for menor ou igual n se sobrepoem
+    if (!(horaInicioEmMinutos+duracaoEmMinutos<=horaInicio2EmMinutos || horaInicio2EmMinutos + duracaoEmMinutos <= horaInicioEmMinutos)) //se a hora do inicio em minutos + a duracao em minutos for menor ou igual n se sobrepoem
     {
         condicaoDeReturn = 1;
     }
@@ -31,8 +31,6 @@ tipoHora somarHora(tipoHora hora1, tipoHora hora2)
 {
     tipoHora horaAux;
     int soma = 0;
-    double temp = 0.0;
-
     horaAux.hora = 0;
     horaAux.minuto = 0;
 

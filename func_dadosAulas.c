@@ -34,7 +34,7 @@ void lerNomeAula(char nome[MAX_STRING_NOME_AULA], dadosAula *vAulasOnline, int p
     char nomeAula[MAX_STRING_NOME_AULA];
 
     //ler nome da aula
-    printf("Insira o nome da aula:\n");
+    printf("\nInsira o nome da aula ->");
 
     do
     {
@@ -42,7 +42,7 @@ void lerNomeAula(char nome[MAX_STRING_NOME_AULA], dadosAula *vAulasOnline, int p
         posNome = procurarNomeAula(vAulasOnline, posIndiceArray, nomeAula);//chama a funcao procurarNomeAula e vê que nome está la e passa o para posNome
         if(posNome != -1)
         {
-            printf("Nome ja em uso, insira um nome valido: \n");
+            printf("\nNome ja em uso, insira um nome valido: ->");
         }
     }
     while (posNome != -1);
@@ -54,7 +54,7 @@ int lerCodigoDaUC(dadosUC arrayUC[MAX_UCS], int posIndiceArrayUC)
     int posCodigo, codigoDaUC;
 
     //ler codigo da UC
-    printf("Insira o codigo da UC correspondente a aula: \n");
+    printf("\nInsira o codigo da UC correspondente a aula ->");
 
     do
     {
@@ -63,7 +63,7 @@ int lerCodigoDaUC(dadosUC arrayUC[MAX_UCS], int posIndiceArrayUC)
         printf("%d", posCodigo);
         if(posCodigo == -1)
         {
-            printf("Nao existe nenhuma UC com esse codigo, insira um codigo valido:");
+            printf("\nNao existe nenhuma UC com esse codigo, insira um codigo valido ->");
         }
     }
     while(posCodigo == -1);
@@ -73,21 +73,21 @@ int lerCodigoDaUC(dadosUC arrayUC[MAX_UCS], int posIndiceArrayUC)
 int lerTipoAula()
 {
     //ler o tipo de aula -> T, TP ou PL
-    printf("Insira o tipo de aula: 0 - T, 1 - TP, 2 - PL \n");
+    printf("\nInsira o tipo de aula: 0 - T, 1 - TP, 2 - PL ->");
     return lerInteiro(MIN_TIPO_AULA, MAX_TIPO_AULA);
 }
 
 void lerNomeDocente(char nome[MAX_STRING_NOME_DOCENTE])
 {
     //ler nome do docente
-    printf("Insira o nome do docente: \n");
+    printf("\nInsira o nome do docente ->");
     lerString(nome,MAX_STRING_NOME_DOCENTE);
 }
 
 void lerDataAula(tipoData *data)
 {
     //ler data da aula
-    printf("Insira a data da aula:\n");
+    printf("\nInsira a data da aula ->");
     lerData(data);
 }
 
@@ -143,10 +143,10 @@ void lerHoraAula(tipoHora *horaInicio, tipoHora *horaFim,dadosAula *vDadosAula, 
     do
     {
 
-        printf("Insira a hora de inicio da aula:\n");
+        printf("\nInsira a hora de inicio da aula ->");
         tempo.hora = lerInteiro(MIN_HORA, MAX_HORA);
 
-        printf("Insira os minutos do inicio da aula:");
+        printf("\nInsira os minutos do inicio da aula ->");
         tempo.minuto = lerInteiro(MIN_MINUTOS, MAX_MINUTOS);
 
         podeSairWhile = 1;
@@ -158,7 +158,7 @@ void lerHoraAula(tipoHora *horaInicio, tipoHora *horaFim,dadosAula *vDadosAula, 
                 condicaoSobrepoem = compararHoras(tempo,vDadosAula[i].horaInicio,horaDuracao);
                 if (condicaoSobrepoem)
                 {
-                    printf("Ja existe uma aula agendada para esta hora.");
+                    printf("\nJa existe uma aula agendada para esta hora.");
                     podeSairWhile = 0;
                     i = indiceDadosAula;
                 }
@@ -168,7 +168,7 @@ void lerHoraAula(tipoHora *horaInicio, tipoHora *horaFim,dadosAula *vDadosAula, 
 
         if (!(tempo.hora>=horaCompInicio && tempo.hora<=horaCompFim))
         {
-            printf("hora invalida para o regime especificado na UC");
+            printf("\nhora invalida para o regime especificado na UC");
             podeSairWhile = 0;
         }
 
@@ -183,21 +183,21 @@ void lerHoraAula(tipoHora *horaInicio, tipoHora *horaFim,dadosAula *vDadosAula, 
 int estadoAula()
 {
     //ler o estado da aula (agendada, a decorrer ou realizada)
-    printf("Insira o estado da aula: 0-> agendada, 1-> a decorrer ou 2-> realizada\n");
+    printf("\nInsira o estado da aula: 0-agendada, 1-a decorrer ou 2-realizada ->");
     return lerInteiro(MIN_ESTADO_AULA,MAX_ESTADO_AULA);
 }
 
 int opGravacao()
 {
     //ler opcao de gravacao da aula: 0-nao , 1-sim
-    printf("Deseja gravar a aula? Se nao -> 0, se sim -> 1\n");
+    printf("\nDeseja gravar a aula? Se nao - 0, se sim - 1 ->");
     return lerInteiro(MIN_OP_GRAVACAO, MAX_OP_GRAVACAO);
 }
 
 int lerAcessoAula()
 {
     //ler o acesso a aula: 0-online, 1-offline/gravada
-    printf("Qual o acesso que pretende fazer? Online ->0, Offline -> 1");
+    printf("\nQual o acesso que pretende fazer? Online -0, Offline - 1 ->");
     return lerInteiro(MIN_ACESSO_AULA, MAX_ACESSO_AULA);
 }
 
@@ -211,12 +211,12 @@ dadosAula *agendarAula(dadosAula *vAulasOnline, int *posIndiceArrayAulas, dadosU
     vAulasOnline=realloc(vAulasOnline, (*posIndiceArrayAulas+1)*sizeof(dadosAula));
     if (vAulasOnline == NULL)//se for == NULL nao aloca na memoria e faz backup da info
     {
-        printf("Erro ao alocar memoria\n");
+        printf("\nErro ao alocar memoria");
         vAulasOnline = vBackup;
     }
     else if (!posIndiceArrayAulasUC)
     {
-        printf("Nao existem UC's para agendar aulas.\n");
+        printf("\nNao existem UC's para agendar aulas.");
     }
     else  //vamos fazer a reserva
     {
@@ -277,17 +277,17 @@ dadosAula *eliminarAula (dadosAula *vAulasOnline, int *quantAulas)
 
     if(*quantAulas == 0)
     {
-        printf("Ainda nao existem aulas registadas\n");
+        printf("\nAinda nao existem aulas registadas");
     }
     else
     {
-        printf("Insira o nome da aula a eliminar\n");
+        printf("\nInsira o nome da aula a eliminar");
         lerString(nomeAula, MAX_STRING_NOME_AULA);
         posNome = procurarNomeAula(vAulasOnline, *quantAulas, nomeAula); //devolve a posiçao do nome
 
         if(posNome == -1)
         {
-            printf("Nao existe uma aula com esse nome\n");
+            printf("\nNao existe uma aula com esse nome");
         }
         else
         {
@@ -301,11 +301,13 @@ dadosAula *eliminarAula (dadosAula *vAulasOnline, int *quantAulas)
             vAulasOnline=realloc(vAulasOnline, (*quantAulas-1)*sizeof(dadosAula));
             if (vAulasOnline == NULL)//se for == NULL nao aloca na memoria e faz backup da info
             {
-                printf("Erro ao alocar memoria\n");
+                printf("\nErro ao alocar memoria");
                 vAulasOnline = vBackup;
             }
-            (*quantAulas)--;
-            //ficheiroLogs(vAulasOnline[posNome],"Aula eliminada");
+            else
+            {
+                (*quantAulas)--;
+            }
         }
     }
     return vAulasOnline;
@@ -321,7 +323,7 @@ void alterarAula(dadosAula *vAulasOnline, int quantAulas,dadosUC dadosDaUC[MAX_U
 
     if(posNome == -1)
     {
-        printf("Ainda nao existem aulas registadas\n");
+        printf("\nAinda nao existem aulas registadas");
     }
     else
     {
@@ -433,8 +435,8 @@ void infoAulasOnline(dadosAula *vAulasOnline, int indiceAulasOnline,int codigoUC
         }
     }
 
-    printf("Aulas realizadas teoricas: %d | teorico praticas: %d | pratico laboratoriais: %d\n",quantAulas.T,quantAulas.TP,quantAulas.PL);
-    printf("Aulas agendadas: \n");
+    printf("\nAulas realizadas teoricas: %d | teorico praticas: %d | pratico laboratoriais: %d",quantAulas.T,quantAulas.TP,quantAulas.PL);
+    printf("\nAulas agendadas:");
     for (i=0; i<indiceAulasOnline; i++)
     {
         if ((vAulasOnline[i].codigoUC == codigoUC) && (vAulasOnline[i].estado == agendada))
