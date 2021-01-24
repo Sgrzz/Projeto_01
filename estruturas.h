@@ -51,7 +51,7 @@ typedef struct
     tipoHora horaFim;  //hora do fim da aula
     enum enumEstadoAula estado;  //estado da aula (agendada, a decorrer ou realizada)
     enum enumGravacao gravacao;  //gravada? nao/Sim
-    int acessosAula;// numero de acessoas a uma aula
+    enum enumAcessoAula acessoAula;// online ou offline
 } dadosAula;
 
 typedef struct

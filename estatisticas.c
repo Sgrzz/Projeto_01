@@ -3,12 +3,6 @@
 
 
 
-
-// aula(s) online realizada(s) há mais tempo
-// ranking
-
-
-
 // Média de presenças em cada aula online realizada
 float mediaPresencasAulas(dadosAula *vAulasOnline, int quantAulas)
 {
@@ -118,3 +112,54 @@ void UcComMenorQuantAulasRealizadas(dadosAula *vAulasOnline, int indiceAulasOnli
 }
 
 // o tipo(s) de aula(s) com a maior quantidade de acessos às gravações
+
+void tipoAulaMaiorAcessos(dadosAula *vAulasOnline, int indiceAulasOnline, dadosUC vetUC[MAX_UCS], int indiceUC)
+{
+
+
+
+
+
+}
+
+
+
+
+// aula(s) online realizada(s) há mais tempo
+// ranking
+
+
+
+
+
+void estatisticasMenuPrincipal(dadosAula *vAulasOnline, int indiceAulasOnline, int indiceUC)
+{
+    int i, j;
+    int quantAulasRealizadas = 0, quantAulasGravadas = 0, quantAulasAgendadas = 0;
+
+    // percorrer as UC existentes chegando no final com o nº total de UCs
+
+    // percorre o vetor aulas e conta as aulas existentes na UC
+    for (j = 0; j < indiceAulasOnline; j++)
+    {
+        if(vAulasOnline[i].estado == agendada) //ve se a aula agendada
+        {
+            quantAulasAgendadas++; // conta quantas aulas foram agendadas
+        }
+        else if(vAulasOnline[i].estado == realizada) // ver se a aula foi realizada
+        {
+            quantAulasRealizadas++; // conta quantas aulas foram realizadas
+
+            if (vAulasOnline[j].gravacao == sim) // dentro das aulas realizadas ve quantas aulas foram gravadas
+            {
+                quantAulasGravadas++; // e conta-as
+            }
+        }
+    }
+    printf("Quantidade de UCs: %d", indiceUC);
+    printf("\nQuantidade de aulas agendadas: %d", quantAulasAgendadas);
+    printf("\nQuantidade de aulas realizadas: %d", quantAulasRealizadas);
+    printf("\nQuantidade de aulas gravadas: %d\n", quantAulasGravadas);
+
+}
+

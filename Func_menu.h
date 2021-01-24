@@ -2,7 +2,7 @@
 #define FUNC_MENUPRINCIPAL_H_INCLUDED
 
 
-int menu_principal();
+int menu_principal(dadosAula *vAulasOnline, int indiceAulasOnline, dadosUC vetUC[MAX_UCS], int indiceUC);
 int menu_listaUcs(dadosUC vDadosUC[MAX_UCS], int indiceVetUC);
 int menu_alterarUC(dadosUC vDadosUC[MAX_UCS], int indiceVetUC);
 int menu_eliminarUC();
