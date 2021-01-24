@@ -113,14 +113,8 @@ void UcComMenorQuantAulasRealizadas(dadosAula *vAulasOnline, int indiceAulasOnli
 
 // o tipo(s) de aula(s) com a maior quantidade de acessos às gravações
 
-void tipoAulaMaiorAcessos(dadosAula *vAulasOnline, int indiceAulasOnline, dadosUC vetUC[MAX_UCS], int indiceUC)
-{
+//void tipoAulaMaiorAcessos(dadosAula *vAulasOnline, int indiceAulasOnline, dadosUC vetUC[MAX_UCS], int indiceUC)
 
-
-
-
-
-}
 
 
 
@@ -134,13 +128,13 @@ void tipoAulaMaiorAcessos(dadosAula *vAulasOnline, int indiceAulasOnline, dadosU
 
 void estatisticasMenuPrincipal(dadosAula *vAulasOnline, int indiceAulasOnline, int indiceUC)
 {
-    int i, j;
+    int i;
     int quantAulasRealizadas = 0, quantAulasGravadas = 0, quantAulasAgendadas = 0;
 
     // percorrer as UC existentes chegando no final com o nº total de UCs
 
     // percorre o vetor aulas e conta as aulas existentes na UC
-    for (j = 0; j < indiceAulasOnline; j++)
+    for (i = 0; i < indiceAulasOnline; i++)
     {
         if(vAulasOnline[i].estado == agendada) //ve se a aula agendada
         {
@@ -150,7 +144,7 @@ void estatisticasMenuPrincipal(dadosAula *vAulasOnline, int indiceAulasOnline, i
         {
             quantAulasRealizadas++; // conta quantas aulas foram realizadas
 
-            if (vAulasOnline[j].gravacao == sim) // dentro das aulas realizadas ve quantas aulas foram gravadas
+            if (vAulasOnline[i].gravacao == sim) // dentro das aulas realizadas ve quantas aulas foram gravadas
             {
                 quantAulasGravadas++; // e conta-as
             }

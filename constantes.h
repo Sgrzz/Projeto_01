@@ -64,8 +64,6 @@
 #define MIN_ESTADO_AULA 0           //minimo de estado da aula
 #define MAX_OP_GRAVACAO 1           //maximo de opcoes de gravacao
 #define MIN_OP_GRAVACAO 0           //minimo de opcoes de gravcao
-#define MAX_ACESSO_AULA 1           //maximo de acesso a aula -> offline /gravada
-#define MIN_ACESSO_AULA 0           //minimo de acesso a aula -> online
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////Estudantes///////////////////////////////////////////////////
@@ -81,6 +79,6 @@ enum enumRegime {diurno,poslaboral};
 enum enumTipoAula {T,TP,PL};
 enum enumEstadoAula {agendada,decorrer,realizada};
 enum enumGravacao {nao,sim};
-enum enumAcessoAula {online,gravada}; //online e onffline
+
 
 #endif // CONSTANTES_H_INCLUDED

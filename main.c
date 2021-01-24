@@ -63,7 +63,8 @@ int main()
             vAulasOnline = agendarAula(vAulasOnline, &indiceVetAulas, vDadosUC, indiceVetUC);
             break;
         case 6://Registar acesso a aula online
-
+            listarDadosAula(vAulasOnline, indiceVetAulas);
+            RegistarAcessoAula(vAulasOnline, indiceVetAulas);
             break;
         case 7://Eliminar aula online
             listarDadosAula(vAulasOnline, indiceVetAulas);
