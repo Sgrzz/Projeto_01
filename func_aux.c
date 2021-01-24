@@ -6,9 +6,6 @@
 #include "estruturas.h"
 
 
-
-
-
 //funcao que compara duas horas e verifica que n se sobrepoem, devolve 0 para falso 1 para verdade
 int compararHoras(tipoHora horaInicio, tipoHora horaInicio2, tipoHora duracao)
 {
@@ -41,10 +38,12 @@ tipoHora somarHora(tipoHora hora1, tipoHora hora2)
     horaAux.hora = soma/60;
     horaAux.minuto = (soma%60)*60;
 
-    if (horaAux.hora>=24)
+    while(horaAux.hora>=24)
     {
         horaAux.hora -= 24;
     }
+
+    printf("%d",horaAux.minuto);
 
     return horaAux;
 

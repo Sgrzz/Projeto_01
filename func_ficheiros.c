@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "estruturas.h"
 
 int gravaFicheiroBinario(dadosUC arrayUC[MAX_UCS], int indiceArrayUC, dadosAula *vAulasOnline,int indiceAulaOnline)
@@ -49,10 +50,13 @@ int gravaFicheiroBinario(dadosUC arrayUC[MAX_UCS], int indiceArrayUC, dadosAula 
     return quantEscrito;
 }
 
-void carregarDadosFicheiroBinario(dadosUC arrayUC[MAX_UCS], int *indiceDadosUC, dadosAula *vAulasOnline,int *indiceAulaOnline) //nao esquecer de fazer tambem para o array dinamico das aulas
+dadosAula *carregarDadosFicheiroBinario(dadosUC arrayUC[MAX_UCS], int *indiceDadosUC, dadosAula *vAulasOnline,int *indiceAulaOnline) //nao esquecer de fazer tambem para o array dinamico das aulas
 {
     FILE *ficheiro;
     int quantLido = -1;
+    dadosAula *vBackup;
+
+    vBackup = vAulasOnline;
 
     //procurar o ficheiro primeiro, se n o encontrar cria e avisa
     ficheiro = fopen("dados.dat", "rb");
@@ -74,18 +78,29 @@ void carregarDadosFicheiroBinario(dadosUC arrayUC[MAX_UCS], int *indiceDadosUC, 
         quantLido = -1;
 
         quantLido = fread(indiceAulaOnline, sizeof(int), 1, ficheiro);
-        if (quantLido != 1)
+        vAulasOnline=realloc(vAulasOnline, *indiceAulaOnline+1*sizeof(dadosAula));
+
+        if (vAulasOnline==NULL)
         {
-            printf("Erro ao ler a quantidade de aulas a partir do ficheiro\n");
+            printf("Erro ao alocar memoria para as aulas online\n");
+            vAulasOnline = vBackup;
         }
         else
         {
-            quantLido = fread(vAulasOnline, sizeof(dadosAula), *indiceAulaOnline, ficheiro);
-            if (quantLido != *indiceAulaOnline)
+            if (quantLido != 1)
             {
-                printf("Erro ao ler a informacao do vetor\n");
+                printf("Erro ao ler a quantidade de aulas a partir do ficheiro\n");
+            }
+            else
+            {
+                quantLido = fread(vAulasOnline, sizeof(dadosAula), *indiceAulaOnline, ficheiro);
+                if (quantLido != *indiceAulaOnline)
+                {
+                    printf("Erro ao ler a informacao do vetor\n");
+                }
             }
         }
+
 
 
         fclose(ficheiro);
@@ -96,4 +111,6 @@ void carregarDadosFicheiroBinario(dadosUC arrayUC[MAX_UCS], int *indiceDadosUC, 
         ficheiro = fopen("dados.dat", "wb");
         fclose(ficheiro);
     }
+
+    return vAulasOnline;
 }
