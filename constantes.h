@@ -7,7 +7,7 @@
 /////////////////////////constantes MENUS///////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 #define MIN_MENU_PRINCIPAL 1        //minimo no menu principal
-#define MAX_MENU_PRINCIPAL 11       //maximo no menu principal
+#define MAX_MENU_PRINCIPAL 13       //maximo no menu principal
 
 #define MIN_OPCAO_MENU_VOLTAR 0     //minimo de opcao no menu para voltar
 

@@ -27,10 +27,12 @@ int menu_principal(dadosAula *vAulasOnline, int indiceAulasOnline, int indiceUC)
     printf("        6 -> Registar acesso a aula online\n");
     printf("        7 -> Eliminar aula online\n");
     printf("        8 -> Alterar aula Agendada\n");
-    printf("        9 -> Lista das aulas\n\n");
+    printf("        9 -> Lista das aulas\n");
+    printf("       10 -> registar inicio da aula\n");
+    printf("       11 -> registar fim da aula\n");
 
-    printf("10 -> Estatisticas\n");
-    printf("11 -> Sair do programa\n");
+    printf("12 -> Estatisticas\n");
+    printf("13 -> Sair do programa\n");
     printf("-------------------------------------------------------\n");
     printf("-------------------------------------------------------\n");
     printf("Selecione a opcao desejada ->");
@@ -114,6 +116,25 @@ int menu_agendarAula()  // funcao menu agendar aula online
 }
 
 int menu_registarAcessoAula()  // funcao menu registar acesso a aula
+{
+    int escolha;
+
+    printf("           Registar Acesso a Aula Online       \n");
+    printf("-------------------------------------------------------\n");
+    printf("Insira o codigo da UC: \n");
+    printf("Indique a aula que pretende se registar:\n");
+    printf("Selecione o tipo de aula: \n");
+    printf("Insira o nº de estudante: \n");
+    printf("-------------------------------------------------------\n");
+    printf("1 - Confirmar\n");
+    printf("2 - Cancelar\n");
+
+    escolha = lerInteiro(1,2);
+
+    return escolha;
+}
+
+int menu_registarInicioAula()  // funcao menu registar acesso a aula
 {
     int escolha;
 
