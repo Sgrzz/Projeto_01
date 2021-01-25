@@ -20,7 +20,7 @@ int main()
 
     do
     {
-        escolha = menu_principal(vAulasOnline, indiceVetAulas, vDadosUC, indiceVetUC);
+        escolha = menu_principal(vAulasOnline, indiceVetAulas, indiceVetUC);
 
         switch (escolha)
         {

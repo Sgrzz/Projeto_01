@@ -15,7 +15,7 @@ int lerCodigoDaUC(dadosUC arrayUC[MAX_UCS], int posIndiceArrayUC);
 int lerTipoAula();
 void lerNomeDocente(char nome[MAX_STRING_NOME_DOCENTE]);
 void lerDataAula(tipoData *data);
-void lerHoraAula(tipoHora *horaInicio, tipoHora *horaFim,dadosAula *vDadosAula, int indiceDadosAula, enum enumRegime regime, enum enumTipoAula tipoAula,tipoTempoAulas tempoAulas, int codigoUC);
+void lerHoraAula(tipoHora *horaInicio, tipoHora *horaFim,dadosAula *vDadosAula, int indiceDadosAula, enum enumRegime regime, enum enumTipoAula tipoAula,tipoAulas tempoAulas, int codigoUC);
 int estadoAula();
 int opGravacao();
 

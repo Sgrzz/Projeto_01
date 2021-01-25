@@ -7,7 +7,7 @@
 #include "estruturas.h"
 #include "estatisticas.h"
 
-int menu_principal(dadosAula *vAulasOnline, int indiceAulasOnline, dadosUC vetUC[MAX_UCS], int indiceUC)  //funcao menu principal
+int menu_principal(dadosAula *vAulasOnline, int indiceAulasOnline, int indiceUC)  //funcao menu principal
 {
     int escolha;
 

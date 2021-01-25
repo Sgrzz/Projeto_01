@@ -100,11 +100,10 @@ void lerDataAula(tipoData *data)
 //devolve
 //horaInicio
 //horaFim
-void lerHoraAula(tipoHora *horaInicio, tipoHora *horaFim,dadosAula *vDadosAula, int indiceDadosAula, enum enumRegime regime, enum enumTipoAula tipoAula,tipoTempoAulas tempoAulas, int codigoUC)
+void lerHoraAula(tipoHora *horaInicio, tipoHora *horaFim,dadosAula *vDadosAula, int indiceDadosAula, enum enumRegime regime, enum enumTipoAula tipoAula,tipoAulas tempoAulas, int codigoUC)
 {
     int horaCompInicio = 0, horaCompFim = 0, i, duracao, condicaoSobrepoem = 0, podeSairWhile = 1;
     tipoHora tempo, horaDuracao;
-    double temp;
 
     horaDuracao.hora = 0;
     horaDuracao.minuto = 0;
@@ -384,7 +383,7 @@ void registarInicioAula(dadosAula *vAulasOnline, int quantAulas, char nomeAula[M
         }
     }
 }
-
+// ver se é chamado algum sitio da vida
 void registarFimAula(dadosAula *vAulasOnline, int quantAulas, char nomeAula[MAX_STRING_NOME_AULA])
 {
     int posNome;
@@ -459,10 +458,8 @@ void infoAulasOnline(dadosAula *vAulasOnline, int indiceAulasOnline,int codigoUC
 void RegistarAcessoAula(dadosAula *vAulasOnline, int indiceAulas)
 {
 
-    int codigo, numEstudante, acessoAulas, indice;
+    int numEstudante, indice;
     char nomeAula[MAX_STRING_NOME_AULA];
-
-    printf("");
 
     if(indiceAulas == 0) //ve se pode registar a aula
     {

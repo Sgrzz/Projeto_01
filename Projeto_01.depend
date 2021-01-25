@@ -38,7 +38,7 @@
 
 1611435807 c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_dadosuc.h
 
-1611519766 source:c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\func_aux.c
+1611530415 source:c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\func_aux.c
 	<stdio.h>
 	<string.h>
 	<math.h>
@@ -50,12 +50,12 @@
 	"constantes.h"
 	"estruturas.h"
 
-1611521926 c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\constantes.h
+1611530221 c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\constantes.h
 
 1611521922 c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\estruturas.h
 	"constantes.h"
 
-1611526742 source:c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\main.c
+1611530415 source:c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\main.c
 	<stdio.h>
 	<stdlib.h>
 	"estruturas.h"
@@ -68,7 +68,7 @@
 
 1611422263 c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\func_dadosuc.h
 
-1611515529 source:c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\func_dadosuc.c
+1611530415 source:c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\func_dadosuc.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -94,7 +94,7 @@
 	<stdlib.h>
 	"estruturas.h"
 
-1611527729 source:c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\func_dadosaulas.c
+1611530415 source:c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\func_dadosaulas.c
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
