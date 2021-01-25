@@ -57,6 +57,7 @@ int main()
             }
             break;
         case 5://Agedar aula online
+            listarDadosUC(vDadosUC, indiceVetUC);
             vAulasOnline = agendarAula(vAulasOnline, &indiceVetAulas, vDadosUC, indiceVetUC);
             menu_confirmar();
             break;

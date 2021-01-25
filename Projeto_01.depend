@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1611520380 source:c:\users\alexa\desktop\projectos c\projetos\projeto_01\main.c
+1611617854 source:c:\users\alexa\desktop\projectos c\projetos\projeto_01\main.c
 	<stdio.h>
 	<stdlib.h>
 	"estruturas.h"
@@ -10,12 +10,12 @@
 	"func_dadosAulas.h"
 	"func_ficheiros.h"
 
-1611519585 c:\users\alexa\desktop\projectos c\projetos\projeto_01\estruturas.h
+1611617553 c:\users\alexa\desktop\projectos c\projetos\projeto_01\estruturas.h
 	"constantes.h"
 
-1611519585 c:\users\alexa\desktop\projectos c\projetos\projeto_01\constantes.h
+1611588761 c:\users\alexa\desktop\projectos c\projetos\projeto_01\constantes.h
 
-1611522698 source:c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_aux.c
+1611617513 source:c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_aux.c
 	<stdio.h>
 	<string.h>
 	<math.h>
@@ -23,11 +23,11 @@
 	"constantes.h"
 	"estruturas.h"
 
-1611448940 c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_aux.h
+1611615955 c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_aux.h
 	"constantes.h"
 	"estruturas.h"
 
-1611520889 source:c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_dadosuc.c
+1611617513 source:c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_dadosuc.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -35,8 +35,9 @@
 	"constantes.h"
 	"func_aux.h"
 	"func_dadosUC.h"
+	"func_dadosAulas.h"
 
-1611435807 c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_dadosuc.h
+1611597368 c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_dadosuc.h
 
 1611606972 source:c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\func_aux.c
 	<stdio.h>
@@ -115,31 +116,33 @@
 
 1611587962 c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\func_ficheiros.h
 
-1611516291 source:c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_ficheiros.c
+1611617427 source:c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_ficheiros.c
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
 	"estruturas.h"
+	"constantes.h"
 
-1611519585 source:c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_menu.c
+1611615632 source:c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_menu.c
 	<stdio.h>
 	<string.h>
 	"func_aux.h"
-	<conio.h>
 	<stdlib.h>
 	"func_menu.h"
 	"func_dadosUC.h"
+	"func_dadosAulas.h"
 	"estruturas.h"
 	"estatisticas.h"
 
-1611519585 c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_menu.h
+1611595775 c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_menu.h
 
-1611519585 c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_dadosaulas.h
+1611617513 c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_dadosaulas.h
 	"constantes.h"
 	"func_dadosAulas.h"
 	"func_aux.h"
 	"estruturas.h"
 
-1611508669 c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_ficheiros.h
+1611617467 c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_ficheiros.h
 
 1611525211 source:c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\estatisticas.c
 	<stdio.h>
@@ -147,7 +150,7 @@
 
 1611514069 c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\estatisticas.h
 
-1611522401 source:c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_dadosaulas.c
+1611617513 source:c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_dadosaulas.c
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
@@ -157,10 +160,12 @@
 	"func_aux.h"
 	"constantes.h"
 	"func_dadosUC.h"
+	"func_ficheiros.h"
 
-1611519585 c:\users\alexa\desktop\projectos c\projetos\projeto_01\estatisticas.h
+1611615951 c:\users\alexa\desktop\projectos c\projetos\projeto_01\estatisticas.h
 
-1611519585 source:c:\users\alexa\desktop\projectos c\projetos\projeto_01\estatisticas.c
+1611617437 source:c:\users\alexa\desktop\projectos c\projetos\projeto_01\estatisticas.c
 	<stdio.h>
 	"estruturas.h"
+	"func_aux.h"
 
