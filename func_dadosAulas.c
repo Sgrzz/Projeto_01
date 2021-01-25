@@ -456,6 +456,11 @@ void registarInicioAula(dadosAula *vAulasOnline, int quantAulas, char nomeAula[M
         if(vAulasOnline[posNome].estado == agendada)
         {
             vAulasOnline[posNome].estado = decorrer;
+
+            if (vAulasOnline[posNome].gravacao == sim)
+            {
+                printf("\nAula a gravar.");
+            }
         }
         else
         {
