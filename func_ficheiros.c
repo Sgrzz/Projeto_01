@@ -114,3 +114,13 @@ dadosAula *carregarDadosFicheiroBinario(dadosUC arrayUC[MAX_UCS], int *indiceDad
 
     return vAulasOnline;
 }
+
+//vai receber numero do estudante  a designacao da aula e tipo de acesso (online ou offline)
+void registarLog()
+{
+    //abrir ficheiro log.txt e log.dat
+    //se n existir criar o ficheiros
+
+    //registar nova linha com a informacao
+    //fechar ficheiro
+}

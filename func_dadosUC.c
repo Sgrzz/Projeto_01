@@ -92,7 +92,7 @@ int lerDuracaoAulas_PL()
 //e devolve a mesma por o array uc, requer a posIndiceArray para verificar se o codigo é unico e para o incrementar
 void inserirDadosUC(dadosUC dadosDaUC[MAX_UCS], int *posIndiceArray)
 {
-    if (*posIndiceArray==40)
+    if (*posIndiceArray==MAX_UCS)
     {
         printf("\nMaximo de uc's alcancado");
     }
@@ -253,20 +253,20 @@ void listarDadosUC(dadosUC arrayUC[MAX_UCS], int posIndiceArray)
 
             switch(arrayUC[i].tipoUC)
             {
-                case 0:
+                case obrigatoria:
                     strcpy(stringTipo,"obrigatorio");
                     break;
-                case 1:
+                case opcional:
                     strcpy(stringTipo,"opcional");
                     break;
             }
 
             switch(arrayUC[i].regime)
             {
-                case 0:
+                case diurno:
                     strcpy(stringRegime,"diurno");
                     break;
-                case 1:
+                case poslaboral:
                     strcpy(stringRegime,"pos laboral");
                     break;
             }

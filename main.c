@@ -62,28 +62,36 @@ int main()
         case 6://Registar acesso a aula online
             listarDadosAula(vAulasOnline, indiceVetAulas);
             RegistarAcessoAula(vAulasOnline, indiceVetAulas);
+            menu_confirmar();
             break;
         case 7://Eliminar aula online
             listarDadosAula(vAulasOnline, indiceVetAulas);
             vAulasOnline = eliminarAula(vAulasOnline, &indiceVetAulas);
+            menu_confirmar();
             break;
         case 8://Alterar aula Agendada
             listarDadosAula(vAulasOnline, indiceVetAulas);
+            menu_confirmar();
             //alterarAula(vAulasOnline, indiceVetAulas,  ,opcao);
             break;
         case 9://Lista das aulas online
             listarDadosAula(vAulasOnline, indiceVetAulas);
             menu_confirmar();
             break;
-        case 10://Estatisticas
+        case 10://registar inicio da aula
+
+            break;
+        case 11://registar fim da aula
+            break;
+        case 12://Estatisticas
             escolhaSubMenu = menu_estatisticas(vAulasOnline, indiceVetAulas, vDadosUC, indiceVetUC);
             break;
-        case 11://Sair do programa
+        case 13://Sair do programa
             gravaFicheiroBinario(vDadosUC, indiceVetUC,vAulasOnline,indiceVetAulas);
             printf("Fim do programa\n");
         }
     }
-    while (escolha!=11);
+    while (escolha!=13);
 
     free(vAulasOnline);
 
