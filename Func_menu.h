@@ -8,6 +8,7 @@ int menu_alterarUC(dadosUC vDadosUC[MAX_UCS], int indiceVetUC);
 int menu_eliminarUC();
 int menu_agendarAula();
 int menu_registarAcessoAula();
+int menu_registarInicioAula();
 int menu_eliminarAula();
 int menu_alterarAula();
 int menu_listaAulas();
