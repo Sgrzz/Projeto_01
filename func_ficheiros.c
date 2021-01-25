@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "estruturas.h"
+#include "constantes.h"
 
 void gravaFicheiroBinario(dadosUC arrayUC[MAX_UCS], int indiceArrayUC, dadosAula *vAulasOnline,int indiceAulaOnline)
 {
@@ -117,7 +118,7 @@ dadosAula *carregarDadosFicheiroBinario(dadosUC arrayUC[MAX_UCS], int *indiceDad
 }
 
 //vai receber numero do estudante  o nome da aula e tipo de acesso (online ou offline)
-void registarLog(dadosAula *vAulasOnline, int indiceAulaOnline, int numEstudante)
+void registarLog(char nome[MAX_STRING_NOME_AULA], int numEstudante, enum enumEstadoAula estado)
 {
     //abrir ficheiro log.txt e log.dat (texto e binário)
     //declaraçao das variaveis
@@ -133,15 +134,15 @@ void registarLog(dadosAula *vAulasOnline, int indiceAulaOnline, int numEstudante
     }
     else
     {
-        fprintf(ficheiroTexto, "Nome da aula: %s\n", vAulasOnline[indiceAulaOnline].nome);
+        fprintf(ficheiroTexto, "Nome da aula: %s\n", nome);
         fprintf(ficheiroTexto, "Numero do Estudante: %d\n", numEstudante);
 
-        if(vAulasOnline[indiceAulaOnline].estado == decorrer)
+        if(estado == decorrer)
         {
             fprintf(ficheiroTexto, "Tipo de acesso: %s\n", "online");
 
         }
-        else if(vAulasOnline[indiceAulaOnline].estado == realizada && vAulasOnline[indiceAulaOnline].gravacao == sim)
+        else if(estado == realizada)
         {
             fprintf(ficheiroTexto, "Tipo de acesso: %s\n", "offline");
         }
@@ -160,13 +161,14 @@ void registarLog(dadosAula *vAulasOnline, int indiceAulaOnline, int numEstudante
     }
     else
     {
-        fprintf(ficheiroBinario, "Nome da aula: %s\n", vAulasOnline[indiceAulaOnline].nome);
+        fprintf(ficheiroBinario, "\nNome da aula: %s\n", nome);
         fprintf(ficheiroBinario, "Numero do Estudante: %d\n", numEstudante);
-        if(vAulasOnline[indiceAulaOnline].estado == decorrer)
+
+        if(estado == decorrer)
         {
             fprintf(ficheiroBinario, "Tipo de acesso: %s\n", "online");
         }
-        else if(vAulasOnline[indiceAulaOnline].estado == realizada && vAulasOnline[indiceAulaOnline].gravacao == sim)
+        else if(estado == realizada)
         {
             fprintf(ficheiroBinario, "Tipo de acesso: %s\n", "offline");
         }

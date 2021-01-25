@@ -554,25 +554,28 @@ void RegistarAcessoAula(dadosAula *vAulasOnline, int indiceAulas)
 
     if(indiceAulas == 0) //ve se pode registar a aula
     {
-        printf("Ainda nao existem aulas para aceder\n");// nao da para registar
+        printf("\nAinda nao existem aulas para aceder");// nao da para registar
     }
     else // existem aulas logo vai pedir o nome da aula
     {
+        printf("\nInsira o numero de estudante -> ");
+        numEstudante = lerInteiro(MIN_ESTUDANTES, MAX_ESTUDANTES);
         do
         {
             // vai pedir o nome da aula, le-o, procura e vê se existe um nome igual e devolve o indice,
             //se nao encontrar devolve-1
-            printf("Insira o nome da aula\n");
+            printf("\nInsira o nome da aula -> ");
             lerString(nomeAula, MAX_STRING_NOME_AULA);
             indice = procurarNomeAula(vAulasOnline, indiceAulas, nomeAula);
 
+
             if(indice == -1) //verifica se o indice é valido, se nao diz que é invalido
             {
-                printf("Nome invalido. Insira nome da aula valido\n");
+                printf("\nNome invalido. Insira nome da aula valido");
             }
             else if(vAulasOnline[indice].estado == agendada) // encontrou e vai verificar se a aula esta agendada, se estiver agendada manda msg de erro
             {
-                printf("Nao e possivel registar o acesso a aula\n");
+                printf("\nNao e possivel registar o acesso a aula, porque esta ainda esta so agendada.");
             }
         }
         while (indice == -1 || vAulasOnline[indice].estado == agendada);
@@ -581,23 +584,13 @@ void RegistarAcessoAula(dadosAula *vAulasOnline, int indiceAulas)
         if(vAulasOnline[indice].estado == decorrer)
         {
             vAulasOnline[indice].numEstudantesOnline++;
+            registarLog(nomeAula, numEstudante, vAulasOnline[indice].estado);
         }
-
-
-        //e se esta terminada (se foi gravada) (offline)
-
-
-        if(vAulasOnline[indice].estado == realizada && vAulasOnline[indice].gravacao == sim)
+        else if(vAulasOnline[indice].estado == realizada && vAulasOnline[indice].gravacao == sim)
         {
             vAulasOnline[indice].numEstudantesOffline++;
+            registarLog(nomeAula, numEstudante, vAulasOnline[indice].estado);
         }
-        //nome é valido logo vai pedir as infos
-        printf("Insira o numero de estudante\n");
-        numEstudante = lerInteiro(MIN_ESTUDANTES, MAX_ESTUDANTES);
-
-        //gravar o n de acessos
-        registarLog(vAulasOnline, indiceAulas, numEstudante);
-        //gravar no log o n do aluno, o codigo e o tipo de acessoAula
     }
 }
 
