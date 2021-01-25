@@ -187,7 +187,7 @@ void lerString(char vetorCaracteres[MAX_STRING], int maximoCaracteres)
     } while (tamanhoString == 1);
 
     if(vetorCaracteres[tamanhoString-1] != '\n'){  // ficaram caracteres no buffer....
-        limpaBufferStdin();  // apenas faz sentido limpar buffer se a ficarem caracteres
+        limpaBufferStdin();  // apenas faz sentido limpar buffer se la ficarem caracteres
     }
     else{
         vetorCaracteres[tamanhoString-1] = '\0'; 	//Elimina o \n da string armazenada em vetor

@@ -215,7 +215,7 @@ int procurarDadosUC(dadosUC arrayUC[MAX_UCS], int posIndiceArray, int codigoUC)
 //requer o array de tipo dadosUC e um int com o numero de pos preenchidas
 void ordenarDadosUC(dadosUC arrayUC[MAX_UCS], int posIndiceArray)
 {
-    dadosUC TempUC;
+    dadosUC auxUC;
     int x,y;
 
     //percorre o array inteiro
@@ -227,9 +227,9 @@ void ordenarDadosUC(dadosUC arrayUC[MAX_UCS], int posIndiceArray)
             //se o codigo da uc for infeiror troca a posição
             if (arrayUC[x].codigoUC > arrayUC[y].codigoUC)
             {
-                TempUC = arrayUC[x];
+                auxUC = arrayUC[x];
                 arrayUC[x] = arrayUC[y];
-                arrayUC[y] = TempUC;
+                arrayUC[y] = auxUC;
             }
         }
     }

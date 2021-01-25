@@ -26,5 +26,5 @@ void listarDadosAula(dadosAula *vAulasOnline, int posIndiceArray);
 void alterarAula(dadosAula *vAulasOnline, int quantAulas,dadosUC dadosDaUC[MAX_UCS], int indiceArrayUC, char nomeAula[MAX_STRING_NOME_AULA], int opcao);
 
 void infoAulasOnline(dadosAula *vAulasOnline, int indiceAulasOnline,int codigoUC);
-void RegistarAcessoAula(dadosAula *vAulasOnline, int indiceAulas);
+void registarAcessoAula(dadosAula *vAulasOnline, int indiceAulas);
 #endif // FUNC_DADOSAULAS_H_INCLUDED

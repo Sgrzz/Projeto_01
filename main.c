@@ -61,7 +61,7 @@ int main()
             break;
         case 6://Registar acesso a aula online
             listarDadosAula(vAulasOnline, indiceVetAulas);
-            RegistarAcessoAula(vAulasOnline, indiceVetAulas);
+            registarAcessoAula(vAulasOnline, indiceVetAulas);
             menu_confirmar();
             break;
         case 7://Eliminar aula online
