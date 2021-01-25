@@ -52,10 +52,10 @@
 
 1611530221 c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\constantes.h
 
-1611521922 c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\estruturas.h
+1611549986 c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\estruturas.h
 	"constantes.h"
 
-1611530415 source:c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\main.c
+1611549986 source:c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\main.c
 	<stdio.h>
 	<stdlib.h>
 	"estruturas.h"
@@ -68,7 +68,7 @@
 
 1611422263 c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\func_dadosuc.h
 
-1611530415 source:c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\func_dadosuc.c
+1611549986 source:c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\func_dadosuc.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -77,7 +77,7 @@
 	"func_aux.h"
 	"func_dadosUC.h"
 
-1611520470 source:c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\func_menu.c
+1611539308 source:c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\func_menu.c
 	<stdio.h>
 	<string.h>
 	"func_aux.h"
@@ -87,14 +87,14 @@
 	"estruturas.h"
 	"estatisticas.h"
 
-1611513681 c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\func_menu.h
+1611539323 c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\func_menu.h
 
-1611519766 source:c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\func_ficheiros.c
+1611580029 source:c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\func_ficheiros.c
 	<stdio.h>
 	<stdlib.h>
 	"estruturas.h"
 
-1611530415 source:c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\func_dadosaulas.c
+1611580671 source:c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\func_dadosaulas.c
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
@@ -104,14 +104,15 @@
 	"func_aux.h"
 	"constantes.h"
 	"func_dadosUC.h"
+	"func_ficheiros.h"
 
-1611524903 c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\func_dadosaulas.h
+1611549986 c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\func_dadosaulas.h
 	"constantes.h"
 	"func_dadosAulas.h"
 	"func_aux.h"
 	"estruturas.h"
 
-1611512155 c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\func_ficheiros.h
+1611577982 c:\users\leila\desktop\uni ei\matéria\cadeiras\p1\projeto\projeto_01\func_ficheiros.h
 
 1611516291 source:c:\users\alexa\desktop\projectos c\projetos\projeto_01\func_ficheiros.c
 	<stdio.h>
