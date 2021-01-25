@@ -8,6 +8,7 @@
 #include "func_aux.h"
 #include "constantes.h"
 #include "func_dadosUC.h"
+#include "func_ficheiros.h"
 
 //recebe array tipo dadosAula, a pos do array e o nome para comparar
 //devolve a pos onde encontrou o nomeAula se n devolve -1
@@ -82,15 +83,15 @@ int lerTipoAula(tipoAulas quantidade)
 
         switch(tipo)
         {
-            case T:
-                quantTipo = quantidade.T;
-                break;
-            case TP:
-                quantTipo = quantidade.TP;
-                break;
-            case PL:
-                quantTipo = quantidade.PL;
-                break;
+        case T:
+            quantTipo = quantidade.T;
+            break;
+        case TP:
+            quantTipo = quantidade.TP;
+            break;
+        case PL:
+            quantTipo = quantidade.PL;
+            break;
         }
 
         if (quantTipo-1<=0)
@@ -98,7 +99,8 @@ int lerTipoAula(tipoAulas quantidade)
             printf("\nNao existem mais aulas deste tipo para agendar. selecione outro tipo de aula");
         }
 
-    }while (quantTipo-1<=0);
+    }
+    while (quantTipo-1<=0);
 
 
     return tipo;
@@ -254,15 +256,15 @@ dadosAula *agendarAula(dadosAula *vAulasOnline, int *posIndiceArrayAulas, dadosU
 
         switch(vAulasOnline[*posIndiceArrayAulas].tipoAula)
         {
-            case T:
-                vDadosUC[indiceUC].quantTipoAulas.T--;
-                break;
-            case TP:
-                vDadosUC[indiceUC].quantTipoAulas.TP--;
-                break;
-            case PL:
-                vDadosUC[indiceUC].quantTipoAulas.PL--;
-                break;
+        case T:
+            vDadosUC[indiceUC].quantTipoAulas.T--;
+            break;
+        case TP:
+            vDadosUC[indiceUC].quantTipoAulas.TP--;
+            break;
+        case PL:
+            vDadosUC[indiceUC].quantTipoAulas.PL--;
+            break;
         }
 
         //ler nome do docente
@@ -381,15 +383,15 @@ void alterarAula(dadosAula *vAulasOnline, int quantAulas,dadosUC dadosDaUC[MAX_U
             vAulasOnline[posNome].tipoAula = lerTipoAula(dadosDaUC[indiceUC].quantTipoAulas);
             switch(vAulasOnline[posNome].tipoAula)
             {
-                case T:
-                    dadosDaUC[indiceUC].quantTipoAulas.T--;
-                    break;
-                case TP:
-                    dadosDaUC[indiceUC].quantTipoAulas.TP--;
-                    break;
-                case PL:
-                    dadosDaUC[indiceUC].quantTipoAulas.PL--;
-                    break;
+            case T:
+                dadosDaUC[indiceUC].quantTipoAulas.T--;
+                break;
+            case TP:
+                dadosDaUC[indiceUC].quantTipoAulas.TP--;
+                break;
+            case PL:
+                dadosDaUC[indiceUC].quantTipoAulas.PL--;
+                break;
             }
             lerNomeDocente(vAulasOnline[posNome].nomeDocente);
             lerDataAula(&vAulasOnline[posNome].data);
@@ -413,15 +415,15 @@ void alterarAula(dadosAula *vAulasOnline, int quantAulas,dadosUC dadosDaUC[MAX_U
             vAulasOnline[posNome].tipoAula = lerTipoAula(dadosDaUC[indiceUC].quantTipoAulas);
             switch(vAulasOnline[posNome].tipoAula)
             {
-                case T:
-                    dadosDaUC[indiceUC].quantTipoAulas.T--;
-                    break;
-                case TP:
-                    dadosDaUC[indiceUC].quantTipoAulas.TP--;
-                    break;
-                case PL:
-                    dadosDaUC[indiceUC].quantTipoAulas.PL--;
-                    break;
+            case T:
+                dadosDaUC[indiceUC].quantTipoAulas.T--;
+                break;
+            case TP:
+                dadosDaUC[indiceUC].quantTipoAulas.TP--;
+                break;
+            case PL:
+                dadosDaUC[indiceUC].quantTipoAulas.PL--;
+                break;
             }
             break;
         case 4:
@@ -564,21 +566,21 @@ void RegistarAcessoAula(dadosAula *vAulasOnline, int indiceAulas)
         do
         {
             // vai pedir o nome da aula, le-o, procura e vê se existe um nome igual e devolve o indice,
-                //se nao encontrar devolve-1
+            //se nao encontrar devolve-1
             printf("Insira o nome da aula\n");
             lerString(nomeAula, MAX_STRING_NOME_AULA);
             indice = procurarNomeAula(vAulasOnline, indiceAulas, nomeAula);
 
-            if(indice == -1) //verifica se o indice é valido se nao encontrou diz que é invalido
+            if(indice == -1) //verifica se o indice é valido, se nao diz que é invalido
             {
                 printf("Nome invalido. Insira nome da aula valido\n");
             }
-            else if(vAulasOnline[indice].estado == agendada) // vai verificar se a aula esta agendada, se estiver agendada manda msg de erro
+            else if(vAulasOnline[indice].estado == agendada) // encontrou e vai verificar se a aula esta agendada, se estiver agendada manda msg de erro
             {
-                printf("Nao e possivel aceder a aula\n");
+                printf("Nao e possivel registar o acesso a aula\n");
             }
         }
-        while (indice == -1 && vAulasOnline[indice].estado == agendada);
+        while (indice == -1 || vAulasOnline[indice].estado == agendada);
 
         //aula esta a decorrer (online)
         if(vAulasOnline[indice].estado == decorrer)
@@ -592,13 +594,14 @@ void RegistarAcessoAula(dadosAula *vAulasOnline, int indiceAulas)
 
         if(vAulasOnline[indice].estado == realizada && vAulasOnline[indice].gravacao == sim)
         {
-             vAulasOnline[indice].numEstudantesOffline++;
+            vAulasOnline[indice].numEstudantesOffline++;
         }
         //nome é valido logo vai pedir as infos
         printf("Insira o numero de estudante\n");
         numEstudante = lerInteiro(MIN_ESTUDANTES, MAX_ESTUDANTES);
 
         //gravar o n de acessos
+        registarLog(vAulasOnline, indiceAulas, numEstudante);
         //gravar no log o n do aluno, o codigo e o tipo de acessoAula
     }
 }

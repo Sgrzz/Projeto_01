@@ -11,7 +11,8 @@ void gravaFicheiroBinario(dadosUC arrayUC[MAX_UCS], int indiceArrayUC, dadosAula
     ficheiro = fopen("dados.dat", "wb");
 
     if (ficheiro != NULL)
-    {//conseguiu abrir o ficheiro
+    {
+        //conseguiu abrir o ficheiro
 
         quantEscrito = fwrite(&indiceArrayUC, sizeof(int), 1, ficheiro);
         if (quantEscrito != 1)
@@ -115,12 +116,62 @@ dadosAula *carregarDadosFicheiroBinario(dadosUC arrayUC[MAX_UCS], int *indiceDad
     return vAulasOnline;
 }
 
-//vai receber numero do estudante  a designacao da aula e tipo de acesso (online ou offline)
-void registarLog()
+//vai receber numero do estudante  o nome da aula e tipo de acesso (online ou offline)
+void registarLog(dadosAula *vAulasOnline, int indiceAulaOnline, int numEstudante)
 {
-    //abrir ficheiro log.txt e log.dat
-    //se n existir criar o ficheiros
+    //abrir ficheiro log.txt e log.dat (texto e binário)
+    //declaraçao das variaveis
+    FILE *ficheiroTexto, *ficheiroBinario;
 
-    //registar nova linha com a informacao
+
+    //abrir fecheiro de texto
+    ficheiroTexto = fopen("log.txt", "a");
+    if(ficheiroTexto ==NULL)
+    {
+        //nao conseguiu abrir o ficheiro
+        printf("Erro ao abrir ficheiro de texto\n");
+    }
+    else
+    {
+        fprintf(ficheiroTexto, "Nome da aula: %s\n", vAulasOnline[indiceAulaOnline].nome);
+        fprintf(ficheiroTexto, "Numero do Estudante: %d\n", numEstudante);
+
+        if(vAulasOnline[indiceAulaOnline].estado == decorrer)
+        {
+            fprintf(ficheiroTexto, "Tipo de acesso: %s\n", "online");
+
+        }
+        else if(vAulasOnline[indiceAulaOnline].estado == realizada && vAulasOnline[indiceAulaOnline].gravacao == sim)
+        {
+            fprintf(ficheiroTexto, "Tipo de acesso: %s\n", "offline");
+        }
+    }
+    fclose(ficheiroTexto);
+    printf("Gravado com sucesso no ficheiro de texto!\n");
+
+
+
+    //abrir ficheiro binario
+    ficheiroBinario = fopen("log.dat", "ab");
+    if(ficheiroBinario == NULL)
+    {
+        //nao conseguiu abir o ficheiro binario
+        printf("Erro ao abrir ficheiro binario\n");
+    }
+    else
+    {
+        fprintf(ficheiroBinario, "Nome da aula: %s\n", vAulasOnline[indiceAulaOnline].nome);
+        fprintf(ficheiroBinario, "Numero do Estudante: %d\n", numEstudante);
+        if(vAulasOnline[indiceAulaOnline].estado == decorrer)
+        {
+            fprintf(ficheiroBinario, "Tipo de acesso: %s\n", "online");
+        }
+        else if(vAulasOnline[indiceAulaOnline].estado == realizada && vAulasOnline[indiceAulaOnline].gravacao == sim)
+        {
+            fprintf(ficheiroBinario, "Tipo de acesso: %s\n", "offline");
+        }
+    }
+    fclose(ficheiroBinario);
+    printf("Gravado com sucesso no ficheiro binario!\n");
     //fechar ficheiro
 }
