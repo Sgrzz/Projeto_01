@@ -15,6 +15,7 @@ int main()
 
     int escolha, indiceVetUC = 0, escolhaSubMenu, indiceVetAulas = 0;
     dadosAula *vAulasOnline = NULL;
+    char nomeAula[MAX_STRING_NOME_AULA];
 
     vAulasOnline = carregarDadosFicheiroBinario(vDadosUC,&indiceVetUC,vAulasOnline,&indiceVetAulas);
 
@@ -70,19 +71,26 @@ int main()
             menu_confirmar();
             break;
         case 8://Alterar aula Agendada
-            listarDadosAula(vAulasOnline, indiceVetAulas);
+            menu_alterarAula(vAulasOnline, indiceVetAulas,nomeAula);
+            alterarAula(vAulasOnline,indiceVetAulas,vDadosUC,indiceVetUC,nomeAula,0);
             menu_confirmar();
-            //alterarAula(vAulasOnline, indiceVetAulas,  ,opcao);
             break;
         case 9://Lista das aulas online
-            listarDadosAula(vAulasOnline, indiceVetAulas);
-            menu_confirmar();
+            escolhaSubMenu = menu_listaAulasOnline(vAulasOnline,indiceVetAulas,nomeAula);
+            if (escolhaSubMenu!=0)
+            {
+                listarNomeAulasUC(vDadosUC,indiceVetUC,escolhaSubMenu);
+            }
             break;
         case 10://registar inicio da aula
-            listarDadosAula(vAulasOnline, indiceVetAulas);
-
+            menu_registarInicioAula(vAulasOnline, indiceVetAulas,nomeAula);
+            registarInicioAula(vAulasOnline, indiceVetAulas,nomeAula);
+            menu_confirmar();
             break;
         case 11://registar fim da aula
+            menu_registarFimAula(vAulasOnline, indiceVetAulas,nomeAula);
+            registarFimAula(vAulasOnline, indiceVetAulas,nomeAula);
+            menu_confirmar();
             break;
         case 12://Estatisticas
             escolhaSubMenu = menu_estatisticas(vAulasOnline, indiceVetAulas, vDadosUC, indiceVetUC);

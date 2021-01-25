@@ -296,13 +296,55 @@ dadosAula *agendarAula(dadosAula *vAulasOnline, int *posIndiceArrayAulas, dadosU
 void listarDadosAula(dadosAula *vAulasOnline, int posIndiceArray)
 {
     int i;
+    char stringTipo[MAX_STRING];
+    char stringEstado[MAX_STRING];
+    char stringGravacao[MAX_STRING];
+
     printf("Nome: \t Codigo: \tTipo: \tDocente: \tData: \tHora Inicio: \tHora Fim:\tEstado: \tGrava: \tEstudantes presentes \tAcessos gravacoes\n");
 
     for(i=0; i<posIndiceArray; i++)
     {
-        printf("%s\t %d\t %d\t %s\t %d\t%d\t%d\t %d\t%d\t %d\t%d\t %d\t %d",vAulasOnline[i].nome, vAulasOnline[i].codigoUC, vAulasOnline[i].tipoAula, vAulasOnline[i].nomeDocente,
+
+        switch(vAulasOnline[i].tipoAula)
+        {
+            case T:
+                strcpy(stringTipo,"teorica");
+                break;
+            case TP:
+                 strcpy(stringTipo,"teorica pratica");
+                break;
+            case PL:
+                 strcpy(stringTipo,"pratica laboratorial");
+                break;
+        }
+
+
+        switch(vAulasOnline[i].estado)
+        {
+            case agendada:
+                strcpy(stringEstado,"agendada");
+                break;
+            case decorrer:
+                 strcpy(stringEstado,"decorrer");
+                break;
+            case realizada:
+                 strcpy(stringEstado,"realizada");
+                break;
+        }
+
+        switch(vAulasOnline[i].gravacao)
+        {
+            case sim:
+                strcpy(stringGravacao,"sim");
+                break;
+            case nao:
+                 strcpy(stringGravacao,"nao");
+                break;
+        }
+
+        printf("%s\t %d\t %s\t %s\t %d-%d-%d\t %d:%d\t %d:%d\t %s\t %s",vAulasOnline[i].nome, vAulasOnline[i].codigoUC,stringTipo, vAulasOnline[i].nomeDocente,
                vAulasOnline[i].data.dia, vAulasOnline[i].data.mes, vAulasOnline[i].data.ano, vAulasOnline[i].horaInicio.hora, vAulasOnline[i].horaInicio.minuto, vAulasOnline[i].horaFim.hora,
-               vAulasOnline[i].horaFim.minuto, vAulasOnline[i].estado, vAulasOnline[i].gravacao);
+               vAulasOnline[i].horaFim.minuto, stringEstado, stringGravacao);
 
         //se a aula estiver realizada apresenta tambem o numero de estudantes presentes e os acessos as gravaçoes
 
@@ -310,7 +352,6 @@ void listarDadosAula(dadosAula *vAulasOnline, int posIndiceArray)
         {
             printf("\t %d \t %d",vAulasOnline[i].numEstudantesOnline,vAulasOnline[i].numEstudantesOffline);
         }
-
         printf("\n");
     }
 }
@@ -474,7 +515,7 @@ void registarInicioAula(dadosAula *vAulasOnline, int quantAulas, char nomeAula[M
         printf("\nAula nao encontrada.");
     }
 }
-// ver se é chamado algum sitio da vida
+
 void registarFimAula(dadosAula *vAulasOnline, int quantAulas, char nomeAula[MAX_STRING_NOME_AULA])
 {
     int posNome;
@@ -598,6 +639,9 @@ void RegistarAcessoAula(dadosAula *vAulasOnline, int indiceAulas)
         }
     }
 }
+
+//• Apresentar uma listagem com a identificação (números) dos estudantes
+//presentes numa aula online (indicada pelo utilizador).
 
 
 

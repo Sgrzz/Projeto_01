@@ -80,6 +80,18 @@ tipoHora subtrairHora(tipoHora hora1, tipoHora hora2)
 //}
 
 //OU
+
+int compararDatas(tipoData a, tipoData b)
+{
+    if (a.ano != b.ano)
+        return a.ano - b.ano;
+    if (a.mes != b.mes)
+        return a.mes - b.mes;
+    return (a.dia - b.dia);
+}
+
+
+
 void lerData(tipoData *data){
     int maxDias;
 

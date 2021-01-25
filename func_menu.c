@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include "func_menu.h"
 #include "func_dadosUC.h"
+#include "func_dadosAulas.h"
 #include "estruturas.h"
 #include "estatisticas.h"
 
@@ -29,10 +30,10 @@ int menu_principal(dadosAula *vAulasOnline, int indiceAulasOnline, int indiceUC)
     printf("        8 -> Alterar aula Agendada\n");
     printf("        9 -> Lista das aulas\n");
     printf("       10 -> registar inicio da aula\n");
-    printf("       11 -> registar fim da aula\n");
+    printf("       11 -> registar fim da aula\n\n");
 
     printf("12 -> Estatisticas\n");
-    printf("13 -> Sair do programa\n");
+    printf("13 -> Sair do programa e gravar modificacoes\n");
     printf("-------------------------------------------------------\n");
     printf("-------------------------------------------------------\n");
     printf("Selecione a opcao desejada ->");
@@ -94,111 +95,128 @@ int menu_eliminarUC(dadosUC vDadosUC[MAX_UCS], int indiceVetUC)  // funcao menu 
     return escolha;
 }
 
+//aula online
 
-// Aula Online
-
-int menu_agendarAula()  // funcao menu agendar aula online
+void menu_alterarAula(dadosAula *vAulasOnline, int indiceAulasOnline, char escolha[MAX_STRING_NOME_AULA])
 {
-    int escolha;
-
-    printf("                    Agendar aula               \n");
+    int indice = -1;
     printf("-------------------------------------------------------\n");
-    printf("Insira o nº de estudante: \n");
-    printf("Selecione a aula que pretende se registar:\n");
-    printf("Selecione o tipo de aula: \n"); // T, TP, PL
+    printf("                 Alterar aula                \n");
     printf("-------------------------------------------------------\n");
-    printf("1 - Confirmar\n");
-    printf("2 - Cancelar\n");
+    listarDadosAula(vAulasOnline,indiceAulasOnline);
+    printf("-------------------------------------------------------\n");
+    printf("escreva o nome da aula a alterar->");
+    do{
 
-    escolha = lerInteiro(1,2);
+        lerString(escolha,MAX_STRING_NOME_AULA);
+        indice = procurarNomeAula(vAulasOnline,indiceAulasOnline,escolha);
+        if (indice==-1)
+        {
+            printf("\nNome de aula invalido, escreva o nome da aula a alterar ->");
+        }
 
-    return escolha;
+    }while(indice==-1);
 }
 
-int menu_registarAcessoAula()  // funcao menu registar acesso a aula
+int menu_listaAulasOnline(dadosAula *vAulasOnline, int indiceAulasOnline,char escolha[MAX_STRING_NOME_AULA])
 {
-    int escolha;
-
-    printf("           Registar Acesso a Aula Online       \n");
+    int indice;
+    int doWhileFlag = 0;
+    int returnValue= 0;
     printf("-------------------------------------------------------\n");
-    printf("Insira o codigo da UC: \n");
-    printf("Indique a aula que pretende se registar:\n");
-    printf("Selecione o tipo de aula: \n");
-    printf("Insira o nº de estudante: \n");
+    printf("                 Lista das aulas online                \n");
     printf("-------------------------------------------------------\n");
-    printf("1 - Confirmar\n");
-    printf("2 - Cancelar\n");
+    listarDadosAula(vAulasOnline,indiceAulasOnline);
+    printf("-------------------------------------------------------\n");
+    printf("escreva o nome da aula para mais informacoes ou 0 para sair->");
 
-    escolha = lerInteiro(1,2);
+    do{
+        doWhileFlag = 1;
+        lerString(escolha,MAX_STRING_NOME_AULA);
+        if(!strcmp(escolha,"0"))
+        {
+            doWhileFlag = 0;
+        }
+        else{
+            indice = procurarNomeAula(vAulasOnline,indiceAulasOnline,escolha);
+            if (indice==-1)
+            {
+                printf("\nNome de aula invalido, escreva o nome da aula valido ->");
+            }
+            else
+            {
+                doWhileFlag = 0;
+                returnValue = vAulasOnline[indice].codigoUC;
+            }
+        }
 
-    return escolha;
+    }while(doWhileFlag);
+
+    return returnValue;
 }
 
-int menu_registarInicioAula()  // funcao menu registar acesso a aula
+void menu_registarInicioAula(dadosAula *vAulasOnline, int indiceAulasOnline, char escolha[MAX_STRING_NOME_AULA])
 {
-    int escolha;
-
-    printf("           Registar Acesso a Aula Online       \n");
+    int indice;
+    int doWhileFlag = 1;
     printf("-------------------------------------------------------\n");
-    printf("Insira o codigo da UC: \n");
-    printf("Indique a aula que pretende se registar:\n");
-    printf("Selecione o tipo de aula: \n");
-    printf("Insira o nº de estudante: \n");
+    printf("                 Iniciar aula                \n");
     printf("-------------------------------------------------------\n");
-    printf("1 - Confirmar\n");
-    printf("2 - Cancelar\n");
+    //listar aulas
+    listarDadosAula(vAulasOnline,indiceAulasOnline);
+    printf("-------------------------------------------------------\n");
+    printf("escreva o nome da aula a iniciar->");
+    do{
+        doWhileFlag = 0;
+        lerString(escolha,MAX_STRING_NOME_AULA);
+        indice = procurarNomeAula(vAulasOnline,indiceAulasOnline,escolha);
+        if (indice!=-1)
+        {
+            if (vAulasOnline[indice].estado != agendada)
+            {
+                printf("\nAula invalida, aula nao esta agendada");
+                doWhileFlag = 1;
+            }
+        }
+        else
+        {
+            printf("\nAula nao encontrada.");
+            doWhileFlag = 1;
+        }
 
-    escolha = lerInteiro(1,2);
+    }while(doWhileFlag);
 
-    return escolha;
 }
 
-int menu_eliminarAula()  // funcao menu eliminar Aula
+void menu_registarFimAula(dadosAula *vAulasOnline, int indiceAulasOnline, char escolha[MAX_STRING_NOME_AULA])
 {
-    int escolha;
-
-    printf("                 Eliminar Aula                \n");
+    int indice;
+    int doWhileFlag = 1;
     printf("-------------------------------------------------------\n");
-
+    printf("                 Finalizar aula                \n");
     printf("-------------------------------------------------------\n");
-    printf("Selecione a aula que pretende eliminar:\n");
-    printf("1 - Eliminar aula\n");
-    printf("2 - Voltar\n");
-
-    escolha = lerInteiro(1,2);
-
-    return escolha;
-}
-
-int menu_alterarAula()  // funcao menu alterar aula
-{
-    int escolha;
-
-    printf("                Alterar Aula             \n");
+    listarDadosAula(vAulasOnline,indiceAulasOnline);
     printf("-------------------------------------------------------\n");
+    printf("escreva o nome da aula a iniciar->");
+    do{
+        doWhileFlag = 0;
+        lerString(escolha,MAX_STRING_NOME_AULA);
+        indice = procurarNomeAula(vAulasOnline,indiceAulasOnline,escolha);
+        if (indice!=-1)
+        {
+            if (vAulasOnline[indice].estado != decorrer)
+            {
+                printf("\nAula invalida, aula nao esta decorrer");
+                doWhileFlag = 1;
+            }
+        }
+        else
+        {
+            printf("\nAula nao encontrada.");
+            doWhileFlag = 1;
+        }
 
-    printf("-------------------------------------------------------\n");
-    printf("1 - Aula selecionada\n");
-    printf("2 - Voltar\n");
-
-    escolha = lerInteiro(1,2);
-
-    return escolha;
-}
-
-int menu_listaAulas()  // funcao menu Lista das Aulas
-{
-    int escolha;
-
-    printf("              Lista das Aulas           \n");
-    printf("-------------------------------------------------------\n");
-
-    printf("-------------------------------------------------------\n");
-    printf("Selecione o codigo da aula ou 0 para voltar\n");
-
-    escolha = lerInteiro(0,1);
-
-    return escolha;
+    }while(doWhileFlag);
 }
 
 // Estatísticas
@@ -210,23 +228,23 @@ int menu_estatisticas(dadosAula *vAulasOnline, int indiceAulasOnline, dadosUC ve
     printf("                      Estatisticas                     \n");
     printf("-------------------------------------------------------\n");
     printf("-->Media de presenças por aula:\n");
-
+    presencasAulas(vAulasOnline, indiceAulasOnline);
     printf("-------------------------------------------------------\n");
     printf("-->Percentagem de UCs com aulas gravadas: \n");
     percentUCAulasGravadas(vAulasOnline, indiceAulasOnline, vetUC, indiceVetUC);
     printf("-------------------------------------------------------\n");
-    printf("-->UCs com menor nº de aulas realizadas: \n");
-    UcComMenorQuantAulasRealizadas(vAulasOnline, indiceAulasOnline, vetUC, indiceVetUC);
+    printf("-->UCs com menor n de aulas realizadas: \n");
+    ucsMenorQuantidadeAulasRealizadas(vAulasOnline, indiceAulasOnline, vetUC, indiceVetUC);
     printf("-------------------------------------------------------\n");
-    printf("-->Tipo de aula com maior nº de acesso as gravacoes: \n");
-
+    printf("-->Tipo de aula com maior n de acesso as gravacoes: \n");
+    quantidadeDeAulasPorTipo(vAulasOnline, indiceAulasOnline);
     printf("-------------------------------------------------------\n");
     printf("-->Aulas realizadas ha mais tempo: \n");
-
+    listaDeAulasMaisVelhas(vAulasOnline, indiceAulasOnline);
     printf("-------------------------------------------------------\n");
     printf("-->Ranking: \n");
-
-    printf("-------------------------------------------------------\n");
+    listarRankingUC(vetUC,indiceVetUC,vAulasOnline,indiceAulasOnline);
+    printf("\n-------------------------------------------------------\n");
     printf("0 -> Voltar\n");
 
     escolha = lerInteiro(0,0);

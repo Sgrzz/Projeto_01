@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "estruturas.h"
 #include "constantes.h"
 
@@ -103,8 +104,6 @@ dadosAula *carregarDadosFicheiroBinario(dadosUC arrayUC[MAX_UCS], int *indiceDad
             }
         }
 
-
-
         fclose(ficheiro);
     }
     else
@@ -123,8 +122,7 @@ void registarLog(char nome[MAX_STRING_NOME_AULA], int numEstudante, enum enumEst
     //abrir ficheiro log.txt e log.dat (texto e binário)
     //declaraçao das variaveis
     FILE *ficheiroTexto, *ficheiroBinario;
-
-
+    char stringEstado[MAX_STRING];
     //abrir fecheiro de texto
     ficheiroTexto = fopen("log.txt", "a");
     if(ficheiroTexto ==NULL)
@@ -151,6 +149,7 @@ void registarLog(char nome[MAX_STRING_NOME_AULA], int numEstudante, enum enumEst
     printf("Gravado com sucesso no ficheiro de texto!\n");
 
 
+    //ficheiro binario/////////////////////////////////////////////////////////////////////////////////
 
     //abrir ficheiro binario
     ficheiroBinario = fopen("log.dat", "ab");
@@ -161,19 +160,46 @@ void registarLog(char nome[MAX_STRING_NOME_AULA], int numEstudante, enum enumEst
     }
     else
     {
-        fprintf(ficheiroBinario, "\nNome da aula: %s\n", nome);
-        fprintf(ficheiroBinario, "Numero do Estudante: %d\n", numEstudante);
+        fwrite(nome, MAX_STRING_NOME_AULA*sizeof(char), 1, ficheiroBinario);
+        fwrite(&numEstudante, sizeof(int), 1, ficheiroBinario);
 
         if(estado == decorrer)
         {
-            fprintf(ficheiroBinario, "Tipo de acesso: %s\n", "online");
+            strcpy(stringEstado,"online");
         }
         else if(estado == realizada)
         {
-            fprintf(ficheiroBinario, "Tipo de acesso: %s\n", "offline");
+            strcpy(stringEstado,"offline");
+
         }
+        fwrite(stringEstado, 7*sizeof(char), 1, ficheiroBinario);
+
     }
     fclose(ficheiroBinario);
     printf("Gravado com sucesso no ficheiro binario!\n");
     //fechar ficheiro
 }
+
+//hora de inicio as 23:12 do dia 25-01-2021
+/*
+void lerLogBinario()
+{
+    FILE *ficheiroBinario;
+    long tamanhoFicheiro = 0;
+    ficheiroBinario = fopen("log.dat", "rb");
+
+    fseek(ficheiroBinario,0,SEEK_END);
+    tamanhoFicheiro = ftell(ficheiroBinario);
+
+    if(ficheiroBinario != NULL)
+    {
+
+        while(fread(nome, MAX_STRING_NOME_AULA*sizeof(char), 1, ficheiroBinario)!=0)
+        {
+            fread(&numEstudante, sizeof(int), 1, ficheiroBinario);
+            fread(stringEstado, 7*sizeof(char), 1, ficheiroBinario);
+        }
+
+    }
+
+}*/

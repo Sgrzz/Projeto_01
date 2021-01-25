@@ -4,6 +4,7 @@
 #include "constantes.h"
 #include "estruturas.h"
 
+int compararDatas(tipoData a, tipoData b);
 int compararHoras(tipoHora horaInicio, tipoHora horaInicio2, tipoHora duracao);
 tipoHora somarHora(tipoHora hora1, tipoHora hora2);
 void lerData(tipoData *data);

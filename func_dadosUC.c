@@ -5,6 +5,7 @@
 #include "constantes.h"
 #include "func_aux.h"
 #include "func_dadosUC.h"
+#include "func_dadosAulas.h"
 
 
 //pede e verifica se o codigoUC é unico
@@ -297,3 +298,68 @@ void removerDadosUC(dadosUC arrayUC[MAX_UCS], int *posIndiceArray, int codigoUC)
     }
 }
 
+void listarNomeAulasUC(dadosUC arrayUC[MAX_UCS], int posIndiceArray, int codigoUC)
+{
+    int indice;
+
+    indice = procurarDadosUC(arrayUC,posIndiceArray,codigoUC);
+
+    if (indice==-1)
+    {
+        printf("\nindice invalido.");
+    }
+    else
+    {
+        printf("\nNome: %s Por agendar: T:%d TP:%d PL:%d",arrayUC[indice].nome,arrayUC[indice].quantTipoAulas.T,arrayUC[indice].quantTipoAulas.TP,arrayUC[indice].quantTipoAulas.PL);
+    }
+}
+
+void listarRankingUC(dadosUC arrayUC[MAX_UCS], int indiceUC, dadosAula *arrayAula, int indiceAula)
+{
+    //somar os acessos as gravacoes
+    //por cada uc
+    //reorder an array of ints with the index
+
+    typedef struct{
+        int totalV;
+        int indice;
+    }somaGravacoesUC;
+
+    int i,x,indice;
+
+    somaGravacoesUC soma[MAX_UCS],somaAux;
+
+    for(i=0;i<MAX_UCS;i++)
+    {
+        soma[i].totalV = 0;
+        soma[i].indice = i;
+    }
+
+    for(i=0;i<indiceAula;i++)
+    {
+        indice = procurarDadosUC(arrayUC,indiceUC,arrayAula[i].codigoUC);
+        soma[indice].totalV += arrayAula[i].numEstudantesOffline;
+        soma[indice].indice = indice;
+    }
+
+    for(i=0;i<indiceUC;i++)
+    {
+
+        for(x=i;x<indiceUC;x++)
+        {
+            if(soma[i].totalV<soma[x].totalV)
+            {
+                somaAux = soma[x];
+                soma[x] = soma[i];
+                soma[i] = somaAux;
+            }
+        }
+    }
+
+    for(i=0;i<indiceUC;i++)
+    {
+        printf("\nUC: %s total de visualizacoes:%d",arrayUC[soma[i].indice].nome,soma[i].totalV);
+    }
+    printf("\n");
+
+}

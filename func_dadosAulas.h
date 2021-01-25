@@ -24,6 +24,8 @@ dadosAula *agendarAula(dadosAula *vAulasOnline, int *posIndiceArrayAulas, dadosU
 dadosAula *eliminarAula (dadosAula *vAulasOnline, int *quantAulas);
 void listarDadosAula(dadosAula *vAulasOnline, int posIndiceArray);
 void alterarAula(dadosAula *vAulasOnline, int quantAulas,dadosUC dadosDaUC[MAX_UCS], int indiceArrayUC, char nomeAula[MAX_STRING_NOME_AULA], int opcao);
+void registarInicioAula(dadosAula *vAulasOnline, int quantAulas, char nomeAula[MAX_STRING_NOME_AULA]);
+void registarFimAula(dadosAula *vAulasOnline, int quantAulas, char nomeAula[MAX_STRING_NOME_AULA]);
 
 void infoAulasOnline(dadosAula *vAulasOnline, int indiceAulasOnline,int codigoUC);
 void RegistarAcessoAula(dadosAula *vAulasOnline, int indiceAulas);

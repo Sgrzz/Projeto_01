@@ -23,4 +23,6 @@ int procurarDadosUC(dadosUC arrayUC[MAX_UCS], int posArray, int codigoUC);
 void ordenarDadosUC(dadosUC arrayUC[MAX_UCS], int posArray);
 void listarDadosUC(dadosUC arrayUC[MAX_UCS], int posIndiceArray);
 void removerDadosUC(dadosUC arrayUC[MAX_UCS], int *posIndiceArray, int codigoUC);
+void listarNomeAulasUC(dadosUC arrayUC[MAX_UCS], int posIndiceArray, int codigoUC);
+void listarRankingUC(dadosUC arrayUC[MAX_UCS], int indiceUC, dadosAula *arrayAula, int indiceAula);
 #endif // FUNC_DADOSUC_H_INCLUDED
