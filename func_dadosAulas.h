@@ -28,5 +28,5 @@ void registarInicioAula(dadosAula *vAulasOnline, int quantAulas, char nomeAula[M
 void registarFimAula(dadosAula *vAulasOnline, int quantAulas, char nomeAula[MAX_STRING_NOME_AULA]);
 
 void infoAulasOnline(dadosAula *vAulasOnline, int indiceAulasOnline,int codigoUC);
-void RegistarAcessoAula(dadosAula *vAulasOnline, int indiceAulas);
+void registarAcessoAula(dadosAula *vAulasOnline, int indiceAulas);
 #endif // FUNC_DADOSAULAS_H_INCLUDED

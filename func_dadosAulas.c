@@ -11,7 +11,7 @@
 #include "func_ficheiros.h"
 
 //recebe array tipo dadosAula, a pos do array e o nome para comparar
-//devolve a pos onde encontrou o nomeAula se n devolve -1
+//devolve a pos onde encontrou o nomeAula
 int procurarNomeAula(dadosAula *vAulasOnline, int posIndiceArray, char nomeAula[])
 {
     int i, posNomeAula=-1;
@@ -197,7 +197,7 @@ void lerHoraAula(tipoHora *horaInicio, tipoHora *horaFim,dadosAula *vDadosAula, 
 
         if (!(tempo.hora >= horaCompInicio && tempo.hora <= horaCompFim))
         {
-            printf("\nhora invalida para o regime especificado na UC");
+            printf("\nHora invalida para o regime especificado na UC");
             podeSairWhile = 0;
         }
 
@@ -240,7 +240,7 @@ dadosAula *agendarAula(dadosAula *vAulasOnline, int *posIndiceArrayAulas, dadosU
     {
         printf("\nNao existem UC's para agendar aulas.");
     }
-    else  //vamos fazer a reserva
+    else  //vamos fazer o agendamento
     {
 
         //ler nome da aula
@@ -593,7 +593,7 @@ void infoAulasOnline(dadosAula *vAulasOnline, int indiceAulasOnline,int codigoUC
  A informação do acesso (número do estudante, identificação da aula e tipo de acesso)
  deverá ser acrescentado num log, em ficheiro de texto e em ficheiro binário. */
 
-void RegistarAcessoAula(dadosAula *vAulasOnline, int indiceAulas)
+void registarAcessoAula(dadosAula *vAulasOnline, int indiceAulas)
 {
     int numEstudante, indice;
     char nomeAula[MAX_STRING_NOME_AULA];
